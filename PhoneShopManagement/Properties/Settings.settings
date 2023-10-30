@@ -3,10 +3,10 @@
   <Profiles />
   <Settings>
     <Setting Name="connectionString" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">Data Source=LAPTOP-FU5UG1UP;Initial Catalog=QL_PhoneShop;Integrated Security=True</Value>
     </Setting>
     <Setting Name="connectionString_Remote" Type="System.String" Scope="Application">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">workstation id=QL_PhoneShop.mssql.somee.com;packet size=4096;user id=TuyenBach_MSSQL;pwd=TuyenBach_MSSQL2022;data source=QL_PhoneShop.mssql.somee.com;persist security info=False;initial catalog=QL_PhoneShop</Value>
     </Setting>
     <Setting Name="UserName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />

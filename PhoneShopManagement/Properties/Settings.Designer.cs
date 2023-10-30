@@ -25,7 +25,8 @@ namespace PhoneShopManagement.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LAPTOP-FU5UG1UP;Initial Catalog=QL_PhoneShop;Integrated Security=True" +
+            "")]
         public string connectionString {
             get {
                 return ((string)(this["connectionString"]));
@@ -34,7 +35,9 @@ namespace PhoneShopManagement.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        [global::System.Configuration.DefaultSettingValueAttribute("workstation id=QL_PhoneShop.mssql.somee.com;packet size=4096;user id=TuyenBach_MS" +
+            "SQL;pwd=TuyenBach_MSSQL2022;data source=QL_PhoneShop.mssql.somee.com;persist sec" +
+            "urity info=False;initial catalog=QL_PhoneShop")]
         public string connectionString_Remote {
             get {
                 return ((string)(this["connectionString_Remote"]));
