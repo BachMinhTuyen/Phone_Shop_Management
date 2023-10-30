@@ -8,12 +8,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace PhoneShopManagement
+namespace PhoneShopManagement.AdminArea
 {
-    public partial class frmAdmin : Form
+    public partial class frmStaff : Form
     {
-        public string connectionString = Properties.Settings.Default.ConnectionString_Remote;
-        public frmAdmin()
+        public frmStaff()
         {
             InitializeComponent();
         }

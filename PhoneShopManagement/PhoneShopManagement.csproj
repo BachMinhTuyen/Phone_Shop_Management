@@ -64,6 +64,12 @@
     <Compile Include="AdminArea\frmProductType.Designer.cs">
       <DependentUpon>frmProductType.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminArea\frmStaff.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminArea\frmStaff.Designer.cs">
+      <DependentUpon>frmStaff.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
