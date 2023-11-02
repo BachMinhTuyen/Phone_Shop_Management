@@ -13,6 +13,7 @@ namespace PhoneShopManagement
 {
     public partial class frmAdmin : Form
     {
+        
         //public string connectionString = Properties.Settings.Default.ConnectionString_Remote;
         public frmAdmin()
         {

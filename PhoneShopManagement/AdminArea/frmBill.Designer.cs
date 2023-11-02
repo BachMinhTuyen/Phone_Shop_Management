@@ -36,6 +36,9 @@
             this.TimeOfPurchase = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.StatusBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_Filter = new System.Windows.Forms.Panel();
+            this.radioButton_FilterCardPaid = new System.Windows.Forms.RadioButton();
+            this.radioButton_FilterCashPaid = new System.Windows.Forms.RadioButton();
+            this.lb_FilterPaidMethod = new System.Windows.Forms.Label();
             this.btn_DefaultFilter = new System.Windows.Forms.Button();
             this.btn_Filter = new System.Windows.Forms.Button();
             this.comboBox_ColumnStaff = new System.Windows.Forms.ComboBox();
@@ -46,14 +49,12 @@
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_BillDetail = new System.Windows.Forms.Button();
-            this.radioButton_FilterUnpaid = new System.Windows.Forms.RadioButton();
-            this.radioButton_FilterPaid = new System.Windows.Forms.RadioButton();
-            this.lb_FilterStatusBill = new System.Windows.Forms.Label();
             this.btn_Search = new System.Windows.Forms.Button();
             this.txtBox_Search = new System.Windows.Forms.TextBox();
             this.lb_Search = new System.Windows.Forms.Label();
             this.txtBox_TotalBill = new System.Windows.Forms.TextBox();
             this.lb_TotalBill = new System.Windows.Forms.Label();
+            this.btn_CreateBill = new System.Windows.Forms.Button();
             this.panel_Filter.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
             this.SuspendLayout();
@@ -109,9 +110,9 @@
             // panel_Filter
             // 
             this.panel_Filter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel_Filter.Controls.Add(this.radioButton_FilterUnpaid);
-            this.panel_Filter.Controls.Add(this.radioButton_FilterPaid);
-            this.panel_Filter.Controls.Add(this.lb_FilterStatusBill);
+            this.panel_Filter.Controls.Add(this.radioButton_FilterCardPaid);
+            this.panel_Filter.Controls.Add(this.radioButton_FilterCashPaid);
+            this.panel_Filter.Controls.Add(this.lb_FilterPaidMethod);
             this.panel_Filter.Controls.Add(this.btn_DefaultFilter);
             this.panel_Filter.Controls.Add(this.btn_Filter);
             this.panel_Filter.Controls.Add(this.comboBox_ColumnStaff);
@@ -122,6 +123,37 @@
             this.panel_Filter.Name = "panel_Filter";
             this.panel_Filter.Size = new System.Drawing.Size(441, 177);
             this.panel_Filter.TabIndex = 47;
+            // 
+            // radioButton_FilterCardPaid
+            // 
+            this.radioButton_FilterCardPaid.AutoSize = true;
+            this.radioButton_FilterCardPaid.Location = new System.Drawing.Point(230, 94);
+            this.radioButton_FilterCardPaid.Name = "radioButton_FilterCardPaid";
+            this.radioButton_FilterCardPaid.Size = new System.Drawing.Size(144, 25);
+            this.radioButton_FilterCardPaid.TabIndex = 41;
+            this.radioButton_FilterCardPaid.TabStop = true;
+            this.radioButton_FilterCardPaid.Text = "Không tiền mặt";
+            this.radioButton_FilterCardPaid.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_FilterCashPaid
+            // 
+            this.radioButton_FilterCashPaid.AutoSize = true;
+            this.radioButton_FilterCashPaid.Location = new System.Drawing.Point(230, 55);
+            this.radioButton_FilterCashPaid.Name = "radioButton_FilterCashPaid";
+            this.radioButton_FilterCashPaid.Size = new System.Drawing.Size(97, 25);
+            this.radioButton_FilterCashPaid.TabIndex = 40;
+            this.radioButton_FilterCashPaid.TabStop = true;
+            this.radioButton_FilterCashPaid.Text = "Tiền mặt";
+            this.radioButton_FilterCashPaid.UseVisualStyleBackColor = true;
+            // 
+            // lb_FilterPaidMethod
+            // 
+            this.lb_FilterPaidMethod.AutoSize = true;
+            this.lb_FilterPaidMethod.Location = new System.Drawing.Point(20, 57);
+            this.lb_FilterPaidMethod.Name = "lb_FilterPaidMethod";
+            this.lb_FilterPaidMethod.Size = new System.Drawing.Size(194, 21);
+            this.lb_FilterPaidMethod.TabIndex = 39;
+            this.lb_FilterPaidMethod.Text = "Phương thức thanh toán:";
             // 
             // btn_DefaultFilter
             // 
@@ -177,73 +209,43 @@
             // 
             // groupBox_Operation
             // 
+            this.groupBox_Operation.Controls.Add(this.btn_CreateBill);
             this.groupBox_Operation.Controls.Add(this.btn_Clear);
             this.groupBox_Operation.Controls.Add(this.btn_Delete);
             this.groupBox_Operation.Controls.Add(this.btn_BillDetail);
-            this.groupBox_Operation.Location = new System.Drawing.Point(102, 26);
+            this.groupBox_Operation.Location = new System.Drawing.Point(52, 26);
             this.groupBox_Operation.Name = "groupBox_Operation";
-            this.groupBox_Operation.Size = new System.Drawing.Size(295, 153);
+            this.groupBox_Operation.Size = new System.Drawing.Size(352, 153);
             this.groupBox_Operation.TabIndex = 48;
             this.groupBox_Operation.TabStop = false;
             this.groupBox_Operation.Text = "Thao tác";
             // 
             // btn_Clear
             // 
-            this.btn_Clear.Location = new System.Drawing.Point(165, 85);
+            this.btn_Clear.Location = new System.Drawing.Point(184, 40);
             this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(97, 45);
+            this.btn_Clear.Size = new System.Drawing.Size(145, 45);
             this.btn_Clear.TabIndex = 7;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(37, 85);
+            this.btn_Delete.Location = new System.Drawing.Point(24, 89);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(97, 45);
+            this.btn_Delete.Size = new System.Drawing.Size(130, 45);
             this.btn_Delete.TabIndex = 6;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
             // 
             // btn_BillDetail
             // 
-            this.btn_BillDetail.Location = new System.Drawing.Point(37, 34);
+            this.btn_BillDetail.Location = new System.Drawing.Point(184, 89);
             this.btn_BillDetail.Name = "btn_BillDetail";
-            this.btn_BillDetail.Size = new System.Drawing.Size(225, 45);
+            this.btn_BillDetail.Size = new System.Drawing.Size(145, 45);
             this.btn_BillDetail.TabIndex = 4;
             this.btn_BillDetail.Text = "Chi tiết hoá đơn";
             this.btn_BillDetail.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_FilterUnpaid
-            // 
-            this.radioButton_FilterUnpaid.AutoSize = true;
-            this.radioButton_FilterUnpaid.Location = new System.Drawing.Point(230, 94);
-            this.radioButton_FilterUnpaid.Name = "radioButton_FilterUnpaid";
-            this.radioButton_FilterUnpaid.Size = new System.Drawing.Size(154, 25);
-            this.radioButton_FilterUnpaid.TabIndex = 41;
-            this.radioButton_FilterUnpaid.TabStop = true;
-            this.radioButton_FilterUnpaid.Text = "Chưa thanh toán";
-            this.radioButton_FilterUnpaid.UseVisualStyleBackColor = true;
-            // 
-            // radioButton_FilterPaid
-            // 
-            this.radioButton_FilterPaid.AutoSize = true;
-            this.radioButton_FilterPaid.Location = new System.Drawing.Point(230, 55);
-            this.radioButton_FilterPaid.Name = "radioButton_FilterPaid";
-            this.radioButton_FilterPaid.Size = new System.Drawing.Size(137, 25);
-            this.radioButton_FilterPaid.TabIndex = 40;
-            this.radioButton_FilterPaid.TabStop = true;
-            this.radioButton_FilterPaid.Text = "Đã thanh toán";
-            this.radioButton_FilterPaid.UseVisualStyleBackColor = true;
-            // 
-            // lb_FilterStatusBill
-            // 
-            this.lb_FilterStatusBill.AutoSize = true;
-            this.lb_FilterStatusBill.Location = new System.Drawing.Point(20, 57);
-            this.lb_FilterStatusBill.Name = "lb_FilterStatusBill";
-            this.lb_FilterStatusBill.Size = new System.Drawing.Size(177, 21);
-            this.lb_FilterStatusBill.TabIndex = 39;
-            this.lb_FilterStatusBill.Text = "Trạng thái thanh toán:";
             // 
             // btn_Search
             // 
@@ -286,6 +288,15 @@
             this.lb_TotalBill.Size = new System.Drawing.Size(118, 21);
             this.lb_TotalBill.TabIndex = 53;
             this.lb_TotalBill.Text = "Tổng hoá đơn:";
+            // 
+            // btn_CreateBill
+            // 
+            this.btn_CreateBill.Location = new System.Drawing.Point(24, 40);
+            this.btn_CreateBill.Name = "btn_CreateBill";
+            this.btn_CreateBill.Size = new System.Drawing.Size(130, 45);
+            this.btn_CreateBill.TabIndex = 8;
+            this.btn_CreateBill.Text = "Tạo";
+            this.btn_CreateBill.UseVisualStyleBackColor = true;
             // 
             // frmBill
             // 
@@ -333,13 +344,14 @@
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Button btn_BillDetail;
-        private System.Windows.Forms.RadioButton radioButton_FilterUnpaid;
-        private System.Windows.Forms.RadioButton radioButton_FilterPaid;
-        private System.Windows.Forms.Label lb_FilterStatusBill;
+        private System.Windows.Forms.RadioButton radioButton_FilterCardPaid;
+        private System.Windows.Forms.RadioButton radioButton_FilterCashPaid;
+        private System.Windows.Forms.Label lb_FilterPaidMethod;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.TextBox txtBox_Search;
         private System.Windows.Forms.Label lb_Search;
         private System.Windows.Forms.TextBox txtBox_TotalBill;
         private System.Windows.Forms.Label lb_TotalBill;
+        private System.Windows.Forms.Button btn_CreateBill;
     }
 }

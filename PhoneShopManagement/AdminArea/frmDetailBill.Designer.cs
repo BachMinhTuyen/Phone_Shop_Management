@@ -55,7 +55,23 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lb_TotalBill = new System.Windows.Forms.Label();
             this.groupBox_BillInformation = new System.Windows.Forms.GroupBox();
+            this.groupBox_Details = new System.Windows.Forms.GroupBox();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.txtBox_ = new System.Windows.Forms.TextBox();
+            this.lb_Price = new System.Windows.Forms.Label();
+            this.numericUpDown_Quantity = new System.Windows.Forms.NumericUpDown();
+            this.lb_Quantity = new System.Windows.Forms.Label();
+            this.txtBox_ProductName = new System.Windows.Forms.TextBox();
+            this.lb_ProductName = new System.Windows.Forms.Label();
+            this.txtBox_ProductID = new System.Windows.Forms.TextBox();
+            this.lb_ProductID = new System.Windows.Forms.Label();
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_Refresh = new System.Windows.Forms.Button();
+            this.btn_Insert = new System.Windows.Forms.Button();
+            this.btn_Final = new System.Windows.Forms.Button();
             this.groupBox_BillInformation.SuspendLayout();
+            this.groupBox_Details.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Quantity)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBox_Address
@@ -296,11 +312,143 @@
             this.groupBox_BillInformation.TabStop = false;
             this.groupBox_BillInformation.Text = "Thông tin hoá đơn";
             // 
+            // groupBox_Details
+            // 
+            this.groupBox_Details.Controls.Add(this.btn_Insert);
+            this.groupBox_Details.Controls.Add(this.btn_Delete);
+            this.groupBox_Details.Controls.Add(this.btn_Update);
+            this.groupBox_Details.Controls.Add(this.txtBox_);
+            this.groupBox_Details.Controls.Add(this.lb_Price);
+            this.groupBox_Details.Controls.Add(this.numericUpDown_Quantity);
+            this.groupBox_Details.Controls.Add(this.lb_Quantity);
+            this.groupBox_Details.Controls.Add(this.txtBox_ProductName);
+            this.groupBox_Details.Controls.Add(this.lb_ProductName);
+            this.groupBox_Details.Controls.Add(this.txtBox_ProductID);
+            this.groupBox_Details.Controls.Add(this.lb_ProductID);
+            this.groupBox_Details.Location = new System.Drawing.Point(1001, 110);
+            this.groupBox_Details.Name = "groupBox_Details";
+            this.groupBox_Details.Size = new System.Drawing.Size(470, 265);
+            this.groupBox_Details.TabIndex = 45;
+            this.groupBox_Details.TabStop = false;
+            this.groupBox_Details.Text = "Chi tiết sản phẩm";
+            // 
+            // btn_Update
+            // 
+            this.btn_Update.Location = new System.Drawing.Point(200, 218);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(93, 34);
+            this.btn_Update.TabIndex = 47;
+            this.btn_Update.Text = "Cập nhật";
+            this.btn_Update.UseVisualStyleBackColor = true;
+            // 
+            // txtBox_
+            // 
+            this.txtBox_.Location = new System.Drawing.Point(183, 165);
+            this.txtBox_.Name = "txtBox_";
+            this.txtBox_.Size = new System.Drawing.Size(263, 28);
+            this.txtBox_.TabIndex = 46;
+            // 
+            // lb_Price
+            // 
+            this.lb_Price.AutoSize = true;
+            this.lb_Price.Location = new System.Drawing.Point(39, 168);
+            this.lb_Price.Name = "lb_Price";
+            this.lb_Price.Size = new System.Drawing.Size(73, 21);
+            this.lb_Price.TabIndex = 45;
+            this.lb_Price.Text = "Đơn giá:";
+            // 
+            // numericUpDown_Quantity
+            // 
+            this.numericUpDown_Quantity.Location = new System.Drawing.Point(183, 125);
+            this.numericUpDown_Quantity.Name = "numericUpDown_Quantity";
+            this.numericUpDown_Quantity.Size = new System.Drawing.Size(120, 28);
+            this.numericUpDown_Quantity.TabIndex = 44;
+            // 
+            // lb_Quantity
+            // 
+            this.lb_Quantity.AutoSize = true;
+            this.lb_Quantity.Location = new System.Drawing.Point(39, 127);
+            this.lb_Quantity.Name = "lb_Quantity";
+            this.lb_Quantity.Size = new System.Drawing.Size(80, 21);
+            this.lb_Quantity.TabIndex = 43;
+            this.lb_Quantity.Text = "Số lượng:";
+            // 
+            // txtBox_ProductName
+            // 
+            this.txtBox_ProductName.Location = new System.Drawing.Point(183, 86);
+            this.txtBox_ProductName.Name = "txtBox_ProductName";
+            this.txtBox_ProductName.Size = new System.Drawing.Size(263, 28);
+            this.txtBox_ProductName.TabIndex = 42;
+            // 
+            // lb_ProductName
+            // 
+            this.lb_ProductName.AutoSize = true;
+            this.lb_ProductName.Location = new System.Drawing.Point(39, 88);
+            this.lb_ProductName.Name = "lb_ProductName";
+            this.lb_ProductName.Size = new System.Drawing.Size(121, 21);
+            this.lb_ProductName.TabIndex = 41;
+            this.lb_ProductName.Text = "Tên sản phẩm:";
+            // 
+            // txtBox_ProductID
+            // 
+            this.txtBox_ProductID.Location = new System.Drawing.Point(183, 48);
+            this.txtBox_ProductID.Name = "txtBox_ProductID";
+            this.txtBox_ProductID.Size = new System.Drawing.Size(263, 28);
+            this.txtBox_ProductID.TabIndex = 40;
+            // 
+            // lb_ProductID
+            // 
+            this.lb_ProductID.AutoSize = true;
+            this.lb_ProductID.Location = new System.Drawing.Point(39, 50);
+            this.lb_ProductID.Name = "lb_ProductID";
+            this.lb_ProductID.Size = new System.Drawing.Size(115, 21);
+            this.lb_ProductID.TabIndex = 39;
+            this.lb_ProductID.Text = "Mã sản phẩm:";
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(326, 218);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(93, 34);
+            this.btn_Delete.TabIndex = 48;
+            this.btn_Delete.Text = "Xoá";
+            this.btn_Delete.UseVisualStyleBackColor = true;
+            // 
+            // btn_Refresh
+            // 
+            this.btn_Refresh.Location = new System.Drawing.Point(1044, 415);
+            this.btn_Refresh.Name = "btn_Refresh";
+            this.btn_Refresh.Size = new System.Drawing.Size(403, 52);
+            this.btn_Refresh.TabIndex = 49;
+            this.btn_Refresh.Text = "Làm mới";
+            this.btn_Refresh.UseVisualStyleBackColor = true;
+            // 
+            // btn_Insert
+            // 
+            this.btn_Insert.Location = new System.Drawing.Point(77, 218);
+            this.btn_Insert.Name = "btn_Insert";
+            this.btn_Insert.Size = new System.Drawing.Size(93, 34);
+            this.btn_Insert.TabIndex = 50;
+            this.btn_Insert.Text = "Thêm";
+            this.btn_Insert.UseVisualStyleBackColor = true;
+            // 
+            // btn_Final
+            // 
+            this.btn_Final.Location = new System.Drawing.Point(1044, 482);
+            this.btn_Final.Name = "btn_Final";
+            this.btn_Final.Size = new System.Drawing.Size(403, 48);
+            this.btn_Final.TabIndex = 50;
+            this.btn_Final.Text = "Đóng";
+            this.btn_Final.UseVisualStyleBackColor = true;
+            // 
             // frmDetailBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1006, 627);
+            this.ClientSize = new System.Drawing.Size(1496, 627);
+            this.Controls.Add(this.btn_Final);
+            this.Controls.Add(this.groupBox_Details);
+            this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.groupBox_BillInformation);
             this.Controls.Add(this.listView1);
             this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -309,6 +457,9 @@
             this.Text = "Thông tin chi tiết hoá đơn";
             this.groupBox_BillInformation.ResumeLayout(false);
             this.groupBox_BillInformation.PerformLayout();
+            this.groupBox_Details.ResumeLayout(false);
+            this.groupBox_Details.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Quantity)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -341,5 +492,19 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lb_TotalBill;
         private System.Windows.Forms.GroupBox groupBox_BillInformation;
+        private System.Windows.Forms.GroupBox groupBox_Details;
+        private System.Windows.Forms.TextBox txtBox_ProductID;
+        private System.Windows.Forms.Label lb_ProductID;
+        private System.Windows.Forms.Label lb_Quantity;
+        private System.Windows.Forms.TextBox txtBox_ProductName;
+        private System.Windows.Forms.Label lb_ProductName;
+        private System.Windows.Forms.Label lb_Price;
+        private System.Windows.Forms.NumericUpDown numericUpDown_Quantity;
+        private System.Windows.Forms.TextBox txtBox_;
+        private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btn_Delete;
+        private System.Windows.Forms.Button btn_Refresh;
+        private System.Windows.Forms.Button btn_Insert;
+        private System.Windows.Forms.Button btn_Final;
     }
 }
