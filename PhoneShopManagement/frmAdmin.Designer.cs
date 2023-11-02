@@ -29,35 +29,37 @@
         private void InitializeComponent()
         {
             this.menuStrip_Main = new System.Windows.Forms.MenuStrip();
-            this.ngườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.thôngTinChiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.trangChủToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.làmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tàiKhoảnNgườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sảnPhẩmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.đơnHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kháchHàngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.doanhThuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ngườiDùngToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.thôngTinChiTiếtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.đăngXuấtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vềChúngTôiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.nhânViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox_UserInformation = new System.Windows.Forms.GroupBox();
-            this.lb_AdminName = new System.Windows.Forms.Label();
-            this.lb_Birthday = new System.Windows.Forms.Label();
-            this.lb_Email = new System.Windows.Forms.Label();
-            this.lb_UserLogin = new System.Windows.Forms.Label();
-            this.txtBox_UserLogin = new System.Windows.Forms.TextBox();
-            this.txtBox_AdminName = new System.Windows.Forms.TextBox();
-            this.txtBox_Birthday = new System.Windows.Forms.TextBox();
             this.txtBox_Email = new System.Windows.Forms.TextBox();
+            this.txtBox_Birthday = new System.Windows.Forms.TextBox();
+            this.txtBox_AdminName = new System.Windows.Forms.TextBox();
+            this.txtBox_UserLogin = new System.Windows.Forms.TextBox();
+            this.lb_UserLogin = new System.Windows.Forms.Label();
+            this.lb_Email = new System.Windows.Forms.Label();
+            this.lb_Birthday = new System.Windows.Forms.Label();
+            this.lb_AdminName = new System.Windows.Forms.Label();
             this.groupBox_Statistics = new System.Windows.Forms.GroupBox();
-            this.NumberOfStaff = new System.Windows.Forms.Label();
-            this.lb_NumberOfAccount = new System.Windows.Forms.Label();
-            this.lb_NumberOfProduct = new System.Windows.Forms.Label();
-            this.lb_NumberOfCustomer = new System.Windows.Forms.Label();
-            this.txtBox_NumberOfAccount = new System.Windows.Forms.TextBox();
-            this.txtBox_NumberOfStaff = new System.Windows.Forms.TextBox();
-            this.txtBox_NumberOfProduct = new System.Windows.Forms.TextBox();
             this.txtBox_NumberOfCustomer = new System.Windows.Forms.TextBox();
+            this.txtBox_NumberOfProduct = new System.Windows.Forms.TextBox();
+            this.txtBox_NumberOfStaff = new System.Windows.Forms.TextBox();
+            this.txtBox_NumberOfAccount = new System.Windows.Forms.TextBox();
+            this.lb_NumberOfCustomer = new System.Windows.Forms.Label();
+            this.lb_NumberOfProduct = new System.Windows.Forms.Label();
+            this.lb_NumberOfAccount = new System.Windows.Forms.Label();
+            this.NumberOfStaff = new System.Windows.Forms.Label();
             this.panel_Report = new System.Windows.Forms.Panel();
             this.groupBox_ReportOfProduct = new System.Windows.Forms.GroupBox();
             this.listView_Product = new System.Windows.Forms.ListView();
@@ -65,8 +67,6 @@
             this.ProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.PriceOfProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.QuantitySold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.trangChủToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.làmMớiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_UserInformation.SuspendLayout();
             this.groupBox_Statistics.SuspendLayout();
@@ -89,26 +89,19 @@
             this.menuStrip_Main.TabIndex = 0;
             this.menuStrip_Main.Text = "menuStrip1";
             // 
-            // ngườiDùngToolStripMenuItem
+            // trangChủToolStripMenuItem
             // 
-            this.ngườiDùngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.thôngTinChiTiếtToolStripMenuItem,
-            this.đăngXuấtToolStripMenuItem});
-            this.ngườiDùngToolStripMenuItem.Name = "ngườiDùngToolStripMenuItem";
-            this.ngườiDùngToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
-            this.ngườiDùngToolStripMenuItem.Text = "Người dùng";
+            this.trangChủToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.làmMớiToolStripMenuItem});
+            this.trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
+            this.trangChủToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
+            this.trangChủToolStripMenuItem.Text = "Trang chủ";
             // 
-            // đăngXuấtToolStripMenuItem
+            // làmMớiToolStripMenuItem
             // 
-            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
-            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
-            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
-            // 
-            // thôngTinChiTiếtToolStripMenuItem
-            // 
-            this.thôngTinChiTiếtToolStripMenuItem.Name = "thôngTinChiTiếtToolStripMenuItem";
-            this.thôngTinChiTiếtToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
-            this.thôngTinChiTiếtToolStripMenuItem.Text = "Thiết lập người dùng";
+            this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
+            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.làmMớiToolStripMenuItem.Text = "Làm mới";
             // 
             // quảnLýToolStripMenuItem
             // 
@@ -129,6 +122,18 @@
             this.tàiKhoảnNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.tàiKhoảnNgườiDùngToolStripMenuItem.Text = "Tài khoản";
             // 
+            // nhânViênToolStripMenuItem
+            // 
+            this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
+            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.nhânViênToolStripMenuItem.Text = "Nhân viên";
+            // 
+            // kháchHàngToolStripMenuItem
+            // 
+            this.kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
+            this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.kháchHàngToolStripMenuItem.Text = "Khách hàng";
+            // 
             // sảnPhẩmToolStripMenuItem
             // 
             this.sảnPhẩmToolStripMenuItem.Name = "sảnPhẩmToolStripMenuItem";
@@ -141,29 +146,38 @@
             this.đơnHàngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đơnHàngToolStripMenuItem.Text = "Đơn hàng";
             // 
-            // kháchHàngToolStripMenuItem
-            // 
-            this.kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
-            this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.kháchHàngToolStripMenuItem.Text = "Khách hàng";
-            // 
             // doanhThuToolStripMenuItem
             // 
             this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
             this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.doanhThuToolStripMenuItem.Text = "Doanh thu";
             // 
+            // ngườiDùngToolStripMenuItem
+            // 
+            this.ngườiDùngToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.thôngTinChiTiếtToolStripMenuItem,
+            this.đăngXuấtToolStripMenuItem});
+            this.ngườiDùngToolStripMenuItem.Name = "ngườiDùngToolStripMenuItem";
+            this.ngườiDùngToolStripMenuItem.Size = new System.Drawing.Size(103, 24);
+            this.ngườiDùngToolStripMenuItem.Text = "Người dùng";
+            // 
+            // thôngTinChiTiếtToolStripMenuItem
+            // 
+            this.thôngTinChiTiếtToolStripMenuItem.Name = "thôngTinChiTiếtToolStripMenuItem";
+            this.thôngTinChiTiếtToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.thôngTinChiTiếtToolStripMenuItem.Text = "Thiết lập người dùng";
+            // 
+            // đăngXuấtToolStripMenuItem
+            // 
+            this.đăngXuấtToolStripMenuItem.Name = "đăngXuấtToolStripMenuItem";
+            this.đăngXuấtToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
+            this.đăngXuấtToolStripMenuItem.Text = "Đăng xuất";
+            // 
             // vềChúngTôiToolStripMenuItem
             // 
             this.vềChúngTôiToolStripMenuItem.Name = "vềChúngTôiToolStripMenuItem";
             this.vềChúngTôiToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.vềChúngTôiToolStripMenuItem.Text = "Về chúng tôi";
-            // 
-            // nhânViênToolStripMenuItem
-            // 
-            this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.nhânViênToolStripMenuItem.Text = "Nhân viên";
             // 
             // groupBox_UserInformation
             // 
@@ -182,32 +196,37 @@
             this.groupBox_UserInformation.TabStop = false;
             this.groupBox_UserInformation.Text = "Thông tin người dùng";
             // 
-            // lb_AdminName
+            // txtBox_Email
             // 
-            this.lb_AdminName.AutoSize = true;
-            this.lb_AdminName.Location = new System.Drawing.Point(27, 72);
-            this.lb_AdminName.Name = "lb_AdminName";
-            this.lb_AdminName.Size = new System.Drawing.Size(152, 21);
-            this.lb_AdminName.TabIndex = 0;
-            this.lb_AdminName.Text = "Tên người quản trị:";
+            this.txtBox_Email.Location = new System.Drawing.Point(201, 140);
+            this.txtBox_Email.Name = "txtBox_Email";
+            this.txtBox_Email.ReadOnly = true;
+            this.txtBox_Email.Size = new System.Drawing.Size(196, 28);
+            this.txtBox_Email.TabIndex = 7;
             // 
-            // lb_Birthday
+            // txtBox_Birthday
             // 
-            this.lb_Birthday.AutoSize = true;
-            this.lb_Birthday.Location = new System.Drawing.Point(27, 108);
-            this.lb_Birthday.Name = "lb_Birthday";
-            this.lb_Birthday.Size = new System.Drawing.Size(88, 21);
-            this.lb_Birthday.TabIndex = 1;
-            this.lb_Birthday.Text = "Ngày sinh:";
+            this.txtBox_Birthday.Location = new System.Drawing.Point(201, 105);
+            this.txtBox_Birthday.Name = "txtBox_Birthday";
+            this.txtBox_Birthday.ReadOnly = true;
+            this.txtBox_Birthday.Size = new System.Drawing.Size(196, 28);
+            this.txtBox_Birthday.TabIndex = 6;
             // 
-            // lb_Email
+            // txtBox_AdminName
             // 
-            this.lb_Email.AutoSize = true;
-            this.lb_Email.Location = new System.Drawing.Point(27, 143);
-            this.lb_Email.Name = "lb_Email";
-            this.lb_Email.Size = new System.Drawing.Size(57, 21);
-            this.lb_Email.TabIndex = 2;
-            this.lb_Email.Text = "Email:";
+            this.txtBox_AdminName.Location = new System.Drawing.Point(201, 69);
+            this.txtBox_AdminName.Name = "txtBox_AdminName";
+            this.txtBox_AdminName.ReadOnly = true;
+            this.txtBox_AdminName.Size = new System.Drawing.Size(196, 28);
+            this.txtBox_AdminName.TabIndex = 5;
+            // 
+            // txtBox_UserLogin
+            // 
+            this.txtBox_UserLogin.Location = new System.Drawing.Point(201, 35);
+            this.txtBox_UserLogin.Name = "txtBox_UserLogin";
+            this.txtBox_UserLogin.ReadOnly = true;
+            this.txtBox_UserLogin.Size = new System.Drawing.Size(196, 28);
+            this.txtBox_UserLogin.TabIndex = 4;
             // 
             // lb_UserLogin
             // 
@@ -218,37 +237,32 @@
             this.lb_UserLogin.TabIndex = 3;
             this.lb_UserLogin.Text = "Tên đăng nhập:";
             // 
-            // txtBox_UserLogin
+            // lb_Email
             // 
-            this.txtBox_UserLogin.Location = new System.Drawing.Point(201, 35);
-            this.txtBox_UserLogin.Name = "txtBox_UserLogin";
-            this.txtBox_UserLogin.ReadOnly = true;
-            this.txtBox_UserLogin.Size = new System.Drawing.Size(196, 28);
-            this.txtBox_UserLogin.TabIndex = 4;
+            this.lb_Email.AutoSize = true;
+            this.lb_Email.Location = new System.Drawing.Point(27, 143);
+            this.lb_Email.Name = "lb_Email";
+            this.lb_Email.Size = new System.Drawing.Size(57, 21);
+            this.lb_Email.TabIndex = 2;
+            this.lb_Email.Text = "Email:";
             // 
-            // txtBox_AdminName
+            // lb_Birthday
             // 
-            this.txtBox_AdminName.Location = new System.Drawing.Point(201, 69);
-            this.txtBox_AdminName.Name = "txtBox_AdminName";
-            this.txtBox_AdminName.ReadOnly = true;
-            this.txtBox_AdminName.Size = new System.Drawing.Size(196, 28);
-            this.txtBox_AdminName.TabIndex = 5;
+            this.lb_Birthday.AutoSize = true;
+            this.lb_Birthday.Location = new System.Drawing.Point(27, 108);
+            this.lb_Birthday.Name = "lb_Birthday";
+            this.lb_Birthday.Size = new System.Drawing.Size(88, 21);
+            this.lb_Birthday.TabIndex = 1;
+            this.lb_Birthday.Text = "Ngày sinh:";
             // 
-            // txtBox_Birthday
+            // lb_AdminName
             // 
-            this.txtBox_Birthday.Location = new System.Drawing.Point(201, 105);
-            this.txtBox_Birthday.Name = "txtBox_Birthday";
-            this.txtBox_Birthday.ReadOnly = true;
-            this.txtBox_Birthday.Size = new System.Drawing.Size(196, 28);
-            this.txtBox_Birthday.TabIndex = 6;
-            // 
-            // txtBox_Email
-            // 
-            this.txtBox_Email.Location = new System.Drawing.Point(201, 140);
-            this.txtBox_Email.Name = "txtBox_Email";
-            this.txtBox_Email.ReadOnly = true;
-            this.txtBox_Email.Size = new System.Drawing.Size(196, 28);
-            this.txtBox_Email.TabIndex = 7;
+            this.lb_AdminName.AutoSize = true;
+            this.lb_AdminName.Location = new System.Drawing.Point(27, 72);
+            this.lb_AdminName.Name = "lb_AdminName";
+            this.lb_AdminName.Size = new System.Drawing.Size(152, 21);
+            this.lb_AdminName.TabIndex = 0;
+            this.lb_AdminName.Text = "Tên người quản trị:";
             // 
             // groupBox_Statistics
             // 
@@ -267,32 +281,37 @@
             this.groupBox_Statistics.TabStop = false;
             this.groupBox_Statistics.Text = "Thống kê";
             // 
-            // NumberOfStaff
+            // txtBox_NumberOfCustomer
             // 
-            this.NumberOfStaff.AutoSize = true;
-            this.NumberOfStaff.Location = new System.Drawing.Point(35, 72);
-            this.NumberOfStaff.Name = "NumberOfStaff";
-            this.NumberOfStaff.Size = new System.Drawing.Size(151, 21);
-            this.NumberOfStaff.TabIndex = 0;
-            this.NumberOfStaff.Text = "Tổng số nhân viên:";
+            this.txtBox_NumberOfCustomer.Location = new System.Drawing.Point(276, 140);
+            this.txtBox_NumberOfCustomer.Name = "txtBox_NumberOfCustomer";
+            this.txtBox_NumberOfCustomer.ReadOnly = true;
+            this.txtBox_NumberOfCustomer.Size = new System.Drawing.Size(98, 28);
+            this.txtBox_NumberOfCustomer.TabIndex = 11;
             // 
-            // lb_NumberOfAccount
+            // txtBox_NumberOfProduct
             // 
-            this.lb_NumberOfAccount.AutoSize = true;
-            this.lb_NumberOfAccount.Location = new System.Drawing.Point(35, 38);
-            this.lb_NumberOfAccount.Name = "lb_NumberOfAccount";
-            this.lb_NumberOfAccount.Size = new System.Drawing.Size(235, 21);
-            this.lb_NumberOfAccount.TabIndex = 1;
-            this.lb_NumberOfAccount.Text = "Tổng số tài khoản người dùng:";
+            this.txtBox_NumberOfProduct.Location = new System.Drawing.Point(276, 105);
+            this.txtBox_NumberOfProduct.Name = "txtBox_NumberOfProduct";
+            this.txtBox_NumberOfProduct.ReadOnly = true;
+            this.txtBox_NumberOfProduct.Size = new System.Drawing.Size(98, 28);
+            this.txtBox_NumberOfProduct.TabIndex = 10;
             // 
-            // lb_NumberOfProduct
+            // txtBox_NumberOfStaff
             // 
-            this.lb_NumberOfProduct.AutoSize = true;
-            this.lb_NumberOfProduct.Location = new System.Drawing.Point(35, 108);
-            this.lb_NumberOfProduct.Name = "lb_NumberOfProduct";
-            this.lb_NumberOfProduct.Size = new System.Drawing.Size(152, 21);
-            this.lb_NumberOfProduct.TabIndex = 2;
-            this.lb_NumberOfProduct.Text = "Tổng số sản phẩm:";
+            this.txtBox_NumberOfStaff.Location = new System.Drawing.Point(276, 69);
+            this.txtBox_NumberOfStaff.Name = "txtBox_NumberOfStaff";
+            this.txtBox_NumberOfStaff.ReadOnly = true;
+            this.txtBox_NumberOfStaff.Size = new System.Drawing.Size(98, 28);
+            this.txtBox_NumberOfStaff.TabIndex = 9;
+            // 
+            // txtBox_NumberOfAccount
+            // 
+            this.txtBox_NumberOfAccount.Location = new System.Drawing.Point(276, 35);
+            this.txtBox_NumberOfAccount.Name = "txtBox_NumberOfAccount";
+            this.txtBox_NumberOfAccount.ReadOnly = true;
+            this.txtBox_NumberOfAccount.Size = new System.Drawing.Size(98, 28);
+            this.txtBox_NumberOfAccount.TabIndex = 8;
             // 
             // lb_NumberOfCustomer
             // 
@@ -303,37 +322,32 @@
             this.lb_NumberOfCustomer.TabIndex = 3;
             this.lb_NumberOfCustomer.Text = "Tổng số khách hàng:";
             // 
-            // txtBox_NumberOfAccount
+            // lb_NumberOfProduct
             // 
-            this.txtBox_NumberOfAccount.Location = new System.Drawing.Point(276, 35);
-            this.txtBox_NumberOfAccount.Name = "txtBox_NumberOfAccount";
-            this.txtBox_NumberOfAccount.ReadOnly = true;
-            this.txtBox_NumberOfAccount.Size = new System.Drawing.Size(98, 28);
-            this.txtBox_NumberOfAccount.TabIndex = 8;
+            this.lb_NumberOfProduct.AutoSize = true;
+            this.lb_NumberOfProduct.Location = new System.Drawing.Point(35, 108);
+            this.lb_NumberOfProduct.Name = "lb_NumberOfProduct";
+            this.lb_NumberOfProduct.Size = new System.Drawing.Size(152, 21);
+            this.lb_NumberOfProduct.TabIndex = 2;
+            this.lb_NumberOfProduct.Text = "Tổng số sản phẩm:";
             // 
-            // txtBox_NumberOfStaff
+            // lb_NumberOfAccount
             // 
-            this.txtBox_NumberOfStaff.Location = new System.Drawing.Point(276, 69);
-            this.txtBox_NumberOfStaff.Name = "txtBox_NumberOfStaff";
-            this.txtBox_NumberOfStaff.ReadOnly = true;
-            this.txtBox_NumberOfStaff.Size = new System.Drawing.Size(98, 28);
-            this.txtBox_NumberOfStaff.TabIndex = 9;
+            this.lb_NumberOfAccount.AutoSize = true;
+            this.lb_NumberOfAccount.Location = new System.Drawing.Point(35, 38);
+            this.lb_NumberOfAccount.Name = "lb_NumberOfAccount";
+            this.lb_NumberOfAccount.Size = new System.Drawing.Size(235, 21);
+            this.lb_NumberOfAccount.TabIndex = 1;
+            this.lb_NumberOfAccount.Text = "Tổng số tài khoản người dùng:";
             // 
-            // txtBox_NumberOfProduct
+            // NumberOfStaff
             // 
-            this.txtBox_NumberOfProduct.Location = new System.Drawing.Point(276, 105);
-            this.txtBox_NumberOfProduct.Name = "txtBox_NumberOfProduct";
-            this.txtBox_NumberOfProduct.ReadOnly = true;
-            this.txtBox_NumberOfProduct.Size = new System.Drawing.Size(98, 28);
-            this.txtBox_NumberOfProduct.TabIndex = 10;
-            // 
-            // txtBox_NumberOfCustomer
-            // 
-            this.txtBox_NumberOfCustomer.Location = new System.Drawing.Point(276, 140);
-            this.txtBox_NumberOfCustomer.Name = "txtBox_NumberOfCustomer";
-            this.txtBox_NumberOfCustomer.ReadOnly = true;
-            this.txtBox_NumberOfCustomer.Size = new System.Drawing.Size(98, 28);
-            this.txtBox_NumberOfCustomer.TabIndex = 11;
+            this.NumberOfStaff.AutoSize = true;
+            this.NumberOfStaff.Location = new System.Drawing.Point(35, 72);
+            this.NumberOfStaff.Name = "NumberOfStaff";
+            this.NumberOfStaff.Size = new System.Drawing.Size(151, 21);
+            this.NumberOfStaff.TabIndex = 0;
+            this.NumberOfStaff.Text = "Tổng số nhân viên:";
             // 
             // panel_Report
             // 
@@ -389,24 +403,11 @@
             this.QuantitySold.Text = "Số lượng đã bán";
             this.QuantitySold.Width = 140;
             // 
-            // trangChủToolStripMenuItem
-            // 
-            this.trangChủToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.làmMớiToolStripMenuItem});
-            this.trangChủToolStripMenuItem.Name = "trangChủToolStripMenuItem";
-            this.trangChủToolStripMenuItem.Size = new System.Drawing.Size(87, 24);
-            this.trangChủToolStripMenuItem.Text = "Trang chủ";
-            // 
-            // làmMớiToolStripMenuItem
-            // 
-            this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
-            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
-            this.làmMớiToolStripMenuItem.Text = "Làm mới";
-            // 
             // frmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(878, 517);
             this.Controls.Add(this.panel_Report);
             this.Controls.Add(this.groupBox_Statistics);

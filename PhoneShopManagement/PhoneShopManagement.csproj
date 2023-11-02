@@ -46,6 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminArea\frmDetailBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminArea\frmDetailBill.Designer.cs">
+      <DependentUpon>frmDetailBill.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AdminArea\frmBill.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminArea\frmBill.Designer.cs">
+      <DependentUpon>frmBill.cs</DependentUpon>
+    </Compile>
     <Compile Include="AdminArea\frmBrand.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -70,6 +82,12 @@
     <Compile Include="AdminArea\frmStaff.Designer.cs">
       <DependentUpon>frmStaff.cs</DependentUpon>
     </Compile>
+    <Compile Include="AdminArea\frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AdminArea\frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAdmin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -90,14 +108,26 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="AdminArea\frmBill.resx">
+      <DependentUpon>frmBill.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminArea\frmBrand.resx">
       <DependentUpon>frmBrand.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminArea\frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminArea\frmDetailBill.resx">
+      <DependentUpon>frmDetailBill.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminArea\frmProduct.resx">
       <DependentUpon>frmProduct.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="AdminArea\frmProductType.resx">
       <DependentUpon>frmProductType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AdminArea\frmStaff.resx">
+      <DependentUpon>frmStaff.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
