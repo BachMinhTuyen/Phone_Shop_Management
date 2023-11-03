@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.panel_Filter = new System.Windows.Forms.Panel();
+            this.comboBox_FilterProductType = new System.Windows.Forms.ComboBox();
+            this.lb_FilterProductType = new System.Windows.Forms.Label();
+            this.comboBox_FilterBrandName = new System.Windows.Forms.ComboBox();
+            this.lb_FilterBrandName = new System.Windows.Forms.Label();
             this.groupBox_Status = new System.Windows.Forms.GroupBox();
             this.radioButton_FilterStocking = new System.Windows.Forms.RadioButton();
             this.radioButton_FilterStopBusiness = new System.Windows.Forms.RadioButton();
@@ -87,10 +91,6 @@
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lb_TotalProduct = new System.Windows.Forms.Label();
             this.txtBox_TotalProduct = new System.Windows.Forms.TextBox();
-            this.comboBox_FilterBrandName = new System.Windows.Forms.ComboBox();
-            this.lb_FilterBrandName = new System.Windows.Forms.Label();
-            this.comboBox_FilterProductType = new System.Windows.Forms.ComboBox();
-            this.lb_FilterProductType = new System.Windows.Forms.Label();
             this.panel_Filter.SuspendLayout();
             this.groupBox_Status.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
@@ -122,6 +122,40 @@
             this.panel_Filter.Name = "panel_Filter";
             this.panel_Filter.Size = new System.Drawing.Size(1177, 198);
             this.panel_Filter.TabIndex = 0;
+            // 
+            // comboBox_FilterProductType
+            // 
+            this.comboBox_FilterProductType.FormattingEnabled = true;
+            this.comboBox_FilterProductType.Location = new System.Drawing.Point(199, 99);
+            this.comboBox_FilterProductType.Name = "comboBox_FilterProductType";
+            this.comboBox_FilterProductType.Size = new System.Drawing.Size(139, 29);
+            this.comboBox_FilterProductType.TabIndex = 32;
+            // 
+            // lb_FilterProductType
+            // 
+            this.lb_FilterProductType.AutoSize = true;
+            this.lb_FilterProductType.Location = new System.Drawing.Point(56, 103);
+            this.lb_FilterProductType.Name = "lb_FilterProductType";
+            this.lb_FilterProductType.Size = new System.Drawing.Size(123, 21);
+            this.lb_FilterProductType.TabIndex = 31;
+            this.lb_FilterProductType.Text = "Loại sản phẩm:";
+            // 
+            // comboBox_FilterBrandName
+            // 
+            this.comboBox_FilterBrandName.FormattingEnabled = true;
+            this.comboBox_FilterBrandName.Location = new System.Drawing.Point(199, 61);
+            this.comboBox_FilterBrandName.Name = "comboBox_FilterBrandName";
+            this.comboBox_FilterBrandName.Size = new System.Drawing.Size(139, 29);
+            this.comboBox_FilterBrandName.TabIndex = 30;
+            // 
+            // lb_FilterBrandName
+            // 
+            this.lb_FilterBrandName.AutoSize = true;
+            this.lb_FilterBrandName.Location = new System.Drawing.Point(56, 64);
+            this.lb_FilterBrandName.Name = "lb_FilterBrandName";
+            this.lb_FilterBrandName.Size = new System.Drawing.Size(108, 21);
+            this.lb_FilterBrandName.TabIndex = 29;
+            this.lb_FilterBrandName.Text = "Thương hiệu:";
             // 
             // groupBox_Status
             // 
@@ -586,7 +620,7 @@
             this.thoátToolStripMenuItem});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
-            this.menuStrip_Main.Size = new System.Drawing.Size(1689, 30);
+            this.menuStrip_Main.Size = new System.Drawing.Size(1689, 28);
             this.menuStrip_Main.TabIndex = 9;
             this.menuStrip_Main.Text = "menuStrip1";
             // 
@@ -633,40 +667,6 @@
             this.txtBox_TotalProduct.ReadOnly = true;
             this.txtBox_TotalProduct.Size = new System.Drawing.Size(98, 28);
             this.txtBox_TotalProduct.TabIndex = 22;
-            // 
-            // comboBox_FilterBrandName
-            // 
-            this.comboBox_FilterBrandName.FormattingEnabled = true;
-            this.comboBox_FilterBrandName.Location = new System.Drawing.Point(199, 61);
-            this.comboBox_FilterBrandName.Name = "comboBox_FilterBrandName";
-            this.comboBox_FilterBrandName.Size = new System.Drawing.Size(139, 29);
-            this.comboBox_FilterBrandName.TabIndex = 30;
-            // 
-            // lb_FilterBrandName
-            // 
-            this.lb_FilterBrandName.AutoSize = true;
-            this.lb_FilterBrandName.Location = new System.Drawing.Point(56, 64);
-            this.lb_FilterBrandName.Name = "lb_FilterBrandName";
-            this.lb_FilterBrandName.Size = new System.Drawing.Size(108, 21);
-            this.lb_FilterBrandName.TabIndex = 29;
-            this.lb_FilterBrandName.Text = "Thương hiệu:";
-            // 
-            // comboBox_FilterProductType
-            // 
-            this.comboBox_FilterProductType.FormattingEnabled = true;
-            this.comboBox_FilterProductType.Location = new System.Drawing.Point(199, 99);
-            this.comboBox_FilterProductType.Name = "comboBox_FilterProductType";
-            this.comboBox_FilterProductType.Size = new System.Drawing.Size(139, 29);
-            this.comboBox_FilterProductType.TabIndex = 32;
-            // 
-            // lb_FilterProductType
-            // 
-            this.lb_FilterProductType.AutoSize = true;
-            this.lb_FilterProductType.Location = new System.Drawing.Point(56, 103);
-            this.lb_FilterProductType.Name = "lb_FilterProductType";
-            this.lb_FilterProductType.Size = new System.Drawing.Size(123, 21);
-            this.lb_FilterProductType.TabIndex = 31;
-            this.lb_FilterProductType.Text = "Loại sản phẩm:";
             // 
             // frmProduct
             // 
