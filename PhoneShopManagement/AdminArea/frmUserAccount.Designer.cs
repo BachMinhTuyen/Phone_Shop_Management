@@ -58,10 +58,10 @@
             this.lb_Password = new System.Windows.Forms.Label();
             this.lb_UserName = new System.Windows.Forms.Label();
             this.listView_Account = new System.Windows.Forms.ListView();
+            this.NumericalOrder = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.UserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Password = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Role = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NumericalOrder = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_Statistics.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
@@ -348,6 +348,11 @@
             this.listView_Account.UseCompatibleStateImageBehavior = false;
             this.listView_Account.View = System.Windows.Forms.View.Details;
             // 
+            // NumericalOrder
+            // 
+            this.NumericalOrder.Text = "Số thứ tự";
+            this.NumericalOrder.Width = 93;
+            // 
             // UserName
             // 
             this.UserName.Text = "User Name";
@@ -362,11 +367,6 @@
             // 
             this.Role.Text = "Vai trò";
             this.Role.Width = 179;
-            // 
-            // NumericalOrder
-            // 
-            this.NumericalOrder.Text = "Số thứ tự";
-            this.NumericalOrder.Width = 93;
             // 
             // frmUserAccount
             // 
