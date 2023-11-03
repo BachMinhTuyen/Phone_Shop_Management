@@ -94,5 +94,10 @@ namespace PhoneShopManagement
             LoadNguoiDung();
             LoadTop5Item();
         }
+
+        private void frmAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
