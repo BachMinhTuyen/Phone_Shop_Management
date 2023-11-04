@@ -28,13 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.listView_Bill = new System.Windows.Forms.ListView();
-            this.BillID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CustomerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.StaffName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TotalBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TimeOfPurchase = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.StatusBill = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_Filter = new System.Windows.Forms.Panel();
             this.radioButton_FilterCardPaid = new System.Windows.Forms.RadioButton();
             this.radioButton_FilterCashPaid = new System.Windows.Forms.RadioButton();
@@ -46,6 +39,7 @@
             this.lb_By = new System.Windows.Forms.Label();
             this.comboBox_SortMethod = new System.Windows.Forms.ComboBox();
             this.groupBox_Operation = new System.Windows.Forms.GroupBox();
+            this.btn_CreateBill = new System.Windows.Forms.Button();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_BillDetail = new System.Windows.Forms.Button();
@@ -54,58 +48,11 @@
             this.lb_Search = new System.Windows.Forms.Label();
             this.txtBox_TotalBill = new System.Windows.Forms.TextBox();
             this.lb_TotalBill = new System.Windows.Forms.Label();
-            this.btn_CreateBill = new System.Windows.Forms.Button();
+            this.dataGridView_BillList = new System.Windows.Forms.DataGridView();
             this.panel_Filter.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BillList)).BeginInit();
             this.SuspendLayout();
-            // 
-            // listView_Bill
-            // 
-            this.listView_Bill.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.BillID,
-            this.CustomerName,
-            this.StaffName,
-            this.TotalBill,
-            this.TimeOfPurchase,
-            this.StatusBill});
-            this.listView_Bill.GridLines = true;
-            this.listView_Bill.HideSelection = false;
-            this.listView_Bill.Location = new System.Drawing.Point(12, 248);
-            this.listView_Bill.Name = "listView_Bill";
-            this.listView_Bill.Size = new System.Drawing.Size(950, 315);
-            this.listView_Bill.TabIndex = 0;
-            this.listView_Bill.UseCompatibleStateImageBehavior = false;
-            this.listView_Bill.View = System.Windows.Forms.View.Details;
-            // 
-            // BillID
-            // 
-            this.BillID.Text = "Mã hoá đơn";
-            this.BillID.Width = 125;
-            // 
-            // CustomerName
-            // 
-            this.CustomerName.Text = "Tên khách hàng";
-            this.CustomerName.Width = 148;
-            // 
-            // StaffName
-            // 
-            this.StaffName.Text = "Nhân viên bán hàng";
-            this.StaffName.Width = 171;
-            // 
-            // TotalBill
-            // 
-            this.TotalBill.Text = "Tổng tiền";
-            this.TotalBill.Width = 128;
-            // 
-            // TimeOfPurchase
-            // 
-            this.TimeOfPurchase.Text = "Thời gian mua hàng";
-            this.TimeOfPurchase.Width = 181;
-            // 
-            // StatusBill
-            // 
-            this.StatusBill.Text = "Trạng thái";
-            this.StatusBill.Width = 160;
             // 
             // panel_Filter
             // 
@@ -220,6 +167,15 @@
             this.groupBox_Operation.TabStop = false;
             this.groupBox_Operation.Text = "Thao tác";
             // 
+            // btn_CreateBill
+            // 
+            this.btn_CreateBill.Location = new System.Drawing.Point(24, 40);
+            this.btn_CreateBill.Name = "btn_CreateBill";
+            this.btn_CreateBill.Size = new System.Drawing.Size(130, 45);
+            this.btn_CreateBill.TabIndex = 8;
+            this.btn_CreateBill.Text = "Tạo";
+            this.btn_CreateBill.UseVisualStyleBackColor = true;
+            // 
             // btn_Clear
             // 
             this.btn_Clear.Location = new System.Drawing.Point(184, 40);
@@ -289,14 +245,15 @@
             this.lb_TotalBill.TabIndex = 53;
             this.lb_TotalBill.Text = "Tổng hoá đơn:";
             // 
-            // btn_CreateBill
+            // dataGridView_BillList
             // 
-            this.btn_CreateBill.Location = new System.Drawing.Point(24, 40);
-            this.btn_CreateBill.Name = "btn_CreateBill";
-            this.btn_CreateBill.Size = new System.Drawing.Size(130, 45);
-            this.btn_CreateBill.TabIndex = 8;
-            this.btn_CreateBill.Text = "Tạo";
-            this.btn_CreateBill.UseVisualStyleBackColor = true;
+            this.dataGridView_BillList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_BillList.Location = new System.Drawing.Point(26, 249);
+            this.dataGridView_BillList.Name = "dataGridView_BillList";
+            this.dataGridView_BillList.RowHeadersWidth = 51;
+            this.dataGridView_BillList.RowTemplate.Height = 24;
+            this.dataGridView_BillList.Size = new System.Drawing.Size(935, 320);
+            this.dataGridView_BillList.TabIndex = 54;
             // 
             // frmBill
             // 
@@ -304,6 +261,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(980, 581);
+            this.Controls.Add(this.dataGridView_BillList);
             this.Controls.Add(this.txtBox_TotalBill);
             this.Controls.Add(this.lb_TotalBill);
             this.Controls.Add(this.btn_Search);
@@ -311,7 +269,6 @@
             this.Controls.Add(this.lb_Search);
             this.Controls.Add(this.groupBox_Operation);
             this.Controls.Add(this.panel_Filter);
-            this.Controls.Add(this.listView_Bill);
             this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmBill";
@@ -319,20 +276,13 @@
             this.panel_Filter.ResumeLayout(false);
             this.panel_Filter.PerformLayout();
             this.groupBox_Operation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BillList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListView listView_Bill;
-        private System.Windows.Forms.ColumnHeader BillID;
-        private System.Windows.Forms.ColumnHeader CustomerName;
-        private System.Windows.Forms.ColumnHeader StaffName;
-        private System.Windows.Forms.ColumnHeader TotalBill;
-        private System.Windows.Forms.ColumnHeader TimeOfPurchase;
-        private System.Windows.Forms.ColumnHeader StatusBill;
         private System.Windows.Forms.Panel panel_Filter;
         private System.Windows.Forms.Button btn_DefaultFilter;
         private System.Windows.Forms.Button btn_Filter;
@@ -353,5 +303,6 @@
         private System.Windows.Forms.TextBox txtBox_TotalBill;
         private System.Windows.Forms.Label lb_TotalBill;
         private System.Windows.Forms.Button btn_CreateBill;
+        private System.Windows.Forms.DataGridView dataGridView_BillList;
     }
 }

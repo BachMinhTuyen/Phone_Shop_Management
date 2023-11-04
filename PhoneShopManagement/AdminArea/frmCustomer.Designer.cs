@@ -36,6 +36,8 @@
             this.btn_Update = new System.Windows.Forms.Button();
             this.btn_Insert = new System.Windows.Forms.Button();
             this.panel_Filter = new System.Windows.Forms.Panel();
+            this.btn_DefaultFilter = new System.Windows.Forms.Button();
+            this.btn_Filter = new System.Windows.Forms.Button();
             this.comboBox_ColumnStaff = new System.Windows.Forms.ComboBox();
             this.lb_Sort = new System.Windows.Forms.Label();
             this.lb_By = new System.Windows.Forms.Label();
@@ -43,13 +45,6 @@
             this.btn_Search = new System.Windows.Forms.Button();
             this.txtBox_Search = new System.Windows.Forms.TextBox();
             this.lb_Search = new System.Windows.Forms.Label();
-            this.listView_Staff = new System.Windows.Forms.ListView();
-            this.CustomerID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.CustomerName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DateOfBirth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PhoneNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EmailAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.panel_Information = new System.Windows.Forms.Panel();
             this.txtBox_Address = new System.Windows.Forms.TextBox();
             this.lb_Address = new System.Windows.Forms.Label();
@@ -63,11 +58,11 @@
             this.lb_DateOfBirth = new System.Windows.Forms.Label();
             this.lb_CustomerName = new System.Windows.Forms.Label();
             this.lb_CustomerID = new System.Windows.Forms.Label();
-            this.btn_Filter = new System.Windows.Forms.Button();
-            this.btn_DefaultFilter = new System.Windows.Forms.Button();
+            this.dataGridView_CustomerList = new System.Windows.Forms.DataGridView();
             this.groupBox_Operation.SuspendLayout();
             this.panel_Filter.SuspendLayout();
             this.panel_Information.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CustomerList)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBox_TotalStaff
@@ -150,6 +145,24 @@
             this.panel_Filter.Size = new System.Drawing.Size(442, 104);
             this.panel_Filter.TabIndex = 46;
             // 
+            // btn_DefaultFilter
+            // 
+            this.btn_DefaultFilter.Location = new System.Drawing.Point(236, 61);
+            this.btn_DefaultFilter.Name = "btn_DefaultFilter";
+            this.btn_DefaultFilter.Size = new System.Drawing.Size(100, 33);
+            this.btn_DefaultFilter.TabIndex = 38;
+            this.btn_DefaultFilter.Text = "Mặc định";
+            this.btn_DefaultFilter.UseVisualStyleBackColor = true;
+            // 
+            // btn_Filter
+            // 
+            this.btn_Filter.Location = new System.Drawing.Point(106, 61);
+            this.btn_Filter.Name = "btn_Filter";
+            this.btn_Filter.Size = new System.Drawing.Size(100, 33);
+            this.btn_Filter.TabIndex = 37;
+            this.btn_Filter.Text = "Lọc";
+            this.btn_Filter.UseVisualStyleBackColor = true;
+            // 
             // comboBox_ColumnStaff
             // 
             this.comboBox_ColumnStaff.FormattingEnabled = true;
@@ -208,53 +221,6 @@
             this.lb_Search.Size = new System.Drawing.Size(160, 21);
             this.lb_Search.TabIndex = 44;
             this.lb_Search.Text = "Tìm kiếm nhân viên:";
-            // 
-            // listView_Staff
-            // 
-            this.listView_Staff.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.CustomerID,
-            this.CustomerName,
-            this.DateOfBirth,
-            this.PhoneNumber,
-            this.EmailAddress,
-            this.Address});
-            this.listView_Staff.HideSelection = false;
-            this.listView_Staff.Location = new System.Drawing.Point(533, 170);
-            this.listView_Staff.Name = "listView_Staff";
-            this.listView_Staff.Size = new System.Drawing.Size(1025, 356);
-            this.listView_Staff.TabIndex = 42;
-            this.listView_Staff.UseCompatibleStateImageBehavior = false;
-            this.listView_Staff.View = System.Windows.Forms.View.Details;
-            // 
-            // CustomerID
-            // 
-            this.CustomerID.Text = "Mã khách hàng";
-            this.CustomerID.Width = 132;
-            // 
-            // CustomerName
-            // 
-            this.CustomerName.Text = "Tên khách hàng";
-            this.CustomerName.Width = 197;
-            // 
-            // DateOfBirth
-            // 
-            this.DateOfBirth.Text = "Ngày sinh";
-            this.DateOfBirth.Width = 121;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.Text = "Số điện thoại";
-            this.PhoneNumber.Width = 161;
-            // 
-            // EmailAddress
-            // 
-            this.EmailAddress.Text = "Email";
-            this.EmailAddress.Width = 179;
-            // 
-            // Address
-            // 
-            this.Address.Text = "Địa chỉ";
-            this.Address.Width = 213;
             // 
             // panel_Information
             // 
@@ -372,23 +338,15 @@
             this.lb_CustomerID.TabIndex = 6;
             this.lb_CustomerID.Text = "Mã khách hàng:";
             // 
-            // btn_Filter
+            // dataGridView_CustomerList
             // 
-            this.btn_Filter.Location = new System.Drawing.Point(106, 61);
-            this.btn_Filter.Name = "btn_Filter";
-            this.btn_Filter.Size = new System.Drawing.Size(100, 33);
-            this.btn_Filter.TabIndex = 37;
-            this.btn_Filter.Text = "Lọc";
-            this.btn_Filter.UseVisualStyleBackColor = true;
-            // 
-            // btn_DefaultFilter
-            // 
-            this.btn_DefaultFilter.Location = new System.Drawing.Point(236, 61);
-            this.btn_DefaultFilter.Name = "btn_DefaultFilter";
-            this.btn_DefaultFilter.Size = new System.Drawing.Size(100, 33);
-            this.btn_DefaultFilter.TabIndex = 38;
-            this.btn_DefaultFilter.Text = "Mặc định";
-            this.btn_DefaultFilter.UseVisualStyleBackColor = true;
+            this.dataGridView_CustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_CustomerList.Location = new System.Drawing.Point(533, 177);
+            this.dataGridView_CustomerList.Name = "dataGridView_CustomerList";
+            this.dataGridView_CustomerList.RowHeadersWidth = 51;
+            this.dataGridView_CustomerList.RowTemplate.Height = 24;
+            this.dataGridView_CustomerList.Size = new System.Drawing.Size(1013, 359);
+            this.dataGridView_CustomerList.TabIndex = 50;
             // 
             // frmCustomer
             // 
@@ -396,6 +354,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1569, 548);
+            this.Controls.Add(this.dataGridView_CustomerList);
             this.Controls.Add(this.txtBox_TotalStaff);
             this.Controls.Add(this.lb_TotalStaff);
             this.Controls.Add(this.groupBox_Operation);
@@ -403,7 +362,6 @@
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txtBox_Search);
             this.Controls.Add(this.lb_Search);
-            this.Controls.Add(this.listView_Staff);
             this.Controls.Add(this.panel_Information);
             this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -414,6 +372,7 @@
             this.panel_Filter.PerformLayout();
             this.panel_Information.ResumeLayout(false);
             this.panel_Information.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CustomerList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -436,13 +395,6 @@
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.TextBox txtBox_Search;
         private System.Windows.Forms.Label lb_Search;
-        private System.Windows.Forms.ListView listView_Staff;
-        private System.Windows.Forms.ColumnHeader CustomerID;
-        private System.Windows.Forms.ColumnHeader CustomerName;
-        private System.Windows.Forms.ColumnHeader DateOfBirth;
-        private System.Windows.Forms.ColumnHeader PhoneNumber;
-        private System.Windows.Forms.ColumnHeader EmailAddress;
-        private System.Windows.Forms.ColumnHeader Address;
         private System.Windows.Forms.Panel panel_Information;
         private System.Windows.Forms.TextBox txtBox_Address;
         private System.Windows.Forms.Label lb_Address;
@@ -458,5 +410,6 @@
         private System.Windows.Forms.Label lb_CustomerID;
         private System.Windows.Forms.Button btn_DefaultFilter;
         private System.Windows.Forms.Button btn_Filter;
+        private System.Windows.Forms.DataGridView dataGridView_CustomerList;
     }
 }

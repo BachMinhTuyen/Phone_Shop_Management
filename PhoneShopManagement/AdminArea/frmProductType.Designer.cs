@@ -37,11 +37,9 @@
             this.txtBox_ProductTypeID = new System.Windows.Forms.TextBox();
             this.lb_ProductTypeID = new System.Windows.Forms.Label();
             this.lb_ProductTypeName = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.ProductTypeID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ProductTypeName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NumberOfProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridView_ProductType = new System.Windows.Forms.DataGridView();
             this.groupBox_Information.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductType)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_Information
@@ -137,41 +135,22 @@
             this.lb_ProductTypeName.TabIndex = 0;
             this.lb_ProductTypeName.Text = "Tên loại:";
             // 
-            // listView1
+            // dataGridView_ProductType
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ProductTypeID,
-            this.ProductTypeName,
-            this.NumberOfProduct});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(21, 210);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(508, 270);
-            this.listView1.TabIndex = 2;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // ProductTypeID
-            // 
-            this.ProductTypeID.Text = "Mã loại";
-            this.ProductTypeID.Width = 142;
-            // 
-            // ProductTypeName
-            // 
-            this.ProductTypeName.Text = "Tên loại";
-            this.ProductTypeName.Width = 157;
-            // 
-            // NumberOfProduct
-            // 
-            this.NumberOfProduct.Text = "Số lượng sản phẩm";
-            this.NumberOfProduct.Width = 174;
+            this.dataGridView_ProductType.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ProductType.Location = new System.Drawing.Point(21, 197);
+            this.dataGridView_ProductType.Name = "dataGridView_ProductType";
+            this.dataGridView_ProductType.RowHeadersWidth = 51;
+            this.dataGridView_ProductType.RowTemplate.Height = 24;
+            this.dataGridView_ProductType.Size = new System.Drawing.Size(514, 295);
+            this.dataGridView_ProductType.TabIndex = 2;
             // 
             // frmProductType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(560, 504);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dataGridView_ProductType);
             this.Controls.Add(this.groupBox_Information);
             this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -179,6 +158,7 @@
             this.Text = "Quản lý các loại sản phẩm";
             this.groupBox_Information.ResumeLayout(false);
             this.groupBox_Information.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductType)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -194,9 +174,6 @@
         private System.Windows.Forms.TextBox txtBox_ProductTypeID;
         private System.Windows.Forms.Label lb_ProductTypeID;
         private System.Windows.Forms.Label lb_ProductTypeName;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader ProductTypeID;
-        private System.Windows.Forms.ColumnHeader ProductTypeName;
-        private System.Windows.Forms.ColumnHeader NumberOfProduct;
+        private System.Windows.Forms.DataGridView dataGridView_ProductType;
     }
 }

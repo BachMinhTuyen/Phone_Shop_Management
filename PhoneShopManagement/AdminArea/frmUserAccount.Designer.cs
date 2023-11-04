@@ -45,7 +45,7 @@
             this.groupBox_Operation = new System.Windows.Forms.GroupBox();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
-            this.btn_Update = new System.Windows.Forms.Button();
+            this.btn_Reset = new System.Windows.Forms.Button();
             this.btn_Insert = new System.Windows.Forms.Button();
             this.panel_Information = new System.Windows.Forms.Panel();
             this.txtBox_ConfirmPassword = new System.Windows.Forms.TextBox();
@@ -57,16 +57,13 @@
             this.lb_ConfirmPassword = new System.Windows.Forms.Label();
             this.lb_Password = new System.Windows.Forms.Label();
             this.lb_UserName = new System.Windows.Forms.Label();
-            this.listView_Account = new System.Windows.Forms.ListView();
-            this.NumericalOrder = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.UserName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Password = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Role = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridView_AccountList = new System.Windows.Forms.DataGridView();
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_Statistics.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
             this.panel_Information.SuspendLayout();
             this.groupBox_Roles.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AccountList)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip_Main
@@ -192,7 +189,7 @@
             // 
             this.groupBox_Operation.Controls.Add(this.btn_Clear);
             this.groupBox_Operation.Controls.Add(this.btn_Delete);
-            this.groupBox_Operation.Controls.Add(this.btn_Update);
+            this.groupBox_Operation.Controls.Add(this.btn_Reset);
             this.groupBox_Operation.Controls.Add(this.btn_Insert);
             this.groupBox_Operation.Location = new System.Drawing.Point(414, 77);
             this.groupBox_Operation.Name = "groupBox_Operation";
@@ -219,14 +216,14 @@
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
             // 
-            // btn_Update
+            // btn_Reset
             // 
-            this.btn_Update.Location = new System.Drawing.Point(123, 35);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(94, 35);
-            this.btn_Update.TabIndex = 1;
-            this.btn_Update.Text = "Sửa";
-            this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Reset.Location = new System.Drawing.Point(123, 35);
+            this.btn_Reset.Name = "btn_Reset";
+            this.btn_Reset.Size = new System.Drawing.Size(94, 35);
+            this.btn_Reset.TabIndex = 1;
+            this.btn_Reset.Text = "Khôi phục";
+            this.btn_Reset.UseVisualStyleBackColor = true;
             // 
             // btn_Insert
             // 
@@ -332,48 +329,22 @@
             this.lb_UserName.TabIndex = 0;
             this.lb_UserName.Text = "Tên đăng nhập:";
             // 
-            // listView_Account
+            // dataGridView_AccountList
             // 
-            this.listView_Account.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.NumericalOrder,
-            this.UserName,
-            this.Password,
-            this.Role});
-            this.listView_Account.GridLines = true;
-            this.listView_Account.HideSelection = false;
-            this.listView_Account.Location = new System.Drawing.Point(31, 345);
-            this.listView_Account.Name = "listView_Account";
-            this.listView_Account.Size = new System.Drawing.Size(830, 284);
-            this.listView_Account.TabIndex = 4;
-            this.listView_Account.UseCompatibleStateImageBehavior = false;
-            this.listView_Account.View = System.Windows.Forms.View.Details;
-            // 
-            // NumericalOrder
-            // 
-            this.NumericalOrder.Text = "Số thứ tự";
-            this.NumericalOrder.Width = 93;
-            // 
-            // UserName
-            // 
-            this.UserName.Text = "User Name";
-            this.UserName.Width = 176;
-            // 
-            // Password
-            // 
-            this.Password.Text = "Password";
-            this.Password.Width = 232;
-            // 
-            // Role
-            // 
-            this.Role.Text = "Vai trò";
-            this.Role.Width = 179;
+            this.dataGridView_AccountList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_AccountList.Location = new System.Drawing.Point(31, 346);
+            this.dataGridView_AccountList.Name = "dataGridView_AccountList";
+            this.dataGridView_AccountList.RowHeadersWidth = 51;
+            this.dataGridView_AccountList.RowTemplate.Height = 24;
+            this.dataGridView_AccountList.Size = new System.Drawing.Size(830, 306);
+            this.dataGridView_AccountList.TabIndex = 4;
             // 
             // frmUserAccount
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 664);
-            this.Controls.Add(this.listView_Account);
+            this.Controls.Add(this.dataGridView_AccountList);
             this.Controls.Add(this.panel_Information);
             this.Controls.Add(this.groupBox_Operation);
             this.Controls.Add(this.groupBox_Statistics);
@@ -392,6 +363,7 @@
             this.panel_Information.PerformLayout();
             this.groupBox_Roles.ResumeLayout(false);
             this.groupBox_Roles.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_AccountList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -417,7 +389,7 @@
         private System.Windows.Forms.Button btn_Insert;
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Button btn_Delete;
-        private System.Windows.Forms.Button btn_Update;
+        private System.Windows.Forms.Button btn_Reset;
         private System.Windows.Forms.Panel panel_Information;
         private System.Windows.Forms.Label lb_UserName;
         private System.Windows.Forms.Label lb_Password;
@@ -428,10 +400,6 @@
         private System.Windows.Forms.RadioButton radioBtn_Admin;
         private System.Windows.Forms.TextBox txtBox_ConfirmPassword;
         private System.Windows.Forms.TextBox txtBox_Password;
-        private System.Windows.Forms.ListView listView_Account;
-        private System.Windows.Forms.ColumnHeader NumericalOrder;
-        private System.Windows.Forms.ColumnHeader UserName;
-        private System.Windows.Forms.ColumnHeader Password;
-        private System.Windows.Forms.ColumnHeader Role;
+        private System.Windows.Forms.DataGridView dataGridView_AccountList;
     }
 }

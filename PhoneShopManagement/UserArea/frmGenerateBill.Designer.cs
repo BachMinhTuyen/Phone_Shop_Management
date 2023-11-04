@@ -64,25 +64,19 @@
             this.lb_ProductName = new System.Windows.Forms.Label();
             this.txtBox_ProductID = new System.Windows.Forms.TextBox();
             this.lb_ProductID = new System.Windows.Forms.Label();
-            this.listView_Details = new System.Windows.Forms.ListView();
-            this.ProductID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.QuantityOfProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PriceOfProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TotalMoney = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_Search = new System.Windows.Forms.Button();
             this.txtBox_Search = new System.Windows.Forms.TextBox();
             this.lb_Search = new System.Windows.Forms.Label();
-            this.listView_Information = new System.Windows.Forms.ListView();
-            this.Search_Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Search_ProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Search_Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btn_GenerateBill = new System.Windows.Forms.Button();
             this.btn_Cancel = new System.Windows.Forms.Button();
+            this.dataGridView_Details = new System.Windows.Forms.DataGridView();
+            this.dataGridView_Information = new System.Windows.Forms.DataGridView();
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_BillInformation.SuspendLayout();
             this.groupBox_Details.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Quantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Details)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Information)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip_Main
@@ -110,7 +104,7 @@
             // làmMớiToolStripMenuItem
             // 
             this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
-            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.làmMớiToolStripMenuItem.Text = "Làm mới";
             // 
             // hoáĐơnToolStripMenuItem
@@ -125,13 +119,13 @@
             // tạoToolStripMenuItem
             // 
             this.tạoToolStripMenuItem.Name = "tạoToolStripMenuItem";
-            this.tạoToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.tạoToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.tạoToolStripMenuItem.Text = "Hoá đơn";
             // 
             // xemHoáĐơnToolStripMenuItem
             // 
             this.xemHoáĐơnToolStripMenuItem.Name = "xemHoáĐơnToolStripMenuItem";
-            this.xemHoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.xemHoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.xemHoáĐơnToolStripMenuItem.Text = "Sản phẩm";
             // 
             // ngườiDùngToolStripMenuItem
@@ -397,52 +391,6 @@
             this.lb_ProductID.TabIndex = 39;
             this.lb_ProductID.Text = "Mã sản phẩm:";
             // 
-            // listView_Details
-            // 
-            this.listView_Details.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ProductID,
-            this.QuantityOfProduct,
-            this.PriceOfProduct,
-            this.TotalMoney,
-            this.ProductName});
-            this.listView_Details.GridLines = true;
-            this.listView_Details.HideSelection = false;
-            this.listView_Details.Location = new System.Drawing.Point(12, 368);
-            this.listView_Details.Name = "listView_Details";
-            this.listView_Details.Size = new System.Drawing.Size(951, 237);
-            this.listView_Details.TabIndex = 51;
-            this.listView_Details.UseCompatibleStateImageBehavior = false;
-            this.listView_Details.View = System.Windows.Forms.View.Details;
-            // 
-            // ProductID
-            // 
-            this.ProductID.Text = "Mã sản phẩm";
-            this.ProductID.Width = 123;
-            // 
-            // QuantityOfProduct
-            // 
-            this.QuantityOfProduct.DisplayIndex = 2;
-            this.QuantityOfProduct.Text = "Số lượng";
-            this.QuantityOfProduct.Width = 91;
-            // 
-            // PriceOfProduct
-            // 
-            this.PriceOfProduct.DisplayIndex = 3;
-            this.PriceOfProduct.Text = "Đơn giá";
-            this.PriceOfProduct.Width = 165;
-            // 
-            // TotalMoney
-            // 
-            this.TotalMoney.DisplayIndex = 4;
-            this.TotalMoney.Text = "Thành tiền";
-            this.TotalMoney.Width = 169;
-            // 
-            // ProductName
-            // 
-            this.ProductName.DisplayIndex = 1;
-            this.ProductName.Text = "Tên sản phẩm";
-            this.ProductName.Width = 349;
-            // 
             // btn_Search
             // 
             this.btn_Search.Location = new System.Drawing.Point(1385, 166);
@@ -468,38 +416,6 @@
             this.lb_Search.TabIndex = 52;
             this.lb_Search.Text = "Tìm kiếm nhanh tên sản phẩm:";
             // 
-            // listView_Information
-            // 
-            this.listView_Information.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.Search_Price,
-            this.Search_ProductName,
-            this.Search_Status});
-            this.listView_Information.GridLines = true;
-            this.listView_Information.HideSelection = false;
-            this.listView_Information.Location = new System.Drawing.Point(973, 222);
-            this.listView_Information.Name = "listView_Information";
-            this.listView_Information.Size = new System.Drawing.Size(531, 267);
-            this.listView_Information.TabIndex = 54;
-            this.listView_Information.UseCompatibleStateImageBehavior = false;
-            this.listView_Information.View = System.Windows.Forms.View.Details;
-            // 
-            // Search_Price
-            // 
-            this.Search_Price.DisplayIndex = 1;
-            this.Search_Price.Text = "Đơn giá";
-            this.Search_Price.Width = 115;
-            // 
-            // Search_ProductName
-            // 
-            this.Search_ProductName.DisplayIndex = 0;
-            this.Search_ProductName.Text = "Tên sản phẩm";
-            this.Search_ProductName.Width = 247;
-            // 
-            // Search_Status
-            // 
-            this.Search_Status.Text = "Tình trạng";
-            this.Search_Status.Width = 148;
-            // 
             // btn_GenerateBill
             // 
             this.btn_GenerateBill.Location = new System.Drawing.Point(1100, 526);
@@ -518,19 +434,39 @@
             this.btn_Cancel.Text = "Huỷ";
             this.btn_Cancel.UseVisualStyleBackColor = true;
             // 
+            // dataGridView_Details
+            // 
+            this.dataGridView_Details.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Details.Location = new System.Drawing.Point(12, 368);
+            this.dataGridView_Details.Name = "dataGridView_Details";
+            this.dataGridView_Details.RowHeadersWidth = 51;
+            this.dataGridView_Details.RowTemplate.Height = 24;
+            this.dataGridView_Details.Size = new System.Drawing.Size(951, 240);
+            this.dataGridView_Details.TabIndex = 57;
+            // 
+            // dataGridView_Information
+            // 
+            this.dataGridView_Information.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_Information.Location = new System.Drawing.Point(973, 212);
+            this.dataGridView_Information.Name = "dataGridView_Information";
+            this.dataGridView_Information.RowHeadersWidth = 51;
+            this.dataGridView_Information.RowTemplate.Height = 24;
+            this.dataGridView_Information.Size = new System.Drawing.Size(531, 282);
+            this.dataGridView_Information.TabIndex = 58;
+            // 
             // frmGenerateBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1516, 620);
+            this.Controls.Add(this.dataGridView_Information);
+            this.Controls.Add(this.dataGridView_Details);
             this.Controls.Add(this.btn_Cancel);
             this.Controls.Add(this.btn_GenerateBill);
-            this.Controls.Add(this.listView_Information);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txtBox_Search);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.lb_Search);
-            this.Controls.Add(this.listView_Details);
             this.Controls.Add(this.groupBox_Details);
             this.Controls.Add(this.lb_TotalBill);
             this.Controls.Add(this.groupBox_BillInformation);
@@ -548,6 +484,8 @@
             this.groupBox_Details.ResumeLayout(false);
             this.groupBox_Details.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Quantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Details)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_Information)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -591,20 +529,12 @@
         private System.Windows.Forms.Label lb_ProductName;
         private System.Windows.Forms.TextBox txtBox_ProductID;
         private System.Windows.Forms.Label lb_ProductID;
-        private System.Windows.Forms.ListView listView_Details;
-        private System.Windows.Forms.ColumnHeader ProductID;
-        private System.Windows.Forms.ColumnHeader QuantityOfProduct;
-        private System.Windows.Forms.ColumnHeader PriceOfProduct;
-        private System.Windows.Forms.ColumnHeader TotalMoney;
-        private System.Windows.Forms.ColumnHeader ProductName;
         private System.Windows.Forms.Button btn_Search;
         private System.Windows.Forms.TextBox txtBox_Search;
         private System.Windows.Forms.Label lb_Search;
-        private System.Windows.Forms.ListView listView_Information;
-        private System.Windows.Forms.ColumnHeader Search_Price;
-        private System.Windows.Forms.ColumnHeader Search_ProductName;
-        private System.Windows.Forms.ColumnHeader Search_Status;
         private System.Windows.Forms.Button btn_GenerateBill;
         private System.Windows.Forms.Button btn_Cancel;
+        private System.Windows.Forms.DataGridView dataGridView_Details;
+        private System.Windows.Forms.DataGridView dataGridView_Information;
     }
 }

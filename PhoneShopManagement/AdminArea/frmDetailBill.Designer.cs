@@ -46,16 +46,12 @@
             this.txtBox_StaffID = new System.Windows.Forms.TextBox();
             this.lb_StaffName = new System.Windows.Forms.Label();
             this.lb_StaffID = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.ProductID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.QuantityOfProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PriceOfProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.TotalMoney = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.lb_TotalBill = new System.Windows.Forms.Label();
             this.groupBox_BillInformation = new System.Windows.Forms.GroupBox();
             this.groupBox_Details = new System.Windows.Forms.GroupBox();
+            this.btn_Insert = new System.Windows.Forms.Button();
+            this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
             this.txtBox_ = new System.Windows.Forms.TextBox();
             this.lb_Price = new System.Windows.Forms.Label();
@@ -65,13 +61,13 @@
             this.lb_ProductName = new System.Windows.Forms.Label();
             this.txtBox_ProductID = new System.Windows.Forms.TextBox();
             this.lb_ProductID = new System.Windows.Forms.Label();
-            this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Refresh = new System.Windows.Forms.Button();
-            this.btn_Insert = new System.Windows.Forms.Button();
             this.btn_Final = new System.Windows.Forms.Button();
+            this.dataGridView_DetailsBill = new System.Windows.Forms.DataGridView();
             this.groupBox_BillInformation.SuspendLayout();
             this.groupBox_Details.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Quantity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DetailsBill)).BeginInit();
             this.SuspendLayout();
             // 
             // txtBox_Address
@@ -219,52 +215,6 @@
             this.lb_StaffID.TabIndex = 33;
             this.lb_StaffID.Text = "Mã nhân viên:";
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ProductID,
-            this.QuantityOfProduct,
-            this.PriceOfProduct,
-            this.TotalMoney,
-            this.ProductName});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 318);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(964, 285);
-            this.listView1.TabIndex = 43;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // ProductID
-            // 
-            this.ProductID.Text = "Mã sản phẩm";
-            this.ProductID.Width = 123;
-            // 
-            // QuantityOfProduct
-            // 
-            this.QuantityOfProduct.DisplayIndex = 2;
-            this.QuantityOfProduct.Text = "Số lượng";
-            this.QuantityOfProduct.Width = 91;
-            // 
-            // PriceOfProduct
-            // 
-            this.PriceOfProduct.DisplayIndex = 3;
-            this.PriceOfProduct.Text = "Đơn giá";
-            this.PriceOfProduct.Width = 165;
-            // 
-            // TotalMoney
-            // 
-            this.TotalMoney.DisplayIndex = 4;
-            this.TotalMoney.Text = "Thành tiền";
-            this.TotalMoney.Width = 169;
-            // 
-            // ProductName
-            // 
-            this.ProductName.DisplayIndex = 1;
-            this.ProductName.Text = "Tên sản phẩm";
-            this.ProductName.Width = 349;
-            // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(674, 204);
@@ -331,6 +281,24 @@
             this.groupBox_Details.TabIndex = 45;
             this.groupBox_Details.TabStop = false;
             this.groupBox_Details.Text = "Chi tiết sản phẩm";
+            // 
+            // btn_Insert
+            // 
+            this.btn_Insert.Location = new System.Drawing.Point(77, 218);
+            this.btn_Insert.Name = "btn_Insert";
+            this.btn_Insert.Size = new System.Drawing.Size(93, 34);
+            this.btn_Insert.TabIndex = 50;
+            this.btn_Insert.Text = "Thêm";
+            this.btn_Insert.UseVisualStyleBackColor = true;
+            // 
+            // btn_Delete
+            // 
+            this.btn_Delete.Location = new System.Drawing.Point(326, 218);
+            this.btn_Delete.Name = "btn_Delete";
+            this.btn_Delete.Size = new System.Drawing.Size(93, 34);
+            this.btn_Delete.TabIndex = 48;
+            this.btn_Delete.Text = "Xoá";
+            this.btn_Delete.UseVisualStyleBackColor = true;
             // 
             // btn_Update
             // 
@@ -405,15 +373,6 @@
             this.lb_ProductID.TabIndex = 39;
             this.lb_ProductID.Text = "Mã sản phẩm:";
             // 
-            // btn_Delete
-            // 
-            this.btn_Delete.Location = new System.Drawing.Point(326, 218);
-            this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(93, 34);
-            this.btn_Delete.TabIndex = 48;
-            this.btn_Delete.Text = "Xoá";
-            this.btn_Delete.UseVisualStyleBackColor = true;
-            // 
             // btn_Refresh
             // 
             this.btn_Refresh.Location = new System.Drawing.Point(1044, 415);
@@ -422,15 +381,6 @@
             this.btn_Refresh.TabIndex = 49;
             this.btn_Refresh.Text = "Làm mới";
             this.btn_Refresh.UseVisualStyleBackColor = true;
-            // 
-            // btn_Insert
-            // 
-            this.btn_Insert.Location = new System.Drawing.Point(77, 218);
-            this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(93, 34);
-            this.btn_Insert.TabIndex = 50;
-            this.btn_Insert.Text = "Thêm";
-            this.btn_Insert.UseVisualStyleBackColor = true;
             // 
             // btn_Final
             // 
@@ -441,16 +391,26 @@
             this.btn_Final.Text = "Đóng";
             this.btn_Final.UseVisualStyleBackColor = true;
             // 
+            // dataGridView_DetailsBill
+            // 
+            this.dataGridView_DetailsBill.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_DetailsBill.Location = new System.Drawing.Point(13, 315);
+            this.dataGridView_DetailsBill.Name = "dataGridView_DetailsBill";
+            this.dataGridView_DetailsBill.RowHeadersWidth = 51;
+            this.dataGridView_DetailsBill.RowTemplate.Height = 24;
+            this.dataGridView_DetailsBill.Size = new System.Drawing.Size(963, 300);
+            this.dataGridView_DetailsBill.TabIndex = 51;
+            // 
             // frmDetailBill
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1496, 627);
+            this.Controls.Add(this.dataGridView_DetailsBill);
             this.Controls.Add(this.btn_Final);
             this.Controls.Add(this.groupBox_Details);
             this.Controls.Add(this.btn_Refresh);
             this.Controls.Add(this.groupBox_BillInformation);
-            this.Controls.Add(this.listView1);
             this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmDetailBill";
@@ -460,6 +420,7 @@
             this.groupBox_Details.ResumeLayout(false);
             this.groupBox_Details.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_Quantity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_DetailsBill)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -483,12 +444,6 @@
         private System.Windows.Forms.TextBox txtBox_StaffID;
         private System.Windows.Forms.Label lb_StaffName;
         private System.Windows.Forms.Label lb_StaffID;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader ProductID;
-        private System.Windows.Forms.ColumnHeader QuantityOfProduct;
-        private System.Windows.Forms.ColumnHeader PriceOfProduct;
-        private System.Windows.Forms.ColumnHeader TotalMoney;
-        private System.Windows.Forms.ColumnHeader ProductName;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label lb_TotalBill;
         private System.Windows.Forms.GroupBox groupBox_BillInformation;
@@ -506,5 +461,6 @@
         private System.Windows.Forms.Button btn_Refresh;
         private System.Windows.Forms.Button btn_Insert;
         private System.Windows.Forms.Button btn_Final;
+        private System.Windows.Forms.DataGridView dataGridView_DetailsBill;
     }
 }

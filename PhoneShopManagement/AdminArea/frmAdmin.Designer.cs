@@ -62,16 +62,13 @@
             this.NumberOfStaff = new System.Windows.Forms.Label();
             this.panel_Report = new System.Windows.Forms.Panel();
             this.groupBox_ReportOfProduct = new System.Windows.Forms.GroupBox();
-            this.listView_Product = new System.Windows.Forms.ListView();
-            this.ProductID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PriceOfProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.QuantitySold = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.dataGridView_BestSellingProduct = new System.Windows.Forms.DataGridView();
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_UserInformation.SuspendLayout();
             this.groupBox_Statistics.SuspendLayout();
             this.panel_Report.SuspendLayout();
             this.groupBox_ReportOfProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BestSellingProduct)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip_Main
@@ -100,7 +97,7 @@
             // làmMớiToolStripMenuItem
             // 
             this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
-            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
+            this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.làmMớiToolStripMenuItem.Text = "Làm mới";
             // 
             // quảnLýToolStripMenuItem
@@ -119,37 +116,37 @@
             // tàiKhoảnNgườiDùngToolStripMenuItem
             // 
             this.tàiKhoảnNgườiDùngToolStripMenuItem.Name = "tàiKhoảnNgườiDùngToolStripMenuItem";
-            this.tàiKhoảnNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.tàiKhoảnNgườiDùngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.tàiKhoảnNgườiDùngToolStripMenuItem.Text = "Tài khoản";
             // 
             // nhânViênToolStripMenuItem
             // 
             this.nhânViênToolStripMenuItem.Name = "nhânViênToolStripMenuItem";
-            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.nhânViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.nhânViênToolStripMenuItem.Text = "Nhân viên";
             // 
             // kháchHàngToolStripMenuItem
             // 
             this.kháchHàngToolStripMenuItem.Name = "kháchHàngToolStripMenuItem";
-            this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.kháchHàngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.kháchHàngToolStripMenuItem.Text = "Khách hàng";
             // 
             // sảnPhẩmToolStripMenuItem
             // 
             this.sảnPhẩmToolStripMenuItem.Name = "sảnPhẩmToolStripMenuItem";
-            this.sảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.sảnPhẩmToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sảnPhẩmToolStripMenuItem.Text = "Sản phẩm";
             // 
             // đơnHàngToolStripMenuItem
             // 
             this.đơnHàngToolStripMenuItem.Name = "đơnHàngToolStripMenuItem";
-            this.đơnHàngToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.đơnHàngToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.đơnHàngToolStripMenuItem.Text = "Đơn hàng";
             // 
             // doanhThuToolStripMenuItem
             // 
             this.doanhThuToolStripMenuItem.Name = "doanhThuToolStripMenuItem";
-            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(169, 26);
+            this.doanhThuToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.doanhThuToolStripMenuItem.Text = "Doanh thu";
             // 
             // ngườiDùngToolStripMenuItem
@@ -359,7 +356,7 @@
             // 
             // groupBox_ReportOfProduct
             // 
-            this.groupBox_ReportOfProduct.Controls.Add(this.listView_Product);
+            this.groupBox_ReportOfProduct.Controls.Add(this.dataGridView_BestSellingProduct);
             this.groupBox_ReportOfProduct.Location = new System.Drawing.Point(18, 13);
             this.groupBox_ReportOfProduct.Name = "groupBox_ReportOfProduct";
             this.groupBox_ReportOfProduct.Size = new System.Drawing.Size(811, 215);
@@ -367,41 +364,15 @@
             this.groupBox_ReportOfProduct.TabStop = false;
             this.groupBox_ReportOfProduct.Text = "Top 5 sản phẩm bán chạy";
             // 
-            // listView_Product
+            // dataGridView_BestSellingProduct
             // 
-            this.listView_Product.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ProductID,
-            this.ProductName,
-            this.PriceOfProduct,
-            this.QuantitySold});
-            this.listView_Product.GridLines = true;
-            this.listView_Product.HideSelection = false;
-            this.listView_Product.Location = new System.Drawing.Point(13, 27);
-            this.listView_Product.Name = "listView_Product";
-            this.listView_Product.Size = new System.Drawing.Size(780, 172);
-            this.listView_Product.TabIndex = 0;
-            this.listView_Product.UseCompatibleStateImageBehavior = false;
-            this.listView_Product.View = System.Windows.Forms.View.Details;
-            // 
-            // ProductID
-            // 
-            this.ProductID.Text = "Mã sản phẩm";
-            this.ProductID.Width = 120;
-            // 
-            // ProductName
-            // 
-            this.ProductName.Text = "Tên sản phẩm";
-            this.ProductName.Width = 344;
-            // 
-            // PriceOfProduct
-            // 
-            this.PriceOfProduct.Text = "Giá sản phẩm";
-            this.PriceOfProduct.Width = 132;
-            // 
-            // QuantitySold
-            // 
-            this.QuantitySold.Text = "Số lượng đã bán";
-            this.QuantitySold.Width = 140;
+            this.dataGridView_BestSellingProduct.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_BestSellingProduct.Location = new System.Drawing.Point(6, 28);
+            this.dataGridView_BestSellingProduct.Name = "dataGridView_BestSellingProduct";
+            this.dataGridView_BestSellingProduct.RowHeadersWidth = 51;
+            this.dataGridView_BestSellingProduct.RowTemplate.Height = 24;
+            this.dataGridView_BestSellingProduct.Size = new System.Drawing.Size(799, 181);
+            this.dataGridView_BestSellingProduct.TabIndex = 0;
             // 
             // frmAdmin
             // 
@@ -427,6 +398,7 @@
             this.groupBox_Statistics.PerformLayout();
             this.panel_Report.ResumeLayout(false);
             this.groupBox_ReportOfProduct.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BestSellingProduct)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -466,12 +438,8 @@
         private System.Windows.Forms.TextBox txtBox_NumberOfAccount;
         private System.Windows.Forms.Panel panel_Report;
         private System.Windows.Forms.GroupBox groupBox_ReportOfProduct;
-        private System.Windows.Forms.ListView listView_Product;
-        private System.Windows.Forms.ColumnHeader ProductID;
-        private System.Windows.Forms.ColumnHeader ProductName;
-        private System.Windows.Forms.ColumnHeader PriceOfProduct;
-        private System.Windows.Forms.ColumnHeader QuantitySold;
         private System.Windows.Forms.ToolStripMenuItem trangChủToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem làmMớiToolStripMenuItem;
+        private System.Windows.Forms.DataGridView dataGridView_BestSellingProduct;
     }
 }

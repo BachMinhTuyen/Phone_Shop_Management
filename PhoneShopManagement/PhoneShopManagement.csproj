@@ -101,6 +101,12 @@
     <Compile Include="AdminArea\frmAdmin.Designer.cs">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmAboutUs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAboutUs.Designer.cs">
+      <DependentUpon>frmAboutUs.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,6 +139,12 @@
     <Compile Include="UserArea\frmSearchBill.Designer.cs">
       <DependentUpon>frmSearchBill.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserArea\frmSearchProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserArea\frmSearchProduct.Designer.cs">
+      <DependentUpon>frmSearchProduct.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminArea\frmBill.resx">
       <DependentUpon>frmBill.cs</DependentUpon>
     </EmbeddedResource>
@@ -160,6 +172,9 @@
     <EmbeddedResource Include="AdminArea\frmAdmin.resx">
       <DependentUpon>frmAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmAboutUs.resx">
+      <DependentUpon>frmAboutUs.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </EmbeddedResource>
@@ -184,6 +199,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserArea\frmSearchBill.resx">
       <DependentUpon>frmSearchBill.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserArea\frmSearchProduct.resx">
+      <DependentUpon>frmSearchProduct.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

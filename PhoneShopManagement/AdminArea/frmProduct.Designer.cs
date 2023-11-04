@@ -74,16 +74,6 @@
             this.lb_ProductType = new System.Windows.Forms.Label();
             this.lb_BrandName = new System.Windows.Forms.Label();
             this.lb_ProductName = new System.Windows.Forms.Label();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.ProductID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ProductName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BrandName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ProductType = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PercentPromotion = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Price = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.ImagePath = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Status = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Description = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.menuStrip_Main = new System.Windows.Forms.MenuStrip();
             this.quảnLýToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thươngHiệuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -91,12 +81,16 @@
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lb_TotalProduct = new System.Windows.Forms.Label();
             this.txtBox_TotalProduct = new System.Windows.Forms.TextBox();
+            this.radioButton_FilterOutOfStock = new System.Windows.Forms.RadioButton();
+            this.radioButton_OutOfStock = new System.Windows.Forms.RadioButton();
+            this.dataGridView_ProductList = new System.Windows.Forms.DataGridView();
             this.panel_Filter.SuspendLayout();
             this.groupBox_Status.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PercentPromotion)).BeginInit();
             this.menuStrip_Main.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Filter
@@ -159,11 +153,12 @@
             // 
             // groupBox_Status
             // 
+            this.groupBox_Status.Controls.Add(this.radioButton_FilterOutOfStock);
             this.groupBox_Status.Controls.Add(this.radioButton_FilterStocking);
             this.groupBox_Status.Controls.Add(this.radioButton_FilterStopBusiness);
-            this.groupBox_Status.Location = new System.Drawing.Point(557, 20);
+            this.groupBox_Status.Location = new System.Drawing.Point(926, 20);
             this.groupBox_Status.Name = "groupBox_Status";
-            this.groupBox_Status.Size = new System.Drawing.Size(200, 100);
+            this.groupBox_Status.Size = new System.Drawing.Size(200, 140);
             this.groupBox_Status.TabIndex = 28;
             this.groupBox_Status.TabStop = false;
             this.groupBox_Status.Text = "Tình trạng sản phẩm";
@@ -182,7 +177,7 @@
             // radioButton_FilterStopBusiness
             // 
             this.radioButton_FilterStopBusiness.AutoSize = true;
-            this.radioButton_FilterStopBusiness.Location = new System.Drawing.Point(30, 66);
+            this.radioButton_FilterStopBusiness.Location = new System.Drawing.Point(30, 95);
             this.radioButton_FilterStopBusiness.Name = "radioButton_FilterStopBusiness";
             this.radioButton_FilterStopBusiness.Size = new System.Drawing.Size(164, 25);
             this.radioButton_FilterStopBusiness.TabIndex = 26;
@@ -193,7 +188,7 @@
             // comboBox_PriceTo
             // 
             this.comboBox_PriceTo.FormattingEnabled = true;
-            this.comboBox_PriceTo.Location = new System.Drawing.Point(870, 61);
+            this.comboBox_PriceTo.Location = new System.Drawing.Point(641, 61);
             this.comboBox_PriceTo.Name = "comboBox_PriceTo";
             this.comboBox_PriceTo.Size = new System.Drawing.Size(235, 29);
             this.comboBox_PriceTo.TabIndex = 25;
@@ -201,7 +196,7 @@
             // comboBox_PriceFrom
             // 
             this.comboBox_PriceFrom.FormattingEnabled = true;
-            this.comboBox_PriceFrom.Location = new System.Drawing.Point(870, 20);
+            this.comboBox_PriceFrom.Location = new System.Drawing.Point(641, 20);
             this.comboBox_PriceFrom.Name = "comboBox_PriceFrom";
             this.comboBox_PriceFrom.Size = new System.Drawing.Size(235, 29);
             this.comboBox_PriceFrom.TabIndex = 24;
@@ -209,7 +204,7 @@
             // lb_PriceTo
             // 
             this.lb_PriceTo.AutoSize = true;
-            this.lb_PriceTo.Location = new System.Drawing.Point(818, 64);
+            this.lb_PriceTo.Location = new System.Drawing.Point(589, 64);
             this.lb_PriceTo.Name = "lb_PriceTo";
             this.lb_PriceTo.Size = new System.Drawing.Size(46, 21);
             this.lb_PriceTo.TabIndex = 23;
@@ -218,7 +213,7 @@
             // lb_PriceFrom
             // 
             this.lb_PriceFrom.AutoSize = true;
-            this.lb_PriceFrom.Location = new System.Drawing.Point(803, 23);
+            this.lb_PriceFrom.Location = new System.Drawing.Point(574, 23);
             this.lb_PriceFrom.Name = "lb_PriceFrom";
             this.lb_PriceFrom.Size = new System.Drawing.Size(61, 21);
             this.lb_PriceFrom.TabIndex = 10;
@@ -226,18 +221,18 @@
             // 
             // btn_DefaultFilter
             // 
-            this.btn_DefaultFilter.Location = new System.Drawing.Point(609, 146);
+            this.btn_DefaultFilter.Location = new System.Drawing.Point(609, 124);
             this.btn_DefaultFilter.Name = "btn_DefaultFilter";
-            this.btn_DefaultFilter.Size = new System.Drawing.Size(100, 33);
+            this.btn_DefaultFilter.Size = new System.Drawing.Size(100, 55);
             this.btn_DefaultFilter.TabIndex = 9;
             this.btn_DefaultFilter.Text = "Mặc định";
             this.btn_DefaultFilter.UseVisualStyleBackColor = true;
             // 
             // btn_Filter
             // 
-            this.btn_Filter.Location = new System.Drawing.Point(479, 146);
+            this.btn_Filter.Location = new System.Drawing.Point(479, 124);
             this.btn_Filter.Name = "btn_Filter";
-            this.btn_Filter.Size = new System.Drawing.Size(100, 33);
+            this.btn_Filter.Size = new System.Drawing.Size(100, 55);
             this.btn_Filter.TabIndex = 8;
             this.btn_Filter.Text = "Lọc";
             this.btn_Filter.UseVisualStyleBackColor = true;
@@ -363,6 +358,7 @@
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.radioButton_OutOfStock);
             this.panel1.Controls.Add(this.radioButton_Stocking);
             this.panel1.Controls.Add(this.radioButton_StopBusiness);
             this.panel1.Controls.Add(this.lb_Status);
@@ -390,7 +386,7 @@
             // radioButton_Stocking
             // 
             this.radioButton_Stocking.AutoSize = true;
-            this.radioButton_Stocking.Location = new System.Drawing.Point(352, 280);
+            this.radioButton_Stocking.Location = new System.Drawing.Point(177, 282);
             this.radioButton_Stocking.Name = "radioButton_Stocking";
             this.radioButton_Stocking.Size = new System.Drawing.Size(100, 25);
             this.radioButton_Stocking.TabIndex = 24;
@@ -401,7 +397,7 @@
             // radioButton_StopBusiness
             // 
             this.radioButton_StopBusiness.AutoSize = true;
-            this.radioButton_StopBusiness.Location = new System.Drawing.Point(177, 280);
+            this.radioButton_StopBusiness.Location = new System.Drawing.Point(213, 309);
             this.radioButton_StopBusiness.Name = "radioButton_StopBusiness";
             this.radioButton_StopBusiness.Size = new System.Drawing.Size(164, 25);
             this.radioButton_StopBusiness.TabIndex = 23;
@@ -546,72 +542,6 @@
             this.lb_ProductName.TabIndex = 7;
             this.lb_ProductName.Text = "Tên sản phẩm:";
             // 
-            // listView1
-            // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ProductID,
-            this.ProductName,
-            this.BrandName,
-            this.ProductType,
-            this.PercentPromotion,
-            this.Price,
-            this.ImagePath,
-            this.Status,
-            this.Description});
-            this.listView1.GridLines = true;
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(500, 315);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(1177, 340);
-            this.listView1.TabIndex = 8;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // ProductID
-            // 
-            this.ProductID.Text = "Mã sản phẩm";
-            this.ProductID.Width = 114;
-            // 
-            // ProductName
-            // 
-            this.ProductName.Text = "Tên sản phẩm";
-            this.ProductName.Width = 140;
-            // 
-            // BrandName
-            // 
-            this.BrandName.Text = "Tên thương hiệu";
-            this.BrandName.Width = 141;
-            // 
-            // ProductType
-            // 
-            this.ProductType.Text = "Loại sản phẩm";
-            this.ProductType.Width = 131;
-            // 
-            // PercentPromotion
-            // 
-            this.PercentPromotion.Text = "Khuyến mãi";
-            this.PercentPromotion.Width = 135;
-            // 
-            // Price
-            // 
-            this.Price.Text = "Giá";
-            this.Price.Width = 74;
-            // 
-            // ImagePath
-            // 
-            this.ImagePath.Text = "Hình ảnh";
-            this.ImagePath.Width = 126;
-            // 
-            // Status
-            // 
-            this.Status.Text = "Tình trạng";
-            this.Status.Width = 129;
-            // 
-            // Description
-            // 
-            this.Description.Text = "Mô tả sản phẩm";
-            this.Description.Width = 151;
-            // 
             // menuStrip_Main
             // 
             this.menuStrip_Main.ImageScalingSize = new System.Drawing.Size(20, 20);
@@ -620,7 +550,7 @@
             this.thoátToolStripMenuItem});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
-            this.menuStrip_Main.Size = new System.Drawing.Size(1689, 28);
+            this.menuStrip_Main.Size = new System.Drawing.Size(1689, 30);
             this.menuStrip_Main.TabIndex = 9;
             this.menuStrip_Main.Text = "menuStrip1";
             // 
@@ -668,14 +598,46 @@
             this.txtBox_TotalProduct.Size = new System.Drawing.Size(98, 28);
             this.txtBox_TotalProduct.TabIndex = 22;
             // 
+            // radioButton_FilterOutOfStock
+            // 
+            this.radioButton_FilterOutOfStock.AutoSize = true;
+            this.radioButton_FilterOutOfStock.Location = new System.Drawing.Point(30, 64);
+            this.radioButton_FilterOutOfStock.Name = "radioButton_FilterOutOfStock";
+            this.radioButton_FilterOutOfStock.Size = new System.Drawing.Size(98, 25);
+            this.radioButton_FilterOutOfStock.TabIndex = 29;
+            this.radioButton_FilterOutOfStock.TabStop = true;
+            this.radioButton_FilterOutOfStock.Text = "Hết hàng";
+            this.radioButton_FilterOutOfStock.UseVisualStyleBackColor = true;
+            // 
+            // radioButton_OutOfStock
+            // 
+            this.radioButton_OutOfStock.AutoSize = true;
+            this.radioButton_OutOfStock.Location = new System.Drawing.Point(298, 282);
+            this.radioButton_OutOfStock.Name = "radioButton_OutOfStock";
+            this.radioButton_OutOfStock.Size = new System.Drawing.Size(98, 25);
+            this.radioButton_OutOfStock.TabIndex = 29;
+            this.radioButton_OutOfStock.TabStop = true;
+            this.radioButton_OutOfStock.Text = "Hết hàng";
+            this.radioButton_OutOfStock.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView_ProductList
+            // 
+            this.dataGridView_ProductList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_ProductList.Location = new System.Drawing.Point(500, 309);
+            this.dataGridView_ProductList.Name = "dataGridView_ProductList";
+            this.dataGridView_ProductList.RowHeadersWidth = 51;
+            this.dataGridView_ProductList.RowTemplate.Height = 24;
+            this.dataGridView_ProductList.Size = new System.Drawing.Size(1177, 347);
+            this.dataGridView_ProductList.TabIndex = 28;
+            // 
             // frmProduct
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1689, 668);
+            this.Controls.Add(this.dataGridView_ProductList);
             this.Controls.Add(this.txtBox_TotalProduct);
             this.Controls.Add(this.lb_TotalProduct);
-            this.Controls.Add(this.listView1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txtBox_Search);
@@ -698,6 +660,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown_PercentPromotion)).EndInit();
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -737,15 +700,6 @@
         private System.Windows.Forms.TextBox txtBox_ProductType;
         private System.Windows.Forms.TextBox txtBox_Price;
         private System.Windows.Forms.Button btn_UploadImage;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader ProductID;
-        private System.Windows.Forms.ColumnHeader ProductName;
-        private System.Windows.Forms.ColumnHeader BrandName;
-        private System.Windows.Forms.ColumnHeader ProductType;
-        private System.Windows.Forms.ColumnHeader PercentPromotion;
-        private System.Windows.Forms.ColumnHeader Price;
-        private System.Windows.Forms.ColumnHeader ImagePath;
-        private System.Windows.Forms.ColumnHeader Description;
         private System.Windows.Forms.MenuStrip menuStrip_Main;
         private System.Windows.Forms.ToolStripMenuItem quảnLýToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thươngHiệuToolStripMenuItem;
@@ -760,7 +714,6 @@
         private System.Windows.Forms.Label lb_Status;
         private System.Windows.Forms.RadioButton radioButton_Stocking;
         private System.Windows.Forms.RadioButton radioButton_StopBusiness;
-        private System.Windows.Forms.ColumnHeader Status;
         private System.Windows.Forms.GroupBox groupBox_Status;
         private System.Windows.Forms.RadioButton radioButton_FilterStocking;
         private System.Windows.Forms.RadioButton radioButton_FilterStopBusiness;
@@ -768,5 +721,8 @@
         private System.Windows.Forms.Label lb_FilterProductType;
         private System.Windows.Forms.ComboBox comboBox_FilterBrandName;
         private System.Windows.Forms.Label lb_FilterBrandName;
+        private System.Windows.Forms.RadioButton radioButton_FilterOutOfStock;
+        private System.Windows.Forms.RadioButton radioButton_OutOfStock;
+        private System.Windows.Forms.DataGridView dataGridView_ProductList;
     }
 }

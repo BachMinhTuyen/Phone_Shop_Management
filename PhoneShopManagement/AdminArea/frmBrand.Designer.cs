@@ -29,19 +29,17 @@
         private void InitializeComponent()
         {
             this.groupBox_Information = new System.Windows.Forms.GroupBox();
-            this.lb_BrandName = new System.Windows.Forms.Label();
-            this.lb_BrandID = new System.Windows.Forms.Label();
-            this.txtBox_BrandID = new System.Windows.Forms.TextBox();
-            this.txtBox_BrandName = new System.Windows.Forms.TextBox();
-            this.btn_Insert = new System.Windows.Forms.Button();
-            this.btn_Update = new System.Windows.Forms.Button();
-            this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Clear = new System.Windows.Forms.Button();
-            this.listView1 = new System.Windows.Forms.ListView();
-            this.BrandID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.BrandName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.NumberOfProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.btn_Delete = new System.Windows.Forms.Button();
+            this.btn_Update = new System.Windows.Forms.Button();
+            this.btn_Insert = new System.Windows.Forms.Button();
+            this.txtBox_BrandName = new System.Windows.Forms.TextBox();
+            this.txtBox_BrandID = new System.Windows.Forms.TextBox();
+            this.lb_BrandID = new System.Windows.Forms.Label();
+            this.lb_BrandName = new System.Windows.Forms.Label();
+            this.dataGridView_BrandList = new System.Windows.Forms.DataGridView();
             this.groupBox_Information.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BrandList)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox_Information
@@ -63,55 +61,14 @@
             this.groupBox_Information.TabStop = false;
             this.groupBox_Information.Text = "Thông tin thương hiệu";
             // 
-            // lb_BrandName
+            // btn_Clear
             // 
-            this.lb_BrandName.AutoSize = true;
-            this.lb_BrandName.Location = new System.Drawing.Point(28, 79);
-            this.lb_BrandName.Name = "lb_BrandName";
-            this.lb_BrandName.Size = new System.Drawing.Size(137, 21);
-            this.lb_BrandName.TabIndex = 0;
-            this.lb_BrandName.Text = "Tên thương hiệu:";
-            // 
-            // lb_BrandID
-            // 
-            this.lb_BrandID.AutoSize = true;
-            this.lb_BrandID.Location = new System.Drawing.Point(28, 41);
-            this.lb_BrandID.Name = "lb_BrandID";
-            this.lb_BrandID.Size = new System.Drawing.Size(131, 21);
-            this.lb_BrandID.TabIndex = 1;
-            this.lb_BrandID.Text = "Mã thương hiệu:";
-            // 
-            // txtBox_BrandID
-            // 
-            this.txtBox_BrandID.Location = new System.Drawing.Point(181, 38);
-            this.txtBox_BrandID.Name = "txtBox_BrandID";
-            this.txtBox_BrandID.Size = new System.Drawing.Size(280, 28);
-            this.txtBox_BrandID.TabIndex = 2;
-            // 
-            // txtBox_BrandName
-            // 
-            this.txtBox_BrandName.Location = new System.Drawing.Point(181, 76);
-            this.txtBox_BrandName.Name = "txtBox_BrandName";
-            this.txtBox_BrandName.Size = new System.Drawing.Size(280, 28);
-            this.txtBox_BrandName.TabIndex = 3;
-            // 
-            // btn_Insert
-            // 
-            this.btn_Insert.Location = new System.Drawing.Point(32, 129);
-            this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(83, 33);
-            this.btn_Insert.TabIndex = 4;
-            this.btn_Insert.Text = "Thêm";
-            this.btn_Insert.UseVisualStyleBackColor = true;
-            // 
-            // btn_Update
-            // 
-            this.btn_Update.Location = new System.Drawing.Point(144, 129);
-            this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(83, 33);
-            this.btn_Update.TabIndex = 5;
-            this.btn_Update.Text = "Sửa";
-            this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Clear.Location = new System.Drawing.Point(378, 129);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(83, 33);
+            this.btn_Clear.TabIndex = 7;
+            this.btn_Clear.Text = "Làm mới";
+            this.btn_Clear.UseVisualStyleBackColor = true;
             // 
             // btn_Delete
             // 
@@ -122,50 +79,72 @@
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
             // 
-            // btn_Clear
+            // btn_Update
             // 
-            this.btn_Clear.Location = new System.Drawing.Point(378, 129);
-            this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(83, 33);
-            this.btn_Clear.TabIndex = 7;
-            this.btn_Clear.Text = "Làm mới";
-            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Update.Location = new System.Drawing.Point(144, 129);
+            this.btn_Update.Name = "btn_Update";
+            this.btn_Update.Size = new System.Drawing.Size(83, 33);
+            this.btn_Update.TabIndex = 5;
+            this.btn_Update.Text = "Sửa";
+            this.btn_Update.UseVisualStyleBackColor = true;
             // 
-            // listView1
+            // btn_Insert
             // 
-            this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.BrandID,
-            this.BrandName,
-            this.NumberOfProduct});
-            this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(12, 223);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(508, 270);
-            this.listView1.TabIndex = 1;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            this.listView1.View = System.Windows.Forms.View.Details;
+            this.btn_Insert.Location = new System.Drawing.Point(32, 129);
+            this.btn_Insert.Name = "btn_Insert";
+            this.btn_Insert.Size = new System.Drawing.Size(83, 33);
+            this.btn_Insert.TabIndex = 4;
+            this.btn_Insert.Text = "Thêm";
+            this.btn_Insert.UseVisualStyleBackColor = true;
             // 
-            // BrandID
+            // txtBox_BrandName
             // 
-            this.BrandID.Text = "Mã thương hiệu";
-            this.BrandID.Width = 142;
+            this.txtBox_BrandName.Location = new System.Drawing.Point(181, 76);
+            this.txtBox_BrandName.Name = "txtBox_BrandName";
+            this.txtBox_BrandName.Size = new System.Drawing.Size(280, 28);
+            this.txtBox_BrandName.TabIndex = 3;
             // 
-            // BrandName
+            // txtBox_BrandID
             // 
-            this.BrandName.Text = "Tên thương hiệu";
-            this.BrandName.Width = 157;
+            this.txtBox_BrandID.Location = new System.Drawing.Point(181, 38);
+            this.txtBox_BrandID.Name = "txtBox_BrandID";
+            this.txtBox_BrandID.Size = new System.Drawing.Size(280, 28);
+            this.txtBox_BrandID.TabIndex = 2;
             // 
-            // NumberOfProduct
+            // lb_BrandID
             // 
-            this.NumberOfProduct.Text = "Số lượng sản phẩm";
-            this.NumberOfProduct.Width = 174;
+            this.lb_BrandID.AutoSize = true;
+            this.lb_BrandID.Location = new System.Drawing.Point(28, 41);
+            this.lb_BrandID.Name = "lb_BrandID";
+            this.lb_BrandID.Size = new System.Drawing.Size(131, 21);
+            this.lb_BrandID.TabIndex = 1;
+            this.lb_BrandID.Text = "Mã thương hiệu:";
+            // 
+            // lb_BrandName
+            // 
+            this.lb_BrandName.AutoSize = true;
+            this.lb_BrandName.Location = new System.Drawing.Point(28, 79);
+            this.lb_BrandName.Name = "lb_BrandName";
+            this.lb_BrandName.Size = new System.Drawing.Size(137, 21);
+            this.lb_BrandName.TabIndex = 0;
+            this.lb_BrandName.Text = "Tên thương hiệu:";
+            // 
+            // dataGridView_BrandList
+            // 
+            this.dataGridView_BrandList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_BrandList.Location = new System.Drawing.Point(13, 221);
+            this.dataGridView_BrandList.Name = "dataGridView_BrandList";
+            this.dataGridView_BrandList.RowHeadersWidth = 51;
+            this.dataGridView_BrandList.RowTemplate.Height = 24;
+            this.dataGridView_BrandList.Size = new System.Drawing.Size(507, 273);
+            this.dataGridView_BrandList.TabIndex = 1;
             // 
             // frmBrand
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(532, 506);
-            this.Controls.Add(this.listView1);
+            this.Controls.Add(this.dataGridView_BrandList);
             this.Controls.Add(this.groupBox_Information);
             this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -173,6 +152,7 @@
             this.Text = "Quản lý thương hiệu";
             this.groupBox_Information.ResumeLayout(false);
             this.groupBox_Information.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BrandList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -188,9 +168,6 @@
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Button btn_Delete;
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ColumnHeader BrandID;
-        private System.Windows.Forms.ColumnHeader BrandName;
-        private System.Windows.Forms.ColumnHeader NumberOfProduct;
+        private System.Windows.Forms.DataGridView dataGridView_BrandList;
     }
 }

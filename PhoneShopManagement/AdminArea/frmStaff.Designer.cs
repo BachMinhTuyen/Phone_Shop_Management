@@ -44,14 +44,6 @@
             this.lb_Position = new System.Windows.Forms.Label();
             this.lb_StaffName = new System.Windows.Forms.Label();
             this.lb_StaffID = new System.Windows.Forms.Label();
-            this.listView_Staff = new System.Windows.Forms.ListView();
-            this.StaffID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.StaffName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Position = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.DateOfBirth = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.PhoneNumber = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.EmailAddress = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.Address = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lb_Search = new System.Windows.Forms.Label();
             this.txtBox_Search = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
@@ -72,9 +64,11 @@
             this.btn_Insert = new System.Windows.Forms.Button();
             this.txtBox_TotalStaff = new System.Windows.Forms.TextBox();
             this.lb_TotalStaff = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel_Information.SuspendLayout();
             this.panel_Filter.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Information
@@ -227,63 +221,10 @@
             this.lb_StaffID.TabIndex = 6;
             this.lb_StaffID.Text = "Mã nhân viên:";
             // 
-            // listView_Staff
-            // 
-            this.listView_Staff.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.StaffID,
-            this.StaffName,
-            this.Position,
-            this.DateOfBirth,
-            this.PhoneNumber,
-            this.EmailAddress,
-            this.Address});
-            this.listView_Staff.HideSelection = false;
-            this.listView_Staff.Location = new System.Drawing.Point(527, 113);
-            this.listView_Staff.Name = "listView_Staff";
-            this.listView_Staff.Size = new System.Drawing.Size(1094, 531);
-            this.listView_Staff.TabIndex = 9;
-            this.listView_Staff.UseCompatibleStateImageBehavior = false;
-            this.listView_Staff.View = System.Windows.Forms.View.Details;
-            // 
-            // StaffID
-            // 
-            this.StaffID.Text = "Mã nhân viên";
-            this.StaffID.Width = 114;
-            // 
-            // StaffName
-            // 
-            this.StaffName.Text = "Tên nhân viên";
-            this.StaffName.Width = 175;
-            // 
-            // Position
-            // 
-            this.Position.Text = "Chức vụ";
-            this.Position.Width = 94;
-            // 
-            // DateOfBirth
-            // 
-            this.DateOfBirth.Text = "Ngày sinh";
-            this.DateOfBirth.Width = 121;
-            // 
-            // PhoneNumber
-            // 
-            this.PhoneNumber.Text = "Số điện thoại";
-            this.PhoneNumber.Width = 161;
-            // 
-            // EmailAddress
-            // 
-            this.EmailAddress.Text = "Email";
-            this.EmailAddress.Width = 179;
-            // 
-            // Address
-            // 
-            this.Address.Text = "Địa chỉ";
-            this.Address.Width = 190;
-            // 
             // lb_Search
             // 
             this.lb_Search.AutoSize = true;
-            this.lb_Search.Location = new System.Drawing.Point(560, 74);
+            this.lb_Search.Location = new System.Drawing.Point(557, 37);
             this.lb_Search.Name = "lb_Search";
             this.lb_Search.Size = new System.Drawing.Size(160, 21);
             this.lb_Search.TabIndex = 31;
@@ -291,14 +232,14 @@
             // 
             // txtBox_Search
             // 
-            this.txtBox_Search.Location = new System.Drawing.Point(739, 71);
+            this.txtBox_Search.Location = new System.Drawing.Point(736, 34);
             this.txtBox_Search.Name = "txtBox_Search";
             this.txtBox_Search.Size = new System.Drawing.Size(281, 28);
             this.txtBox_Search.TabIndex = 31;
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(1048, 70);
+            this.btn_Search.Location = new System.Drawing.Point(1045, 33);
             this.btn_Search.Name = "btn_Search";
             this.btn_Search.Size = new System.Drawing.Size(112, 28);
             this.btn_Search.TabIndex = 32;
@@ -456,7 +397,7 @@
             // 
             // txtBox_TotalStaff
             // 
-            this.txtBox_TotalStaff.Location = new System.Drawing.Point(1471, 71);
+            this.txtBox_TotalStaff.Location = new System.Drawing.Point(1468, 34);
             this.txtBox_TotalStaff.Name = "txtBox_TotalStaff";
             this.txtBox_TotalStaff.ReadOnly = true;
             this.txtBox_TotalStaff.Size = new System.Drawing.Size(98, 28);
@@ -465,11 +406,21 @@
             // lb_TotalStaff
             // 
             this.lb_TotalStaff.AutoSize = true;
-            this.lb_TotalStaff.Location = new System.Drawing.Point(1335, 74);
+            this.lb_TotalStaff.Location = new System.Drawing.Point(1332, 37);
             this.lb_TotalStaff.Name = "lb_TotalStaff";
             this.lb_TotalStaff.Size = new System.Drawing.Size(129, 21);
             this.lb_TotalStaff.TabIndex = 40;
             this.lb_TotalStaff.Text = "Tổng nhân viên:";
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(526, 90);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.RowTemplate.Height = 24;
+            this.dataGridView1.Size = new System.Drawing.Size(1094, 554);
+            this.dataGridView1.TabIndex = 41;
             // 
             // frmStaff
             // 
@@ -477,6 +428,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(1632, 669);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.txtBox_TotalStaff);
             this.Controls.Add(this.lb_TotalStaff);
             this.Controls.Add(this.groupBox_Operation);
@@ -484,7 +436,6 @@
             this.Controls.Add(this.btn_Search);
             this.Controls.Add(this.txtBox_Search);
             this.Controls.Add(this.lb_Search);
-            this.Controls.Add(this.listView_Staff);
             this.Controls.Add(this.panel_Information);
             this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
@@ -495,6 +446,7 @@
             this.panel_Filter.ResumeLayout(false);
             this.panel_Filter.PerformLayout();
             this.groupBox_Operation.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -518,14 +470,6 @@
         private System.Windows.Forms.Label lb_Address;
         private System.Windows.Forms.TextBox txtBox_Email;
         private System.Windows.Forms.TextBox txtBox_Address;
-        private System.Windows.Forms.ListView listView_Staff;
-        private System.Windows.Forms.ColumnHeader StaffID;
-        private System.Windows.Forms.ColumnHeader StaffName;
-        private System.Windows.Forms.ColumnHeader Position;
-        private System.Windows.Forms.ColumnHeader DateOfBirth;
-        private System.Windows.Forms.ColumnHeader PhoneNumber;
-        private System.Windows.Forms.ColumnHeader EmailAddress;
-        private System.Windows.Forms.ColumnHeader Address;
         private System.Windows.Forms.Label lb_Search;
         private System.Windows.Forms.TextBox txtBox_Search;
         private System.Windows.Forms.Button btn_Search;
@@ -546,5 +490,6 @@
         private System.Windows.Forms.Button btn_Insert;
         private System.Windows.Forms.TextBox txtBox_TotalStaff;
         private System.Windows.Forms.Label lb_TotalStaff;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }
