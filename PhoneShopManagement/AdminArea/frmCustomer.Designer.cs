@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.txtBox_TotalStaff = new System.Windows.Forms.TextBox();
-            this.lb_TotalStaff = new System.Windows.Forms.Label();
+            this.lb_TotalCustomer = new System.Windows.Forms.Label();
             this.groupBox_Operation = new System.Windows.Forms.GroupBox();
             this.btn_Clear = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
@@ -73,14 +73,14 @@
             this.txtBox_TotalStaff.Size = new System.Drawing.Size(98, 28);
             this.txtBox_TotalStaff.TabIndex = 48;
             // 
-            // lb_TotalStaff
+            // lb_TotalCustomer
             // 
-            this.lb_TotalStaff.AutoSize = true;
-            this.lb_TotalStaff.Location = new System.Drawing.Point(1312, 139);
-            this.lb_TotalStaff.Name = "lb_TotalStaff";
-            this.lb_TotalStaff.Size = new System.Drawing.Size(129, 21);
-            this.lb_TotalStaff.TabIndex = 49;
-            this.lb_TotalStaff.Text = "Tổng nhân viên:";
+            this.lb_TotalCustomer.AutoSize = true;
+            this.lb_TotalCustomer.Location = new System.Drawing.Point(1312, 139);
+            this.lb_TotalCustomer.Name = "lb_TotalCustomer";
+            this.lb_TotalCustomer.Size = new System.Drawing.Size(142, 21);
+            this.lb_TotalCustomer.TabIndex = 49;
+            this.lb_TotalCustomer.Text = "Tổng khách hàng:";
             // 
             // groupBox_Operation
             // 
@@ -218,9 +218,9 @@
             this.lb_Search.AutoSize = true;
             this.lb_Search.Location = new System.Drawing.Point(998, 49);
             this.lb_Search.Name = "lb_Search";
-            this.lb_Search.Size = new System.Drawing.Size(160, 21);
+            this.lb_Search.Size = new System.Drawing.Size(202, 21);
             this.lb_Search.TabIndex = 44;
-            this.lb_Search.Text = "Tìm kiếm nhân viên:";
+            this.lb_Search.Text = "Tìm kiếm tên khách hàng:";
             // 
             // panel_Information
             // 
@@ -356,7 +356,7 @@
             this.ClientSize = new System.Drawing.Size(1569, 548);
             this.Controls.Add(this.dataGridView_CustomerList);
             this.Controls.Add(this.txtBox_TotalStaff);
-            this.Controls.Add(this.lb_TotalStaff);
+            this.Controls.Add(this.lb_TotalCustomer);
             this.Controls.Add(this.groupBox_Operation);
             this.Controls.Add(this.panel_Filter);
             this.Controls.Add(this.btn_Search);
@@ -381,7 +381,7 @@
         #endregion
 
         private System.Windows.Forms.TextBox txtBox_TotalStaff;
-        private System.Windows.Forms.Label lb_TotalStaff;
+        private System.Windows.Forms.Label lb_TotalCustomer;
         private System.Windows.Forms.GroupBox groupBox_Operation;
         private System.Windows.Forms.Button btn_Clear;
         private System.Windows.Forms.Button btn_Delete;

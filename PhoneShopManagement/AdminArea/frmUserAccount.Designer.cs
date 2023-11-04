@@ -43,10 +43,11 @@
             this.lb_TotalAdminAccount = new System.Windows.Forms.Label();
             this.lb_TotalAll = new System.Windows.Forms.Label();
             this.groupBox_Operation = new System.Windows.Forms.GroupBox();
-            this.btn_Clear = new System.Windows.Forms.Button();
+            this.btn_ChangeRole = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Reset = new System.Windows.Forms.Button();
             this.btn_Insert = new System.Windows.Forms.Button();
+            this.btn_Clear = new System.Windows.Forms.Button();
             this.panel_Information = new System.Windows.Forms.Panel();
             this.txtBox_ConfirmPassword = new System.Windows.Forms.TextBox();
             this.txtBox_Password = new System.Windows.Forms.TextBox();
@@ -187,7 +188,7 @@
             // 
             // groupBox_Operation
             // 
-            this.groupBox_Operation.Controls.Add(this.btn_Clear);
+            this.groupBox_Operation.Controls.Add(this.btn_ChangeRole);
             this.groupBox_Operation.Controls.Add(this.btn_Delete);
             this.groupBox_Operation.Controls.Add(this.btn_Reset);
             this.groupBox_Operation.Controls.Add(this.btn_Insert);
@@ -198,18 +199,18 @@
             this.groupBox_Operation.TabStop = false;
             this.groupBox_Operation.Text = "Thao tác";
             // 
-            // btn_Clear
+            // btn_ChangeRole
             // 
-            this.btn_Clear.Location = new System.Drawing.Point(338, 35);
-            this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(94, 35);
-            this.btn_Clear.TabIndex = 3;
-            this.btn_Clear.Text = "Làm mới";
-            this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_ChangeRole.Location = new System.Drawing.Point(114, 35);
+            this.btn_ChangeRole.Name = "btn_ChangeRole";
+            this.btn_ChangeRole.Size = new System.Drawing.Size(106, 35);
+            this.btn_ChangeRole.TabIndex = 3;
+            this.btn_ChangeRole.Text = "Đổi vai trò";
+            this.btn_ChangeRole.UseVisualStyleBackColor = true;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(231, 35);
+            this.btn_Delete.Location = new System.Drawing.Point(338, 35);
             this.btn_Delete.Name = "btn_Delete";
             this.btn_Delete.Size = new System.Drawing.Size(94, 35);
             this.btn_Delete.TabIndex = 2;
@@ -218,7 +219,7 @@
             // 
             // btn_Reset
             // 
-            this.btn_Reset.Location = new System.Drawing.Point(123, 35);
+            this.btn_Reset.Location = new System.Drawing.Point(232, 35);
             this.btn_Reset.Name = "btn_Reset";
             this.btn_Reset.Size = new System.Drawing.Size(94, 35);
             this.btn_Reset.TabIndex = 1;
@@ -229,10 +230,19 @@
             // 
             this.btn_Insert.Location = new System.Drawing.Point(14, 35);
             this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(94, 35);
+            this.btn_Insert.Size = new System.Drawing.Size(90, 35);
             this.btn_Insert.TabIndex = 0;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
+            // 
+            // btn_Clear
+            // 
+            this.btn_Clear.Location = new System.Drawing.Point(545, 47);
+            this.btn_Clear.Name = "btn_Clear";
+            this.btn_Clear.Size = new System.Drawing.Size(178, 35);
+            this.btn_Clear.TabIndex = 3;
+            this.btn_Clear.Text = "Làm mới";
+            this.btn_Clear.UseVisualStyleBackColor = true;
             // 
             // panel_Information
             // 
@@ -344,6 +354,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(888, 664);
+            this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.dataGridView_AccountList);
             this.Controls.Add(this.panel_Information);
             this.Controls.Add(this.groupBox_Operation);
@@ -401,5 +412,6 @@
         private System.Windows.Forms.TextBox txtBox_ConfirmPassword;
         private System.Windows.Forms.TextBox txtBox_Password;
         private System.Windows.Forms.DataGridView dataGridView_AccountList;
+        private System.Windows.Forms.Button btn_ChangeRole;
     }
 }
