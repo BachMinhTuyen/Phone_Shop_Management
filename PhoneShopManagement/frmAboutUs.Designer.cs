@@ -88,7 +88,7 @@
             // lb_ThirdName
             // 
             this.lb_ThirdName.AutoSize = true;
-            this.lb_ThirdName.Location = new System.Drawing.Point(179, 165);
+            this.lb_ThirdName.Location = new System.Drawing.Point(179, 164);
             this.lb_ThirdName.Name = "lb_ThirdName";
             this.lb_ThirdName.Size = new System.Drawing.Size(233, 21);
             this.lb_ThirdName.TabIndex = 5;
@@ -98,7 +98,7 @@
             // 
             this.lb_Tools.AutoSize = true;
             this.lb_Tools.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lb_Tools.Location = new System.Drawing.Point(42, 221);
+            this.lb_Tools.Location = new System.Drawing.Point(42, 220);
             this.lb_Tools.Name = "lb_Tools";
             this.lb_Tools.Size = new System.Drawing.Size(85, 21);
             this.lb_Tools.TabIndex = 6;
@@ -107,7 +107,7 @@
             // lb_ToolName
             // 
             this.lb_ToolName.AutoSize = true;
-            this.lb_ToolName.Location = new System.Drawing.Point(179, 221);
+            this.lb_ToolName.Location = new System.Drawing.Point(179, 220);
             this.lb_ToolName.Name = "lb_ToolName";
             this.lb_ToolName.Size = new System.Drawing.Size(305, 21);
             this.lb_ToolName.TabIndex = 7;

@@ -47,10 +47,6 @@
             this.lb_Search = new System.Windows.Forms.Label();
             this.txtBox_Search = new System.Windows.Forms.TextBox();
             this.btn_Search = new System.Windows.Forms.Button();
-            this.comboBox_ColumnStaff = new System.Windows.Forms.ComboBox();
-            this.lb_By = new System.Windows.Forms.Label();
-            this.comboBox_SortMethod = new System.Windows.Forms.ComboBox();
-            this.lb_Sort = new System.Windows.Forms.Label();
             this.panel_Filter = new System.Windows.Forms.Panel();
             this.radioButton_FilterStaff = new System.Windows.Forms.RadioButton();
             this.btn_DefaultFilter = new System.Windows.Forms.Button();
@@ -64,16 +60,15 @@
             this.btn_Insert = new System.Windows.Forms.Button();
             this.txtBox_TotalStaff = new System.Windows.Forms.TextBox();
             this.lb_TotalStaff = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView_StaffList = new System.Windows.Forms.DataGridView();
             this.panel_Information.SuspendLayout();
             this.panel_Filter.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_StaffList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel_Information
             // 
-            this.panel_Information.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel_Information.Controls.Add(this.txtBox_Address);
             this.panel_Information.Controls.Add(this.lb_Address);
             this.panel_Information.Controls.Add(this.txtBox_Email);
@@ -89,47 +84,53 @@
             this.panel_Information.Controls.Add(this.lb_Position);
             this.panel_Information.Controls.Add(this.lb_StaffName);
             this.panel_Information.Controls.Add(this.lb_StaffID);
-            this.panel_Information.Location = new System.Drawing.Point(12, 12);
+            this.panel_Information.Location = new System.Drawing.Point(10, 10);
+            this.panel_Information.Margin = new System.Windows.Forms.Padding(2);
             this.panel_Information.Name = "panel_Information";
-            this.panel_Information.Size = new System.Drawing.Size(496, 293);
+            this.panel_Information.Size = new System.Drawing.Size(441, 252);
             this.panel_Information.TabIndex = 8;
             // 
             // txtBox_Address
             // 
-            this.txtBox_Address.Location = new System.Drawing.Point(177, 241);
+            this.txtBox_Address.Location = new System.Drawing.Point(158, 207);
+            this.txtBox_Address.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_Address.Name = "txtBox_Address";
-            this.txtBox_Address.Size = new System.Drawing.Size(294, 28);
+            this.txtBox_Address.Size = new System.Drawing.Size(262, 26);
             this.txtBox_Address.TabIndex = 30;
             // 
             // lb_Address
             // 
             this.lb_Address.AutoSize = true;
-            this.lb_Address.Location = new System.Drawing.Point(19, 244);
+            this.lb_Address.Location = new System.Drawing.Point(17, 209);
+            this.lb_Address.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Address.Name = "lb_Address";
-            this.lb_Address.Size = new System.Drawing.Size(67, 21);
+            this.lb_Address.Size = new System.Drawing.Size(55, 18);
             this.lb_Address.TabIndex = 29;
             this.lb_Address.Text = "Địa chỉ:";
             // 
             // txtBox_Email
             // 
-            this.txtBox_Email.Location = new System.Drawing.Point(177, 204);
+            this.txtBox_Email.Location = new System.Drawing.Point(158, 174);
+            this.txtBox_Email.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_Email.Name = "txtBox_Email";
-            this.txtBox_Email.Size = new System.Drawing.Size(294, 28);
+            this.txtBox_Email.Size = new System.Drawing.Size(262, 26);
             this.txtBox_Email.TabIndex = 28;
             // 
             // dateTimePicker_DateOfBirth
             // 
-            this.dateTimePicker_DateOfBirth.Location = new System.Drawing.Point(177, 130);
+            this.dateTimePicker_DateOfBirth.Location = new System.Drawing.Point(158, 111);
+            this.dateTimePicker_DateOfBirth.Margin = new System.Windows.Forms.Padding(2);
             this.dateTimePicker_DateOfBirth.Name = "dateTimePicker_DateOfBirth";
-            this.dateTimePicker_DateOfBirth.Size = new System.Drawing.Size(294, 28);
+            this.dateTimePicker_DateOfBirth.Size = new System.Drawing.Size(262, 26);
             this.dateTimePicker_DateOfBirth.TabIndex = 27;
             // 
             // radioButton_Staff
             // 
             this.radioButton_Staff.AutoSize = true;
-            this.radioButton_Staff.Location = new System.Drawing.Point(339, 98);
+            this.radioButton_Staff.Location = new System.Drawing.Point(302, 84);
+            this.radioButton_Staff.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Staff.Name = "radioButton_Staff";
-            this.radioButton_Staff.Size = new System.Drawing.Size(104, 25);
+            this.radioButton_Staff.Size = new System.Drawing.Size(94, 22);
             this.radioButton_Staff.TabIndex = 26;
             this.radioButton_Staff.TabStop = true;
             this.radioButton_Staff.Text = "Nhân viên";
@@ -138,9 +139,10 @@
             // radioButton_Manager
             // 
             this.radioButton_Manager.AutoSize = true;
-            this.radioButton_Manager.Location = new System.Drawing.Point(208, 98);
+            this.radioButton_Manager.Location = new System.Drawing.Point(185, 84);
+            this.radioButton_Manager.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_Manager.Name = "radioButton_Manager";
-            this.radioButton_Manager.Size = new System.Drawing.Size(87, 25);
+            this.radioButton_Manager.Size = new System.Drawing.Size(79, 22);
             this.radioButton_Manager.TabIndex = 25;
             this.radioButton_Manager.TabStop = true;
             this.radioButton_Manager.Text = "Quản lý";
@@ -148,137 +150,116 @@
             // 
             // txtBox_PhoneNumber
             // 
-            this.txtBox_PhoneNumber.Location = new System.Drawing.Point(177, 169);
+            this.txtBox_PhoneNumber.Location = new System.Drawing.Point(158, 145);
+            this.txtBox_PhoneNumber.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_PhoneNumber.Name = "txtBox_PhoneNumber";
-            this.txtBox_PhoneNumber.Size = new System.Drawing.Size(294, 28);
+            this.txtBox_PhoneNumber.Size = new System.Drawing.Size(262, 26);
             this.txtBox_PhoneNumber.TabIndex = 20;
             // 
             // txtBox_StaffName
             // 
-            this.txtBox_StaffName.Location = new System.Drawing.Point(177, 58);
+            this.txtBox_StaffName.Location = new System.Drawing.Point(158, 50);
+            this.txtBox_StaffName.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_StaffName.Name = "txtBox_StaffName";
-            this.txtBox_StaffName.Size = new System.Drawing.Size(294, 28);
+            this.txtBox_StaffName.Size = new System.Drawing.Size(262, 26);
             this.txtBox_StaffName.TabIndex = 17;
             // 
             // txtBox_StaffID
             // 
-            this.txtBox_StaffID.Location = new System.Drawing.Point(177, 21);
+            this.txtBox_StaffID.Location = new System.Drawing.Point(158, 18);
+            this.txtBox_StaffID.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_StaffID.Name = "txtBox_StaffID";
-            this.txtBox_StaffID.Size = new System.Drawing.Size(294, 28);
+            this.txtBox_StaffID.Size = new System.Drawing.Size(262, 26);
             this.txtBox_StaffID.TabIndex = 16;
             // 
             // lb_Email
             // 
             this.lb_Email.AutoSize = true;
-            this.lb_Email.Location = new System.Drawing.Point(19, 207);
+            this.lb_Email.Location = new System.Drawing.Point(17, 178);
+            this.lb_Email.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Email.Name = "lb_Email";
-            this.lb_Email.Size = new System.Drawing.Size(57, 21);
+            this.lb_Email.Size = new System.Drawing.Size(46, 18);
             this.lb_Email.TabIndex = 12;
             this.lb_Email.Text = "Email:";
             // 
             // lb_PhoneNumber
             // 
             this.lb_PhoneNumber.AutoSize = true;
-            this.lb_PhoneNumber.Location = new System.Drawing.Point(19, 172);
+            this.lb_PhoneNumber.Location = new System.Drawing.Point(17, 147);
+            this.lb_PhoneNumber.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_PhoneNumber.Name = "lb_PhoneNumber";
-            this.lb_PhoneNumber.Size = new System.Drawing.Size(113, 21);
+            this.lb_PhoneNumber.Size = new System.Drawing.Size(97, 18);
             this.lb_PhoneNumber.TabIndex = 10;
             this.lb_PhoneNumber.Text = "Số điện thoại:";
             // 
             // lb_DateOfBirth
             // 
             this.lb_DateOfBirth.AutoSize = true;
-            this.lb_DateOfBirth.Location = new System.Drawing.Point(19, 136);
+            this.lb_DateOfBirth.Location = new System.Drawing.Point(17, 117);
+            this.lb_DateOfBirth.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_DateOfBirth.Name = "lb_DateOfBirth";
-            this.lb_DateOfBirth.Size = new System.Drawing.Size(88, 21);
+            this.lb_DateOfBirth.Size = new System.Drawing.Size(77, 18);
             this.lb_DateOfBirth.TabIndex = 9;
             this.lb_DateOfBirth.Text = "Ngày sinh:";
             // 
             // lb_Position
             // 
             this.lb_Position.AutoSize = true;
-            this.lb_Position.Location = new System.Drawing.Point(17, 100);
+            this.lb_Position.Location = new System.Drawing.Point(15, 86);
+            this.lb_Position.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Position.Name = "lb_Position";
-            this.lb_Position.Size = new System.Drawing.Size(75, 21);
+            this.lb_Position.Size = new System.Drawing.Size(67, 18);
             this.lb_Position.TabIndex = 8;
             this.lb_Position.Text = "Chức vụ:";
             // 
             // lb_StaffName
             // 
             this.lb_StaffName.AutoSize = true;
-            this.lb_StaffName.Location = new System.Drawing.Point(17, 61);
+            this.lb_StaffName.Location = new System.Drawing.Point(15, 52);
+            this.lb_StaffName.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_StaffName.Name = "lb_StaffName";
-            this.lb_StaffName.Size = new System.Drawing.Size(120, 21);
+            this.lb_StaffName.Size = new System.Drawing.Size(107, 18);
             this.lb_StaffName.TabIndex = 7;
             this.lb_StaffName.Text = "Tên nhân viên:";
             // 
             // lb_StaffID
             // 
             this.lb_StaffID.AutoSize = true;
-            this.lb_StaffID.Location = new System.Drawing.Point(17, 24);
+            this.lb_StaffID.Location = new System.Drawing.Point(15, 20);
+            this.lb_StaffID.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_StaffID.Name = "lb_StaffID";
-            this.lb_StaffID.Size = new System.Drawing.Size(114, 21);
+            this.lb_StaffID.Size = new System.Drawing.Size(101, 18);
             this.lb_StaffID.TabIndex = 6;
             this.lb_StaffID.Text = "Mã nhân viên:";
             // 
             // lb_Search
             // 
             this.lb_Search.AutoSize = true;
-            this.lb_Search.Location = new System.Drawing.Point(557, 37);
+            this.lb_Search.Location = new System.Drawing.Point(474, 31);
+            this.lb_Search.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_Search.Name = "lb_Search";
-            this.lb_Search.Size = new System.Drawing.Size(160, 21);
+            this.lb_Search.Size = new System.Drawing.Size(167, 18);
             this.lb_Search.TabIndex = 31;
-            this.lb_Search.Text = "Tìm kiếm nhân viên:";
+            this.lb_Search.Text = "Tìm kiếm tên nhân viên:";
             // 
             // txtBox_Search
             // 
-            this.txtBox_Search.Location = new System.Drawing.Point(736, 34);
+            this.txtBox_Search.Location = new System.Drawing.Point(654, 29);
+            this.txtBox_Search.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_Search.Name = "txtBox_Search";
-            this.txtBox_Search.Size = new System.Drawing.Size(281, 28);
+            this.txtBox_Search.Size = new System.Drawing.Size(250, 26);
             this.txtBox_Search.TabIndex = 31;
             // 
             // btn_Search
             // 
-            this.btn_Search.Location = new System.Drawing.Point(1045, 33);
+            this.btn_Search.Location = new System.Drawing.Point(922, 29);
+            this.btn_Search.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Search.Name = "btn_Search";
-            this.btn_Search.Size = new System.Drawing.Size(112, 28);
+            this.btn_Search.Size = new System.Drawing.Size(99, 24);
             this.btn_Search.TabIndex = 32;
             this.btn_Search.Text = "Tìm kiếm";
             this.btn_Search.UseVisualStyleBackColor = true;
-            // 
-            // comboBox_ColumnStaff
-            // 
-            this.comboBox_ColumnStaff.FormattingEnabled = true;
-            this.comboBox_ColumnStaff.Location = new System.Drawing.Point(314, 22);
-            this.comboBox_ColumnStaff.Name = "comboBox_ColumnStaff";
-            this.comboBox_ColumnStaff.Size = new System.Drawing.Size(129, 29);
-            this.comboBox_ColumnStaff.TabIndex = 36;
-            // 
-            // lb_By
-            // 
-            this.lb_By.AutoSize = true;
-            this.lb_By.Location = new System.Drawing.Point(255, 25);
-            this.lb_By.Name = "lb_By";
-            this.lb_By.Size = new System.Drawing.Size(43, 21);
-            this.lb_By.TabIndex = 35;
-            this.lb_By.Text = "theo";
-            // 
-            // comboBox_SortMethod
-            // 
-            this.comboBox_SortMethod.FormattingEnabled = true;
-            this.comboBox_SortMethod.Location = new System.Drawing.Point(129, 22);
-            this.comboBox_SortMethod.Name = "comboBox_SortMethod";
-            this.comboBox_SortMethod.Size = new System.Drawing.Size(109, 29);
-            this.comboBox_SortMethod.TabIndex = 34;
-            // 
-            // lb_Sort
-            // 
-            this.lb_Sort.AutoSize = true;
-            this.lb_Sort.Location = new System.Drawing.Point(34, 25);
-            this.lb_Sort.Name = "lb_Sort";
-            this.lb_Sort.Size = new System.Drawing.Size(74, 21);
-            this.lb_Sort.TabIndex = 33;
-            this.lb_Sort.Text = "Sắp xếp:";
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // panel_Filter
             // 
@@ -288,21 +269,19 @@
             this.panel_Filter.Controls.Add(this.radioButton_FilterManager);
             this.panel_Filter.Controls.Add(this.lb_FilterPosition);
             this.panel_Filter.Controls.Add(this.btn_Filter);
-            this.panel_Filter.Controls.Add(this.comboBox_ColumnStaff);
-            this.panel_Filter.Controls.Add(this.lb_Sort);
-            this.panel_Filter.Controls.Add(this.lb_By);
-            this.panel_Filter.Controls.Add(this.comboBox_SortMethod);
-            this.panel_Filter.Location = new System.Drawing.Point(12, 470);
+            this.panel_Filter.Location = new System.Drawing.Point(66, 421);
+            this.panel_Filter.Margin = new System.Windows.Forms.Padding(2);
             this.panel_Filter.Name = "panel_Filter";
-            this.panel_Filter.Size = new System.Drawing.Size(496, 174);
+            this.panel_Filter.Size = new System.Drawing.Size(331, 101);
             this.panel_Filter.TabIndex = 37;
             // 
             // radioButton_FilterStaff
             // 
             this.radioButton_FilterStaff.AutoSize = true;
-            this.radioButton_FilterStaff.Location = new System.Drawing.Point(230, 73);
+            this.radioButton_FilterStaff.Location = new System.Drawing.Point(189, 14);
+            this.radioButton_FilterStaff.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_FilterStaff.Name = "radioButton_FilterStaff";
-            this.radioButton_FilterStaff.Size = new System.Drawing.Size(104, 25);
+            this.radioButton_FilterStaff.Size = new System.Drawing.Size(94, 22);
             this.radioButton_FilterStaff.TabIndex = 33;
             this.radioButton_FilterStaff.TabStop = true;
             this.radioButton_FilterStaff.Text = "Nhân viên";
@@ -310,19 +289,22 @@
             // 
             // btn_DefaultFilter
             // 
-            this.btn_DefaultFilter.Location = new System.Drawing.Point(258, 121);
+            this.btn_DefaultFilter.Location = new System.Drawing.Point(184, 55);
+            this.btn_DefaultFilter.Margin = new System.Windows.Forms.Padding(2);
             this.btn_DefaultFilter.Name = "btn_DefaultFilter";
-            this.btn_DefaultFilter.Size = new System.Drawing.Size(100, 33);
+            this.btn_DefaultFilter.Size = new System.Drawing.Size(89, 35);
             this.btn_DefaultFilter.TabIndex = 38;
             this.btn_DefaultFilter.Text = "Mặc định";
             this.btn_DefaultFilter.UseVisualStyleBackColor = true;
+            this.btn_DefaultFilter.Click += new System.EventHandler(this.btn_DefaultFilter_Click);
             // 
             // radioButton_FilterManager
             // 
             this.radioButton_FilterManager.AutoSize = true;
-            this.radioButton_FilterManager.Location = new System.Drawing.Point(128, 73);
+            this.radioButton_FilterManager.Location = new System.Drawing.Point(98, 14);
+            this.radioButton_FilterManager.Margin = new System.Windows.Forms.Padding(2);
             this.radioButton_FilterManager.Name = "radioButton_FilterManager";
-            this.radioButton_FilterManager.Size = new System.Drawing.Size(87, 25);
+            this.radioButton_FilterManager.Size = new System.Drawing.Size(79, 22);
             this.radioButton_FilterManager.TabIndex = 32;
             this.radioButton_FilterManager.TabStop = true;
             this.radioButton_FilterManager.Text = "Quản lý";
@@ -331,20 +313,23 @@
             // lb_FilterPosition
             // 
             this.lb_FilterPosition.AutoSize = true;
-            this.lb_FilterPosition.Location = new System.Drawing.Point(35, 73);
+            this.lb_FilterPosition.Location = new System.Drawing.Point(15, 14);
+            this.lb_FilterPosition.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_FilterPosition.Name = "lb_FilterPosition";
-            this.lb_FilterPosition.Size = new System.Drawing.Size(75, 21);
+            this.lb_FilterPosition.Size = new System.Drawing.Size(67, 18);
             this.lb_FilterPosition.TabIndex = 31;
             this.lb_FilterPosition.Text = "Chức vụ:";
             // 
             // btn_Filter
             // 
-            this.btn_Filter.Location = new System.Drawing.Point(128, 121);
+            this.btn_Filter.Location = new System.Drawing.Point(54, 55);
+            this.btn_Filter.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Filter.Name = "btn_Filter";
-            this.btn_Filter.Size = new System.Drawing.Size(100, 33);
+            this.btn_Filter.Size = new System.Drawing.Size(89, 35);
             this.btn_Filter.TabIndex = 37;
             this.btn_Filter.Text = "Lọc";
             this.btn_Filter.UseVisualStyleBackColor = true;
+            this.btn_Filter.Click += new System.EventHandler(this.btn_Filter_Click);
             // 
             // groupBox_Operation
             // 
@@ -352,83 +337,100 @@
             this.groupBox_Operation.Controls.Add(this.btn_Delete);
             this.groupBox_Operation.Controls.Add(this.btn_Update);
             this.groupBox_Operation.Controls.Add(this.btn_Insert);
-            this.groupBox_Operation.Location = new System.Drawing.Point(100, 311);
+            this.groupBox_Operation.Location = new System.Drawing.Point(85, 275);
+            this.groupBox_Operation.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox_Operation.Name = "groupBox_Operation";
-            this.groupBox_Operation.Size = new System.Drawing.Size(335, 153);
+            this.groupBox_Operation.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox_Operation.Size = new System.Drawing.Size(298, 132);
             this.groupBox_Operation.TabIndex = 38;
             this.groupBox_Operation.TabStop = false;
             this.groupBox_Operation.Text = "Thao tác";
             // 
             // btn_Clear
             // 
-            this.btn_Clear.Location = new System.Drawing.Point(179, 88);
+            this.btn_Clear.Location = new System.Drawing.Point(159, 75);
+            this.btn_Clear.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(97, 45);
+            this.btn_Clear.Size = new System.Drawing.Size(86, 38);
             this.btn_Clear.TabIndex = 7;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(51, 88);
+            this.btn_Delete.Location = new System.Drawing.Point(46, 75);
+            this.btn_Delete.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(97, 45);
+            this.btn_Delete.Size = new System.Drawing.Size(86, 38);
             this.btn_Delete.TabIndex = 6;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Update
             // 
-            this.btn_Update.Location = new System.Drawing.Point(179, 37);
+            this.btn_Update.Location = new System.Drawing.Point(159, 32);
+            this.btn_Update.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(97, 45);
+            this.btn_Update.Size = new System.Drawing.Size(86, 38);
             this.btn_Update.TabIndex = 5;
             this.btn_Update.Text = "Sửa";
             this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // btn_Insert
             // 
-            this.btn_Insert.Location = new System.Drawing.Point(51, 37);
+            this.btn_Insert.Location = new System.Drawing.Point(46, 32);
+            this.btn_Insert.Margin = new System.Windows.Forms.Padding(2);
             this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(97, 45);
+            this.btn_Insert.Size = new System.Drawing.Size(86, 38);
             this.btn_Insert.TabIndex = 4;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // txtBox_TotalStaff
             // 
-            this.txtBox_TotalStaff.Location = new System.Drawing.Point(1468, 34);
+            this.txtBox_TotalStaff.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBox_TotalStaff.Location = new System.Drawing.Point(1280, 28);
+            this.txtBox_TotalStaff.Margin = new System.Windows.Forms.Padding(2);
             this.txtBox_TotalStaff.Name = "txtBox_TotalStaff";
             this.txtBox_TotalStaff.ReadOnly = true;
-            this.txtBox_TotalStaff.Size = new System.Drawing.Size(98, 28);
+            this.txtBox_TotalStaff.Size = new System.Drawing.Size(87, 26);
             this.txtBox_TotalStaff.TabIndex = 39;
+            this.txtBox_TotalStaff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lb_TotalStaff
             // 
             this.lb_TotalStaff.AutoSize = true;
-            this.lb_TotalStaff.Location = new System.Drawing.Point(1332, 37);
+            this.lb_TotalStaff.Location = new System.Drawing.Point(1160, 30);
+            this.lb_TotalStaff.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lb_TotalStaff.Name = "lb_TotalStaff";
-            this.lb_TotalStaff.Size = new System.Drawing.Size(129, 21);
+            this.lb_TotalStaff.Size = new System.Drawing.Size(115, 18);
             this.lb_TotalStaff.TabIndex = 40;
             this.lb_TotalStaff.Text = "Tổng nhân viên:";
             // 
-            // dataGridView1
+            // dataGridView_StaffList
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(526, 90);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(1094, 554);
-            this.dataGridView1.TabIndex = 41;
+            this.dataGridView_StaffList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_StaffList.Location = new System.Drawing.Point(467, 78);
+            this.dataGridView_StaffList.Margin = new System.Windows.Forms.Padding(2);
+            this.dataGridView_StaffList.Name = "dataGridView_StaffList";
+            this.dataGridView_StaffList.RowHeadersWidth = 51;
+            this.dataGridView_StaffList.RowTemplate.Height = 24;
+            this.dataGridView_StaffList.Size = new System.Drawing.Size(922, 475);
+            this.dataGridView_StaffList.TabIndex = 41;
+            this.dataGridView_StaffList.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_StaffList_CellClick);
+            this.dataGridView_StaffList.MouseClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView_StaffList_MouseClick);
             // 
             // frmStaff
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.ClientSize = new System.Drawing.Size(1632, 669);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(1400, 566);
+            this.Controls.Add(this.dataGridView_StaffList);
             this.Controls.Add(this.txtBox_TotalStaff);
             this.Controls.Add(this.lb_TotalStaff);
             this.Controls.Add(this.groupBox_Operation);
@@ -437,16 +439,17 @@
             this.Controls.Add(this.txtBox_Search);
             this.Controls.Add(this.lb_Search);
             this.Controls.Add(this.panel_Information);
-            this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Margin = new System.Windows.Forms.Padding(2, 3, 2, 3);
             this.Name = "frmStaff";
             this.Text = "Quản lý nhân viên";
+            this.Load += new System.EventHandler(this.frmStaff_Load);
             this.panel_Information.ResumeLayout(false);
             this.panel_Information.PerformLayout();
             this.panel_Filter.ResumeLayout(false);
             this.panel_Filter.PerformLayout();
             this.groupBox_Operation.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView_StaffList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -473,10 +476,6 @@
         private System.Windows.Forms.Label lb_Search;
         private System.Windows.Forms.TextBox txtBox_Search;
         private System.Windows.Forms.Button btn_Search;
-        private System.Windows.Forms.ComboBox comboBox_ColumnStaff;
-        private System.Windows.Forms.Label lb_By;
-        private System.Windows.Forms.ComboBox comboBox_SortMethod;
-        private System.Windows.Forms.Label lb_Sort;
         private System.Windows.Forms.Panel panel_Filter;
         private System.Windows.Forms.Button btn_DefaultFilter;
         private System.Windows.Forms.Button btn_Filter;
@@ -490,6 +489,6 @@
         private System.Windows.Forms.Button btn_Insert;
         private System.Windows.Forms.TextBox txtBox_TotalStaff;
         private System.Windows.Forms.Label lb_TotalStaff;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView_StaffList;
     }
 }

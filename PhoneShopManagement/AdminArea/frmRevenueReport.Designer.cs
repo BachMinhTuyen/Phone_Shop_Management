@@ -49,8 +49,7 @@
             this.chart_Statistics.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.chart_Statistics.Legends.Add(legend1);
-            this.chart_Statistics.Location = new System.Drawing.Point(387, 29);
-            this.chart_Statistics.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.chart_Statistics.Location = new System.Drawing.Point(344, 25);
             this.chart_Statistics.Name = "chart_Statistics";
             series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
@@ -58,25 +57,25 @@
             series1.Legend = "Legend1";
             series1.Name = "Doanh thu";
             this.chart_Statistics.Series.Add(series1);
-            this.chart_Statistics.Size = new System.Drawing.Size(693, 434);
+            this.chart_Statistics.Size = new System.Drawing.Size(616, 372);
             this.chart_Statistics.TabIndex = 0;
             this.chart_Statistics.Text = "chart_Statistics";
             // 
             // lb_StatisticalBy
             // 
             this.lb_StatisticalBy.AutoSize = true;
-            this.lb_StatisticalBy.Location = new System.Drawing.Point(18, 21);
+            this.lb_StatisticalBy.Location = new System.Drawing.Point(16, 18);
             this.lb_StatisticalBy.Name = "lb_StatisticalBy";
-            this.lb_StatisticalBy.Size = new System.Drawing.Size(116, 21);
+            this.lb_StatisticalBy.Size = new System.Drawing.Size(104, 18);
             this.lb_StatisticalBy.TabIndex = 2;
             this.lb_StatisticalBy.Text = "Thống kê theo";
             // 
             // radioButton_Month
             // 
             this.radioButton_Month.AutoSize = true;
-            this.radioButton_Month.Location = new System.Drawing.Point(142, 19);
+            this.radioButton_Month.Location = new System.Drawing.Point(126, 16);
             this.radioButton_Month.Name = "radioButton_Month";
-            this.radioButton_Month.Size = new System.Drawing.Size(77, 25);
+            this.radioButton_Month.Size = new System.Drawing.Size(71, 22);
             this.radioButton_Month.TabIndex = 3;
             this.radioButton_Month.TabStop = true;
             this.radioButton_Month.Text = "Tháng";
@@ -85,9 +84,9 @@
             // radioButton_Year
             // 
             this.radioButton_Year.AutoSize = true;
-            this.radioButton_Year.Location = new System.Drawing.Point(235, 19);
+            this.radioButton_Year.Location = new System.Drawing.Point(209, 16);
             this.radioButton_Year.Name = "radioButton_Year";
-            this.radioButton_Year.Size = new System.Drawing.Size(65, 25);
+            this.radioButton_Year.Size = new System.Drawing.Size(60, 22);
             this.radioButton_Year.TabIndex = 4;
             this.radioButton_Year.TabStop = true;
             this.radioButton_Year.Text = "Năm";
@@ -98,16 +97,16 @@
             this.panel1.Controls.Add(this.radioButton_Year);
             this.panel1.Controls.Add(this.lb_StatisticalBy);
             this.panel1.Controls.Add(this.radioButton_Month);
-            this.panel1.Location = new System.Drawing.Point(23, 29);
+            this.panel1.Location = new System.Drawing.Point(20, 25);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(322, 61);
+            this.panel1.Size = new System.Drawing.Size(286, 52);
             this.panel1.TabIndex = 5;
             // 
             // btn_Statistical
             // 
-            this.btn_Statistical.Location = new System.Drawing.Point(112, 96);
+            this.btn_Statistical.Location = new System.Drawing.Point(100, 82);
             this.btn_Statistical.Name = "btn_Statistical";
-            this.btn_Statistical.Size = new System.Drawing.Size(130, 35);
+            this.btn_Statistical.Size = new System.Drawing.Size(116, 30);
             this.btn_Statistical.TabIndex = 6;
             this.btn_Statistical.Text = "Thống kê";
             this.btn_Statistical.UseVisualStyleBackColor = true;
@@ -115,24 +114,23 @@
             // dataGridView_RevenueReport
             // 
             this.dataGridView_RevenueReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_RevenueReport.Location = new System.Drawing.Point(23, 137);
+            this.dataGridView_RevenueReport.Location = new System.Drawing.Point(20, 117);
             this.dataGridView_RevenueReport.Name = "dataGridView_RevenueReport";
             this.dataGridView_RevenueReport.RowHeadersWidth = 51;
             this.dataGridView_RevenueReport.RowTemplate.Height = 24;
-            this.dataGridView_RevenueReport.Size = new System.Drawing.Size(322, 326);
+            this.dataGridView_RevenueReport.Size = new System.Drawing.Size(286, 279);
             this.dataGridView_RevenueReport.TabIndex = 7;
             // 
             // frmRevenueReport
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 502);
+            this.ClientSize = new System.Drawing.Size(988, 430);
             this.Controls.Add(this.dataGridView_RevenueReport);
             this.Controls.Add(this.btn_Statistical);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.chart_Statistics);
-            this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmRevenueReport";
             this.Text = "Báo cáo doanh thu bán hàng";
             ((System.ComponentModel.ISupportInitialize)(this.chart_Statistics)).EndInit();

@@ -82,7 +82,7 @@ namespace PhoneShopManagement
                                 row[2].ToString(),
                                 row[3].ToString()
                              });
-                        listView_Product.Items.Add(item);
+                        //listView_Product.Items.Add(item);
                     }
                 }
             }

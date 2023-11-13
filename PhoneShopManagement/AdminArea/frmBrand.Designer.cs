@@ -52,102 +52,99 @@
             this.groupBox_Information.Controls.Add(this.txtBox_BrandID);
             this.groupBox_Information.Controls.Add(this.lb_BrandID);
             this.groupBox_Information.Controls.Add(this.lb_BrandName);
-            this.groupBox_Information.Location = new System.Drawing.Point(12, 13);
-            this.groupBox_Information.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.groupBox_Information.Location = new System.Drawing.Point(11, 11);
             this.groupBox_Information.Name = "groupBox_Information";
-            this.groupBox_Information.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.groupBox_Information.Size = new System.Drawing.Size(508, 189);
+            this.groupBox_Information.Size = new System.Drawing.Size(452, 162);
             this.groupBox_Information.TabIndex = 0;
             this.groupBox_Information.TabStop = false;
             this.groupBox_Information.Text = "Thông tin thương hiệu";
             // 
             // btn_Clear
             // 
-            this.btn_Clear.Location = new System.Drawing.Point(378, 129);
+            this.btn_Clear.Location = new System.Drawing.Point(336, 111);
             this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(83, 33);
+            this.btn_Clear.Size = new System.Drawing.Size(74, 28);
             this.btn_Clear.TabIndex = 7;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(260, 129);
+            this.btn_Delete.Location = new System.Drawing.Point(231, 111);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(83, 33);
+            this.btn_Delete.Size = new System.Drawing.Size(74, 28);
             this.btn_Delete.TabIndex = 6;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
             // 
             // btn_Update
             // 
-            this.btn_Update.Location = new System.Drawing.Point(144, 129);
+            this.btn_Update.Location = new System.Drawing.Point(128, 111);
             this.btn_Update.Name = "btn_Update";
-            this.btn_Update.Size = new System.Drawing.Size(83, 33);
+            this.btn_Update.Size = new System.Drawing.Size(74, 28);
             this.btn_Update.TabIndex = 5;
             this.btn_Update.Text = "Sửa";
             this.btn_Update.UseVisualStyleBackColor = true;
             // 
             // btn_Insert
             // 
-            this.btn_Insert.Location = new System.Drawing.Point(32, 129);
+            this.btn_Insert.Location = new System.Drawing.Point(28, 111);
             this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(83, 33);
+            this.btn_Insert.Size = new System.Drawing.Size(74, 28);
             this.btn_Insert.TabIndex = 4;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
             // 
             // txtBox_BrandName
             // 
-            this.txtBox_BrandName.Location = new System.Drawing.Point(181, 76);
+            this.txtBox_BrandName.Location = new System.Drawing.Point(161, 65);
             this.txtBox_BrandName.Name = "txtBox_BrandName";
-            this.txtBox_BrandName.Size = new System.Drawing.Size(280, 28);
+            this.txtBox_BrandName.Size = new System.Drawing.Size(249, 26);
             this.txtBox_BrandName.TabIndex = 3;
             // 
             // txtBox_BrandID
             // 
-            this.txtBox_BrandID.Location = new System.Drawing.Point(181, 38);
+            this.txtBox_BrandID.Location = new System.Drawing.Point(161, 33);
             this.txtBox_BrandID.Name = "txtBox_BrandID";
-            this.txtBox_BrandID.Size = new System.Drawing.Size(280, 28);
+            this.txtBox_BrandID.Size = new System.Drawing.Size(249, 26);
             this.txtBox_BrandID.TabIndex = 2;
             // 
             // lb_BrandID
             // 
             this.lb_BrandID.AutoSize = true;
-            this.lb_BrandID.Location = new System.Drawing.Point(28, 41);
+            this.lb_BrandID.Location = new System.Drawing.Point(25, 35);
             this.lb_BrandID.Name = "lb_BrandID";
-            this.lb_BrandID.Size = new System.Drawing.Size(131, 21);
+            this.lb_BrandID.Size = new System.Drawing.Size(115, 18);
             this.lb_BrandID.TabIndex = 1;
             this.lb_BrandID.Text = "Mã thương hiệu:";
             // 
             // lb_BrandName
             // 
             this.lb_BrandName.AutoSize = true;
-            this.lb_BrandName.Location = new System.Drawing.Point(28, 79);
+            this.lb_BrandName.Location = new System.Drawing.Point(25, 68);
             this.lb_BrandName.Name = "lb_BrandName";
-            this.lb_BrandName.Size = new System.Drawing.Size(137, 21);
+            this.lb_BrandName.Size = new System.Drawing.Size(121, 18);
             this.lb_BrandName.TabIndex = 0;
             this.lb_BrandName.Text = "Tên thương hiệu:";
             // 
             // dataGridView_BrandList
             // 
             this.dataGridView_BrandList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_BrandList.Location = new System.Drawing.Point(13, 221);
+            this.dataGridView_BrandList.Location = new System.Drawing.Point(12, 189);
             this.dataGridView_BrandList.Name = "dataGridView_BrandList";
             this.dataGridView_BrandList.RowHeadersWidth = 51;
             this.dataGridView_BrandList.RowTemplate.Height = 24;
-            this.dataGridView_BrandList.Size = new System.Drawing.Size(507, 273);
+            this.dataGridView_BrandList.Size = new System.Drawing.Size(451, 234);
             this.dataGridView_BrandList.TabIndex = 1;
             // 
             // frmBrand
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 506);
+            this.ClientSize = new System.Drawing.Size(473, 434);
             this.Controls.Add(this.dataGridView_BrandList);
             this.Controls.Add(this.groupBox_Information);
-            this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmBrand";
             this.Text = "Quản lý thương hiệu";
             this.groupBox_Information.ResumeLayout(false);

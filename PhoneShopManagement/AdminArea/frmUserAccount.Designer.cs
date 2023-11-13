@@ -75,7 +75,8 @@
             this.thoátToolStripMenuItem});
             this.menuStrip_Main.Location = new System.Drawing.Point(0, 0);
             this.menuStrip_Main.Name = "menuStrip_Main";
-            this.menuStrip_Main.Size = new System.Drawing.Size(888, 28);
+            this.menuStrip_Main.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip_Main.Size = new System.Drawing.Size(789, 30);
             this.menuStrip_Main.TabIndex = 0;
             this.menuStrip_Main.Text = "menuStrip1";
             // 
@@ -87,7 +88,7 @@
             this.xoáToolStripMenuItem,
             this.làmMớiToolStripMenuItem});
             this.thaoTácToolStripMenuItem.Name = "thaoTácToolStripMenuItem";
-            this.thaoTácToolStripMenuItem.Size = new System.Drawing.Size(80, 24);
+            this.thaoTácToolStripMenuItem.Size = new System.Drawing.Size(80, 26);
             this.thaoTácToolStripMenuItem.Text = "Thao tác";
             // 
             // thêmToolStripMenuItem
@@ -117,7 +118,7 @@
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(61, 24);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(61, 26);
             this.thoátToolStripMenuItem.Text = "Thoát";
             // 
             // groupBox_Statistics
@@ -128,61 +129,61 @@
             this.groupBox_Statistics.Controls.Add(this.lb_TotalStaffAccount);
             this.groupBox_Statistics.Controls.Add(this.lb_TotalAdminAccount);
             this.groupBox_Statistics.Controls.Add(this.lb_TotalAll);
-            this.groupBox_Statistics.Location = new System.Drawing.Point(31, 47);
+            this.groupBox_Statistics.Location = new System.Drawing.Point(28, 40);
             this.groupBox_Statistics.Name = "groupBox_Statistics";
-            this.groupBox_Statistics.Size = new System.Drawing.Size(377, 142);
+            this.groupBox_Statistics.Size = new System.Drawing.Size(335, 122);
             this.groupBox_Statistics.TabIndex = 1;
             this.groupBox_Statistics.TabStop = false;
             this.groupBox_Statistics.Text = "Thống kê";
             // 
             // txtBox_TotalStaffAccount
             // 
-            this.txtBox_TotalStaffAccount.Location = new System.Drawing.Point(262, 99);
+            this.txtBox_TotalStaffAccount.Location = new System.Drawing.Point(233, 85);
             this.txtBox_TotalStaffAccount.Name = "txtBox_TotalStaffAccount";
             this.txtBox_TotalStaffAccount.ReadOnly = true;
-            this.txtBox_TotalStaffAccount.Size = new System.Drawing.Size(102, 28);
+            this.txtBox_TotalStaffAccount.Size = new System.Drawing.Size(91, 26);
             this.txtBox_TotalStaffAccount.TabIndex = 5;
             // 
             // txtBox_TotalAdminAccount
             // 
-            this.txtBox_TotalAdminAccount.Location = new System.Drawing.Point(262, 65);
+            this.txtBox_TotalAdminAccount.Location = new System.Drawing.Point(233, 56);
             this.txtBox_TotalAdminAccount.Name = "txtBox_TotalAdminAccount";
             this.txtBox_TotalAdminAccount.ReadOnly = true;
-            this.txtBox_TotalAdminAccount.Size = new System.Drawing.Size(102, 28);
+            this.txtBox_TotalAdminAccount.Size = new System.Drawing.Size(91, 26);
             this.txtBox_TotalAdminAccount.TabIndex = 4;
             // 
             // txtBox_TotalAll
             // 
-            this.txtBox_TotalAll.Location = new System.Drawing.Point(262, 30);
+            this.txtBox_TotalAll.Location = new System.Drawing.Point(233, 26);
             this.txtBox_TotalAll.Name = "txtBox_TotalAll";
             this.txtBox_TotalAll.ReadOnly = true;
-            this.txtBox_TotalAll.Size = new System.Drawing.Size(102, 28);
+            this.txtBox_TotalAll.Size = new System.Drawing.Size(91, 26);
             this.txtBox_TotalAll.TabIndex = 3;
             // 
             // lb_TotalStaffAccount
             // 
             this.lb_TotalStaffAccount.AutoSize = true;
-            this.lb_TotalStaffAccount.Location = new System.Drawing.Point(33, 102);
+            this.lb_TotalStaffAccount.Location = new System.Drawing.Point(29, 87);
             this.lb_TotalStaffAccount.Name = "lb_TotalStaffAccount";
-            this.lb_TotalStaffAccount.Size = new System.Drawing.Size(224, 21);
+            this.lb_TotalStaffAccount.Size = new System.Drawing.Size(199, 18);
             this.lb_TotalStaffAccount.TabIndex = 2;
             this.lb_TotalStaffAccount.Text = "Tổng số tài khoản nhân viên:";
             // 
             // lb_TotalAdminAccount
             // 
             this.lb_TotalAdminAccount.AutoSize = true;
-            this.lb_TotalAdminAccount.Location = new System.Drawing.Point(33, 68);
+            this.lb_TotalAdminAccount.Location = new System.Drawing.Point(29, 58);
             this.lb_TotalAdminAccount.Name = "lb_TotalAdminAccount";
-            this.lb_TotalAdminAccount.Size = new System.Drawing.Size(210, 21);
+            this.lb_TotalAdminAccount.Size = new System.Drawing.Size(185, 18);
             this.lb_TotalAdminAccount.TabIndex = 1;
             this.lb_TotalAdminAccount.Text = "Tổng số tài khoản quản trị:";
             // 
             // lb_TotalAll
             // 
             this.lb_TotalAll.AutoSize = true;
-            this.lb_TotalAll.Location = new System.Drawing.Point(33, 33);
+            this.lb_TotalAll.Location = new System.Drawing.Point(29, 28);
             this.lb_TotalAll.Name = "lb_TotalAll";
-            this.lb_TotalAll.Size = new System.Drawing.Size(196, 21);
+            this.lb_TotalAll.Size = new System.Drawing.Size(174, 18);
             this.lb_TotalAll.TabIndex = 0;
             this.lb_TotalAll.Text = "Tổng số tất cả tài khoản:";
             // 
@@ -192,54 +193,54 @@
             this.groupBox_Operation.Controls.Add(this.btn_Delete);
             this.groupBox_Operation.Controls.Add(this.btn_Reset);
             this.groupBox_Operation.Controls.Add(this.btn_Insert);
-            this.groupBox_Operation.Location = new System.Drawing.Point(414, 77);
+            this.groupBox_Operation.Location = new System.Drawing.Point(368, 66);
             this.groupBox_Operation.Name = "groupBox_Operation";
-            this.groupBox_Operation.Size = new System.Drawing.Size(447, 89);
+            this.groupBox_Operation.Size = new System.Drawing.Size(397, 76);
             this.groupBox_Operation.TabIndex = 2;
             this.groupBox_Operation.TabStop = false;
             this.groupBox_Operation.Text = "Thao tác";
             // 
             // btn_ChangeRole
             // 
-            this.btn_ChangeRole.Location = new System.Drawing.Point(114, 35);
+            this.btn_ChangeRole.Location = new System.Drawing.Point(101, 30);
             this.btn_ChangeRole.Name = "btn_ChangeRole";
-            this.btn_ChangeRole.Size = new System.Drawing.Size(106, 35);
+            this.btn_ChangeRole.Size = new System.Drawing.Size(94, 30);
             this.btn_ChangeRole.TabIndex = 3;
             this.btn_ChangeRole.Text = "Đổi vai trò";
             this.btn_ChangeRole.UseVisualStyleBackColor = true;
             // 
             // btn_Delete
             // 
-            this.btn_Delete.Location = new System.Drawing.Point(338, 35);
+            this.btn_Delete.Location = new System.Drawing.Point(300, 30);
             this.btn_Delete.Name = "btn_Delete";
-            this.btn_Delete.Size = new System.Drawing.Size(94, 35);
+            this.btn_Delete.Size = new System.Drawing.Size(84, 30);
             this.btn_Delete.TabIndex = 2;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
             // 
             // btn_Reset
             // 
-            this.btn_Reset.Location = new System.Drawing.Point(232, 35);
+            this.btn_Reset.Location = new System.Drawing.Point(206, 30);
             this.btn_Reset.Name = "btn_Reset";
-            this.btn_Reset.Size = new System.Drawing.Size(94, 35);
+            this.btn_Reset.Size = new System.Drawing.Size(84, 30);
             this.btn_Reset.TabIndex = 1;
             this.btn_Reset.Text = "Khôi phục";
             this.btn_Reset.UseVisualStyleBackColor = true;
             // 
             // btn_Insert
             // 
-            this.btn_Insert.Location = new System.Drawing.Point(14, 35);
+            this.btn_Insert.Location = new System.Drawing.Point(12, 30);
             this.btn_Insert.Name = "btn_Insert";
-            this.btn_Insert.Size = new System.Drawing.Size(90, 35);
+            this.btn_Insert.Size = new System.Drawing.Size(80, 30);
             this.btn_Insert.TabIndex = 0;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
             // 
             // btn_Clear
             // 
-            this.btn_Clear.Location = new System.Drawing.Point(545, 47);
+            this.btn_Clear.Location = new System.Drawing.Point(484, 40);
             this.btn_Clear.Name = "btn_Clear";
-            this.btn_Clear.Size = new System.Drawing.Size(178, 35);
+            this.btn_Clear.Size = new System.Drawing.Size(158, 30);
             this.btn_Clear.TabIndex = 3;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
@@ -253,39 +254,39 @@
             this.panel_Information.Controls.Add(this.lb_ConfirmPassword);
             this.panel_Information.Controls.Add(this.lb_Password);
             this.panel_Information.Controls.Add(this.lb_UserName);
-            this.panel_Information.Location = new System.Drawing.Point(31, 195);
+            this.panel_Information.Location = new System.Drawing.Point(28, 167);
             this.panel_Information.Name = "panel_Information";
-            this.panel_Information.Size = new System.Drawing.Size(830, 144);
+            this.panel_Information.Size = new System.Drawing.Size(738, 123);
             this.panel_Information.TabIndex = 3;
             // 
             // txtBox_ConfirmPassword
             // 
-            this.txtBox_ConfirmPassword.Location = new System.Drawing.Point(578, 95);
+            this.txtBox_ConfirmPassword.Location = new System.Drawing.Point(514, 81);
             this.txtBox_ConfirmPassword.Name = "txtBox_ConfirmPassword";
-            this.txtBox_ConfirmPassword.Size = new System.Drawing.Size(237, 28);
+            this.txtBox_ConfirmPassword.Size = new System.Drawing.Size(211, 26);
             this.txtBox_ConfirmPassword.TabIndex = 7;
             // 
             // txtBox_Password
             // 
-            this.txtBox_Password.Location = new System.Drawing.Point(151, 92);
+            this.txtBox_Password.Location = new System.Drawing.Point(134, 79);
             this.txtBox_Password.Name = "txtBox_Password";
-            this.txtBox_Password.Size = new System.Drawing.Size(237, 28);
+            this.txtBox_Password.Size = new System.Drawing.Size(211, 26);
             this.txtBox_Password.TabIndex = 6;
             // 
             // txtBox_UserName
             // 
-            this.txtBox_UserName.Location = new System.Drawing.Point(151, 37);
+            this.txtBox_UserName.Location = new System.Drawing.Point(134, 32);
             this.txtBox_UserName.Name = "txtBox_UserName";
-            this.txtBox_UserName.Size = new System.Drawing.Size(237, 28);
+            this.txtBox_UserName.Size = new System.Drawing.Size(211, 26);
             this.txtBox_UserName.TabIndex = 5;
             // 
             // groupBox_Roles
             // 
             this.groupBox_Roles.Controls.Add(this.radioBtn_User);
             this.groupBox_Roles.Controls.Add(this.radioBtn_Admin);
-            this.groupBox_Roles.Location = new System.Drawing.Point(415, 13);
+            this.groupBox_Roles.Location = new System.Drawing.Point(369, 11);
             this.groupBox_Roles.Name = "groupBox_Roles";
-            this.groupBox_Roles.Size = new System.Drawing.Size(400, 73);
+            this.groupBox_Roles.Size = new System.Drawing.Size(356, 63);
             this.groupBox_Roles.TabIndex = 4;
             this.groupBox_Roles.TabStop = false;
             this.groupBox_Roles.Text = "Vai trò";
@@ -293,9 +294,9 @@
             // radioBtn_User
             // 
             this.radioBtn_User.AutoSize = true;
-            this.radioBtn_User.Location = new System.Drawing.Point(255, 27);
+            this.radioBtn_User.Location = new System.Drawing.Point(227, 23);
             this.radioBtn_User.Name = "radioBtn_User";
-            this.radioBtn_User.Size = new System.Drawing.Size(65, 25);
+            this.radioBtn_User.Size = new System.Drawing.Size(59, 22);
             this.radioBtn_User.TabIndex = 4;
             this.radioBtn_User.TabStop = true;
             this.radioBtn_User.Text = "User";
@@ -304,9 +305,9 @@
             // radioBtn_Admin
             // 
             this.radioBtn_Admin.AutoSize = true;
-            this.radioBtn_Admin.Location = new System.Drawing.Point(82, 27);
+            this.radioBtn_Admin.Location = new System.Drawing.Point(73, 23);
             this.radioBtn_Admin.Name = "radioBtn_Admin";
-            this.radioBtn_Admin.Size = new System.Drawing.Size(78, 25);
+            this.radioBtn_Admin.Size = new System.Drawing.Size(69, 22);
             this.radioBtn_Admin.TabIndex = 3;
             this.radioBtn_Admin.TabStop = true;
             this.radioBtn_Admin.Text = "Admin";
@@ -315,54 +316,53 @@
             // lb_ConfirmPassword
             // 
             this.lb_ConfirmPassword.AutoSize = true;
-            this.lb_ConfirmPassword.Location = new System.Drawing.Point(411, 98);
+            this.lb_ConfirmPassword.Location = new System.Drawing.Point(365, 84);
             this.lb_ConfirmPassword.Name = "lb_ConfirmPassword";
-            this.lb_ConfirmPassword.Size = new System.Drawing.Size(150, 21);
+            this.lb_ConfirmPassword.Size = new System.Drawing.Size(131, 18);
             this.lb_ConfirmPassword.TabIndex = 2;
             this.lb_ConfirmPassword.Text = "Nhập lại mật khẩu:";
             // 
             // lb_Password
             // 
             this.lb_Password.AutoSize = true;
-            this.lb_Password.Location = new System.Drawing.Point(14, 95);
+            this.lb_Password.Location = new System.Drawing.Point(12, 81);
             this.lb_Password.Name = "lb_Password";
-            this.lb_Password.Size = new System.Drawing.Size(84, 21);
+            this.lb_Password.Size = new System.Drawing.Size(74, 18);
             this.lb_Password.TabIndex = 1;
             this.lb_Password.Text = "Mật khẩu:";
             // 
             // lb_UserName
             // 
             this.lb_UserName.AutoSize = true;
-            this.lb_UserName.Location = new System.Drawing.Point(14, 40);
+            this.lb_UserName.Location = new System.Drawing.Point(12, 34);
             this.lb_UserName.Name = "lb_UserName";
-            this.lb_UserName.Size = new System.Drawing.Size(127, 21);
+            this.lb_UserName.Size = new System.Drawing.Size(114, 18);
             this.lb_UserName.TabIndex = 0;
             this.lb_UserName.Text = "Tên đăng nhập:";
             // 
             // dataGridView_AccountList
             // 
             this.dataGridView_AccountList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView_AccountList.Location = new System.Drawing.Point(31, 346);
+            this.dataGridView_AccountList.Location = new System.Drawing.Point(28, 297);
             this.dataGridView_AccountList.Name = "dataGridView_AccountList";
             this.dataGridView_AccountList.RowHeadersWidth = 51;
             this.dataGridView_AccountList.RowTemplate.Height = 24;
-            this.dataGridView_AccountList.Size = new System.Drawing.Size(830, 306);
+            this.dataGridView_AccountList.Size = new System.Drawing.Size(738, 262);
             this.dataGridView_AccountList.TabIndex = 4;
             // 
             // frmUserAccount
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(888, 664);
+            this.ClientSize = new System.Drawing.Size(789, 569);
             this.Controls.Add(this.btn_Clear);
             this.Controls.Add(this.dataGridView_AccountList);
             this.Controls.Add(this.panel_Information);
             this.Controls.Add(this.groupBox_Operation);
             this.Controls.Add(this.groupBox_Statistics);
             this.Controls.Add(this.menuStrip_Main);
-            this.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MainMenuStrip = this.menuStrip_Main;
-            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmUserAccount";
             this.Text = "Quản lý tài khoản người dùng";
             this.menuStrip_Main.ResumeLayout(false);
