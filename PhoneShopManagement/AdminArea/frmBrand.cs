@@ -15,20 +15,96 @@ namespace PhoneShopManagement.AdminArea
     {
 
         private string ConnectSql = Properties.Settings.Default.ConnectionString_Remote;
-        DataSet QL_PhoneShop = new DataSet();
+
         public frmBrand()
         {
             InitializeComponent();
         }
-        void LoadDuLieu()
+        void LoadData()
         {
-            string strsel = "select *from ThuongHieu";
-            SqlDataAdapter da_ThuongHieu = new SqlDataAdapter(strsel, ConnectSql);
-            da_ThuongHieu.Fill(QL_PhoneShop, "ThuongHieu");
-            dataGridView_BrandList.DataSource = QL_PhoneShop.Tables["ThuongHieu"];
-            DataColumn[] key = new DataColumn[1];
-            key[0] = QL_PhoneShop.Tables["ThuongHieu"].Columns[0];
-            QL_PhoneShop.Tables["ThuongHieu"].PrimaryKey = key;
+            using (SqlConnection sqlclient = new SqlConnection(ConnectSql))
+            {
+                string query = string.Format("SELECT TOP(5) SP.MaSP, SP.TenSP, SP.Gia, CTDH.SoLuong FROM SanPham AS SP, ChiTietDonHang AS CTDH WHERE SP.MaSP = CTDH.MaSP ORDER BY CTDH.SoLuong");
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlclient))
+                {
+                    DataTable data = new DataTable();
+                    adapter.Fill(data);
+                    dataGridView_BrandList.Rows.Clear();
+                    foreach (DataRow row in data.Rows){
+                        int rowIndex = dataGridView_BrandList.Rows.Add();
+                        for (int i = 0; i < 2; i++)
+                            dataGridView_BrandList.Rows[rowIndex].Cells[i].Value = row[i];
+                    }
+                }
+            }       
+        }
+        public void DeleteSql()
+        {
+            try
+            {
+                string query = string.Format("DELETE FROM {0} WHERE MaThuongHieu = @Value_MaThuongHieu;", "ThuongHieu");
+                using (SqlConnection Sqlclient = new SqlConnection(ConnectSql))
+                {
+                    using (SqlCommand command = new SqlCommand(query, Sqlclient))
+                    {
+                        command.Parameters.AddWithValue("@Value_MaThuongHieu", txtBox_BrandID.Text);
+                        Sqlclient.Open();
+                        command.ExecuteNonQuery();
+                        Sqlclient.Close();
+                    }
+                }
+                LoadData();
+            }
+            catch 
+            {
+                MessageBox.Show("Xảy Ra Lỗi Vui Lòng Thử Lại!");
+            }
+        }
+        public void UpdateSql()
+        {
+            try
+            {
+                string query = string.Format("UPDATE {0} SET TenThuongHieu = @Value_TenThuongHieu WHERE MaThuongHieu = @Value_MaThuongHieu;", "ThuongHieu");
+                using (SqlConnection Sqlclient = new SqlConnection(ConnectSql))
+                {
+                    using (SqlCommand command = new SqlCommand(query, Sqlclient))
+                    {
+                        command.Parameters.AddWithValue("@Value_MaThuongHieu", txtBox_BrandID.Text);
+                        command.Parameters.AddWithValue("@Value_TenThuongHieu", txtBox_BrandName.Text);
+                        Sqlclient.Open();
+                        command.ExecuteNonQuery();
+                        Sqlclient.Close();
+                    }
+                }
+                LoadData();
+            }
+            catch
+            {
+                MessageBox.Show("Xảy Ra Lỗi Vui Lòng Thử Lại!");
+            }
+        }
+        public void InsertSql()
+        {
+            try
+            {
+                string query = string.Format("INSERT INTO {0} VALUES (@Value_MaThuongHieu , @TenThuongHieu)", "ThuongHieu");
+                using (SqlConnection Sqlclient = new SqlConnection(ConnectSql))
+                {
+                    using (SqlCommand command = new SqlCommand(query, Sqlclient))
+                    {
+                        command.Parameters.AddWithValue("@Value_MaThuongHieu", txtBox_BrandID.Text);
+                        command.Parameters.AddWithValue("@Value_TenThuongHieu", txtBox_BrandName.Text);
+                        Sqlclient.Open();
+                        command.ExecuteNonQuery();
+                        Sqlclient.Close();
+                    }
+                }
+                LoadData();
+            }
+            catch
+            {
+                MessageBox.Show("Xảy Ra Lỗi Vui Lòng Thử Lại!");
+            }
         }
 
         private void dataGridView_BrandList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -36,99 +112,70 @@ namespace PhoneShopManagement.AdminArea
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridView_BrandList.Rows[e.RowIndex];
-                string makhoa = selectedRow.Cells[0].Value.ToString();
-                string tenkhoa = selectedRow.Cells[1].Value.ToString();
-                txtBox_BrandID.Text = makhoa;
-                txtBox_BrandName.Text = tenkhoa;
+                txtBox_BrandID.Text = selectedRow.Cells[0].Value.ToString();
+                txtBox_BrandName.Text = selectedRow.Cells[1].Value.ToString();
+                btn_Update.Enabled = true;
+                btn_Delete.Enabled = true;
             }
         }
 
         private void frmBrand_Load(object sender, EventArgs e)
         {
-            LoadDuLieu();
-            txtBox_BrandID.Enabled = txtBox_BrandName.Enabled = false;
-            btn_Update.Enabled = btn_Delete.Enabled =btn_Clear.Enabled = false;
+            LoadData();
         }
 
         private void btn_Insert_Click(object sender, EventArgs e)
         {
-            txtBox_BrandID.Enabled = txtBox_BrandName.Enabled = true;
-            btn_Clear.Enabled = true;
-            txtBox_BrandID.Focus();
-            txtBox_BrandID.Clear();
-            txtBox_BrandName.Clear();
-        }
-
-        public SqlDataAdapter da_ThuongHieu { get; set; }
-
-        private void btn_Update_Click(object sender, EventArgs e)
-        {
-            btn_Clear.Enabled = true;
-            txtBox_BrandID.Enabled = true;
-            txtBox_BrandName.Enabled = false;
-        }
-
-        private void LoadData()
-        {
-            string strsel = "select * from ThuongHieu";
-            SqlDataAdapter da_ThuongHieu = new SqlDataAdapter(strsel, ConnectSql);
-            SqlCommandBuilder cmd = new SqlCommandBuilder(da_ThuongHieu);
-            da_ThuongHieu.Update(QL_PhoneShop, "ThuongHieu");
-            MessageBox.Show("Thành công");
-            btn_Clear.Enabled = false;
-        }
-
-        private void btn_Clear_Click(object sender, EventArgs e)
-        {
-            if (txtBox_BrandID.Text == string.Empty)
+            if (txtBox_BrandName.ReadOnly)
             {
-                MessageBox.Show("Chưa nhập Mã Thương Hiệu");
-                txtBox_BrandID.Focus();
-                return;
-            }
-            if (txtBox_BrandName.Text == string.Empty)
-            {
-                MessageBox.Show("Chưa nhập Tên Thương Hiệu");
-                txtBox_BrandName.Focus();
-                return;
-            }
-            if (txtBox_BrandID.Enabled == true)
-            {
-                DataRow insert_New = QL_PhoneShop.Tables["ThuongHieu"].NewRow();
-                insert_New["MaThuongHieu"] = txtBox_BrandID.Text;
-                insert_New["TenThuongHieu"] =txtBox_BrandName.Text;
-                QL_PhoneShop.Tables["ThuongHieu"].Rows.Add(insert_New);
+                txtBox_BrandID.ReadOnly = false;
+                txtBox_BrandName.ReadOnly = false;
+                btn_Clear.Enabled = true;
+                btn_Update.Enabled = false;
+                btn_Delete.Enabled = false;
+                txtBox_BrandID.Clear();
+                txtBox_BrandName.Clear();
             }
             else
             {
-                DataRow update_New = QL_PhoneShop.Tables["ThuongHieu"].Rows.Find(txtBox_BrandID.Text);
-                if (update_New != null)
-                {
-                    update_New["TenThuongHieu"] = txtBox_BrandName.Text;
-                }
+                txtBox_BrandID.ReadOnly = true;
+                txtBox_BrandName.ReadOnly = true;
+                InsertSql();
+                txtBox_BrandID.Clear();
+                txtBox_BrandName.Clear();
             }
+        }
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            if(btn_Update.Text == "Sửa")
+            {
+                btn_Update.Text = "Lưu";
+                txtBox_BrandName.ReadOnly = false;
+                btn_Insert.Enabled = false;
+                btn_Delete.Enabled=false;
+            }
+            else
+            {
+                UpdateSql();
+                btn_Update.Text = "Sửa";
+                txtBox_BrandName.ReadOnly = true;
+                btn_Delete.Enabled = true;
+                btn_Insert.Enabled = true;
+
+            }
+
+        }
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            txtBox_BrandID.Clear();
+            txtBox_BrandName.Clear();
             LoadData();
         }
-
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Bạn muốn xóa?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == System.Windows.Forms.DialogResult.Yes)
-            {
-                DataTable dt_ThuongHieu = new DataTable();
-                SqlDataAdapter da_ThuongHieu = new SqlDataAdapter("select * from ThuongHieu where MaThuongHieu='" + txtBox_BrandID.Text + "'", ConnectSql);
-                da_ThuongHieu.Fill(dt_ThuongHieu);
-                if (dt_ThuongHieu.Rows.Count > 0)
-                {
-                    MessageBox.Show("Dữ liệu đang sử dụng không thể xóa");
-                    return;
-                }
-                DataRow upd_New = QL_PhoneShop.Tables["ThuongHieu"].Rows.Find(txtBox_BrandID.Text);
-                if (upd_New != null)
-                {
-                    upd_New.Delete();
-                }
-                LoadData();
-            }
+            txtBox_BrandID.Clear();
+            txtBox_BrandName.Clear();
+            DeleteSql();
         }
 
     }

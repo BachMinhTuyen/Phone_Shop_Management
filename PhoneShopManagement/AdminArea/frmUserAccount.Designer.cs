@@ -59,6 +59,9 @@
             this.lb_Password = new System.Windows.Forms.Label();
             this.lb_UserName = new System.Windows.Forms.Label();
             this.dataGridView_AccountList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip_Main.SuspendLayout();
             this.groupBox_Statistics.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
@@ -235,6 +238,7 @@
             this.btn_Insert.TabIndex = 0;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click_1);
             // 
             // btn_Clear
             // 
@@ -343,12 +347,37 @@
             // dataGridView_AccountList
             // 
             this.dataGridView_AccountList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_AccountList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3});
             this.dataGridView_AccountList.Location = new System.Drawing.Point(28, 297);
             this.dataGridView_AccountList.Name = "dataGridView_AccountList";
             this.dataGridView_AccountList.RowHeadersWidth = 51;
             this.dataGridView_AccountList.RowTemplate.Height = 24;
             this.dataGridView_AccountList.Size = new System.Drawing.Size(738, 262);
             this.dataGridView_AccountList.TabIndex = 4;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Tài Khoản";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Mật Khẩu";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Vai Trò";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
             // 
             // frmUserAccount
             // 
@@ -414,5 +443,8 @@
         private System.Windows.Forms.TextBox txtBox_Password;
         private System.Windows.Forms.DataGridView dataGridView_AccountList;
         private System.Windows.Forms.Button btn_ChangeRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
     }
 }

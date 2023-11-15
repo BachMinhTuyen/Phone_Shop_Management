@@ -70,15 +70,12 @@ namespace PhoneShopManagement
                 {
                     DataTable data = new DataTable();
                     adapter.Fill(data);
-                    dataGridView_BestSellingProduct.DataSource = data; 
-                    dataGridView_BestSellingProduct.Columns["MaSP"].HeaderText = "Mã Sản Phẩm";
-                    dataGridView_BestSellingProduct.Columns["MaSP"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dataGridView_BestSellingProduct.Columns["TenSP"].HeaderText = "Tên Sản Phẩm ";
-                    dataGridView_BestSellingProduct.Columns["TenSP"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dataGridView_BestSellingProduct.Columns["Gia"].HeaderText = "Giá";
-                    dataGridView_BestSellingProduct.Columns["Gia"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    dataGridView_BestSellingProduct.Columns["SoLuong"].HeaderText = "Số lượng";
-                    dataGridView_BestSellingProduct.Columns["SoLuong"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    dataGridView_BestSellingProduct.Rows.Clear();
+                    foreach (DataRow row in data.Rows) {
+                        int rowIndex = dataGridView_BestSellingProduct.Rows.Add();
+                        for(int i = 0; i < 4; i++)
+                        dataGridView_BestSellingProduct.Rows[rowIndex].Cells[i].Value = row[i];
+                    }
                 }
             }
         }
@@ -90,6 +87,9 @@ namespace PhoneShopManagement
             LoadTop5Item();
         }
 
-      
+        private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

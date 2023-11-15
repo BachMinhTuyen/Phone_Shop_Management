@@ -23,7 +23,7 @@ namespace PhoneShopManagement
         private string connectionString = Properties.Settings.Default.ConnectionString_Remote;
         DataSet ds_QLPhoneShop = new DataSet();
         SqlDataAdapter da_UserAccount;
-        string table = "USERNAME";
+        string table = "NhanVien";
         public void InsertSql()
         {
             string query = string.Format("INSERT INTO {0} VALUES (@Value_UserName,@Value_User_password,@Value_Role)", table);
@@ -67,10 +67,8 @@ namespace PhoneShopManagement
         public void DeleteSql()
         {
             string query = string.Format("DELETE FROM {0} WHERE UserName = @Value_UserName;", table);
-            using (SqlConnection Sqlclient = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, Sqlclient))
-                {
+            using (SqlConnection Sqlclient = new SqlConnection(connectionString)) {
+                using (SqlCommand command = new SqlCommand(query, Sqlclient)) {
                     command.Parameters.AddWithValue("@Value_UserName", txtBox_UserName.Text);
                     Sqlclient.Open();
                     command.ExecuteNonQuery();
@@ -98,7 +96,7 @@ namespace PhoneShopManagement
             int CoutAccount = 0;
             using (SqlConnection sqlclient = new SqlConnection(connectionString))
             {
-                string query = string.Format("SELECT * FROM {0}", table);
+                string query = string.Format("SELECT MaNV,MatKhau,ChucVu FROM {0}", table);
                 using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlclient))
                 {
                     DataTable data = new DataTable();
@@ -107,10 +105,8 @@ namespace PhoneShopManagement
                     foreach (DataRow row in data.Rows)
                     {
                         int rowIndex = dataGridView_AccountList.Rows.Add();
-                        dataGridView_AccountList.Rows[rowIndex].Cells[1].Value = row[0];
-                        dataGridView_AccountList.Rows[rowIndex].Cells[2].Value = row[1];
-                        dataGridView_AccountList.Rows[rowIndex].Cells[3].Value = row[2];
-                        dataGridView_AccountList.Rows[rowIndex].Cells[0].Value = ++CoutAccount;
+                        for(int i = 0; i < 3; i ++) dataGridView_AccountList.Rows[rowIndex].Cells[i].Value = row[i];
+                        ++CoutAccount;
                         if (string.Equals(row[2].ToString(), "ADMIN")) CountAdmin++;
                         else CountUser++;
                     }
@@ -165,6 +161,11 @@ namespace PhoneShopManagement
         }
 
         private void frmUserAccount_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btn_Insert_Click_1(object sender, EventArgs e)
         {
 
         }
