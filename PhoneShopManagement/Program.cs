@@ -22,10 +22,10 @@ namespace PhoneShopManagement
             //Application.Run(new frmUserProfile());
             //Application.Run(new frmAdmin("NV003"));
             Application.Run(new frmProduct());
-            //  Application.Run(new frmUserAccount());
+            //Application.Run(new frmUserAccount());
             //Application.Run(new frmStaff());
             //Application.Run(new frmBrand());
-            Application.Run(new frmCustomer());
+            //Application.Run(new frmCustomer());
         }
     }
 }
