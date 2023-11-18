@@ -20,7 +20,7 @@ namespace PhoneShopManagement
             Application.SetCompatibleTextRenderingDefault(false);
             // Application.Run(new frmLogin());
             //Application.Run(new frmUserProfile());
-            // Application.Run(new frmCustomer());
+             Application.Run(new frmCustomer());
             // Application.Run(new frmAdmin("NV003"));
             // Application.Run(new frmBrand());
             // Application.Run(new frmUserAccount());
