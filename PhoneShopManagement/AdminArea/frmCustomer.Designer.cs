@@ -52,6 +52,12 @@
             this.lb_CustomerName = new System.Windows.Forms.Label();
             this.lb_CustomerID = new System.Windows.Forms.Label();
             this.dataGridView_CustomerList = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox_Operation.SuspendLayout();
             this.panel_Information.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_CustomerList)).BeginInit();
@@ -95,6 +101,7 @@
             this.btn_Clear.TabIndex = 7;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Delete
             // 
@@ -104,6 +111,7 @@
             this.btn_Delete.TabIndex = 6;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Update
             // 
@@ -113,6 +121,7 @@
             this.btn_Update.TabIndex = 5;
             this.btn_Update.Text = "Sửa";
             this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // btn_Insert
             // 
@@ -122,6 +131,7 @@
             this.btn_Insert.TabIndex = 4;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // btn_Search
             // 
@@ -131,6 +141,7 @@
             this.btn_Search.TabIndex = 45;
             this.btn_Search.Text = "Tìm kiếm";
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // txtBox_Search
             // 
@@ -266,13 +277,64 @@
             // 
             // dataGridView_CustomerList
             // 
+            this.dataGridView_CustomerList.BackgroundColor = System.Drawing.SystemColors.ScrollBar;
             this.dataGridView_CustomerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_CustomerList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column3,
+            this.Column4,
+            this.Column5,
+            this.Column6});
             this.dataGridView_CustomerList.Location = new System.Drawing.Point(474, 92);
             this.dataGridView_CustomerList.Name = "dataGridView_CustomerList";
             this.dataGridView_CustomerList.RowHeadersWidth = 51;
             this.dataGridView_CustomerList.RowTemplate.Height = 24;
             this.dataGridView_CustomerList.Size = new System.Drawing.Size(900, 368);
             this.dataGridView_CustomerList.TabIndex = 50;
+            this.dataGridView_CustomerList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_CustomerList_CellContentClick);
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column1.HeaderText = "Mã khách hàng ";
+            this.Column1.MinimumWidth = 6;
+            this.Column1.Name = "Column1";
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column2.HeaderText = "Tên khách hàng";
+            this.Column2.MinimumWidth = 6;
+            this.Column2.Name = "Column2";
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Ngày sinh";
+            this.Column3.MinimumWidth = 6;
+            this.Column3.Name = "Column3";
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column4.HeaderText = "Số điện thoại";
+            this.Column4.MinimumWidth = 6;
+            this.Column4.Name = "Column4";
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column5.HeaderText = "Email";
+            this.Column5.MinimumWidth = 6;
+            this.Column5.Name = "Column5";
+            // 
+            // Column6
+            // 
+            this.Column6.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column6.HeaderText = "Địa chỉ";
+            this.Column6.MinimumWidth = 6;
+            this.Column6.Name = "Column6";
             // 
             // frmCustomer
             // 
@@ -291,6 +353,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmCustomer";
             this.Text = "Quản lý khách hàng";
+            this.Load += new System.EventHandler(this.frmCustomer_Load);
             this.groupBox_Operation.ResumeLayout(false);
             this.panel_Information.ResumeLayout(false);
             this.panel_Information.PerformLayout();
@@ -326,5 +389,11 @@
         private System.Windows.Forms.Label lb_CustomerName;
         private System.Windows.Forms.Label lb_CustomerID;
         private System.Windows.Forms.DataGridView dataGridView_CustomerList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

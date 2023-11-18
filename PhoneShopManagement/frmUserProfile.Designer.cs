@@ -132,6 +132,7 @@
             // 
             // txtBox_UserLogin
             // 
+            this.txtBox_UserLogin.Enabled = false;
             this.txtBox_UserLogin.Location = new System.Drawing.Point(164, 30);
             this.txtBox_UserLogin.Name = "txtBox_UserLogin";
             this.txtBox_UserLogin.ReadOnly = true;
