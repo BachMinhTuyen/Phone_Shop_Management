@@ -184,7 +184,36 @@ namespace PhoneShopManagement.AdminArea
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
-        {
+    {
+            using (SqlConnection Sqlclient = new SqlConnection(ConnectSql))
+            {
+                string query = "Select * From KhachHang Where TenKH Like N'%" + txtBox_Search.Text + "%'";
+                int countKH = 0;
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, Sqlclient))
+                {
+                    DataTable data = new DataTable();
+                    adapter.Fill(data);
+                    dataGridView_CustomerList.Rows.Clear();
+                    foreach (DataRow row in data.Rows)
+                    {
+                        int rowIndex = dataGridView_CustomerList.Rows.Add();
+                        for (int i = 0; i < dataGridView_CustomerList.ColumnCount; i++)
+                        {
+                            if (i == 2)
+                            {
+                                int index = row[i].ToString().IndexOf(" ");
+                                dataGridView_CustomerList.Rows[rowIndex].Cells[i].Value = row[i].ToString().Substring(0, index);
+                            }
+                            else
+                                dataGridView_CustomerList.Rows[rowIndex].Cells[i].Value = row[i];
+                        }
+                        countKH++;
+                    }
+                    txtBox_TotalStaff.Text = countKH.ToString();
+                }
+            }
+            
+           
         }
     }
 }
