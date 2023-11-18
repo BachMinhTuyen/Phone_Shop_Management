@@ -325,7 +325,7 @@ namespace PhoneShopManagement.AdminArea
         private double MaxPrice()
         {
             double max;
-            string sqlCommand = "";
+            string sqlCommand = "SELECT MAX(Gia) FROM SanPham";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(sqlCommand, connection);
