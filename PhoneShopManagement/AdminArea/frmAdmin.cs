@@ -87,9 +87,6 @@ namespace PhoneShopManagement
             LoadTop5Item();
         }
 
-        private void quảnLýToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
+      
     }
 }
