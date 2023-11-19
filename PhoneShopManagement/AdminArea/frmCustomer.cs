@@ -184,7 +184,7 @@ namespace PhoneShopManagement.AdminArea
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
-    {
+        {
             using (SqlConnection Sqlclient = new SqlConnection(ConnectSql))
             {
                 string query = "Select * From KhachHang Where TenKH Like N'%" + txtBox_Search.Text + "%'";
@@ -212,8 +212,8 @@ namespace PhoneShopManagement.AdminArea
                     txtBox_TotalStaff.Text = countKH.ToString();
                 }
             }
-            
-           
+
+
         }
     }
 }
