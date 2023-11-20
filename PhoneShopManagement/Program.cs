@@ -24,7 +24,7 @@ namespace PhoneShopManagement
             //  Application.Run(new frmUserAccount());
             //Application.Run(new frmStaff());
             //Application.Run(new frmBrand());
-            Application.Run(new frmCustomer());
+            Application.Run(new frmSearchProduct());
         }
     }
 }

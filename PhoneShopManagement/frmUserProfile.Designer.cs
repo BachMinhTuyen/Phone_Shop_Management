@@ -71,7 +71,7 @@
             // 
             this.txtBox_Address.Location = new System.Drawing.Point(164, 189);
             this.txtBox_Address.Name = "txtBox_Address";
-            this.txtBox_Address.Size = new System.Drawing.Size(262, 26);
+            this.txtBox_Address.Size = new System.Drawing.Size(262, 29);
             this.txtBox_Address.TabIndex = 33;
             // 
             // lb_Address
@@ -79,7 +79,7 @@
             this.lb_Address.AutoSize = true;
             this.lb_Address.Location = new System.Drawing.Point(24, 191);
             this.lb_Address.Name = "lb_Address";
-            this.lb_Address.Size = new System.Drawing.Size(55, 18);
+            this.lb_Address.Size = new System.Drawing.Size(70, 22);
             this.lb_Address.TabIndex = 32;
             this.lb_Address.Text = "Địa chỉ:";
             // 
@@ -87,7 +87,7 @@
             // 
             this.txtBox_PhoneNumber.Location = new System.Drawing.Point(164, 156);
             this.txtBox_PhoneNumber.Name = "txtBox_PhoneNumber";
-            this.txtBox_PhoneNumber.Size = new System.Drawing.Size(262, 26);
+            this.txtBox_PhoneNumber.Size = new System.Drawing.Size(262, 29);
             this.txtBox_PhoneNumber.TabIndex = 31;
             // 
             // lb_PhoneNumber
@@ -95,7 +95,7 @@
             this.lb_PhoneNumber.AutoSize = true;
             this.lb_PhoneNumber.Location = new System.Drawing.Point(24, 159);
             this.lb_PhoneNumber.Name = "lb_PhoneNumber";
-            this.lb_PhoneNumber.Size = new System.Drawing.Size(97, 18);
+            this.lb_PhoneNumber.Size = new System.Drawing.Size(120, 22);
             this.lb_PhoneNumber.TabIndex = 30;
             this.lb_PhoneNumber.Text = "Số điện thoại:";
             // 
@@ -103,7 +103,7 @@
             // 
             this.dateTimePicker_DateOfBirth.Location = new System.Drawing.Point(164, 123);
             this.dateTimePicker_DateOfBirth.Name = "dateTimePicker_DateOfBirth";
-            this.dateTimePicker_DateOfBirth.Size = new System.Drawing.Size(262, 26);
+            this.dateTimePicker_DateOfBirth.Size = new System.Drawing.Size(262, 29);
             this.dateTimePicker_DateOfBirth.TabIndex = 29;
             // 
             // lb_DateOfBirth
@@ -111,7 +111,7 @@
             this.lb_DateOfBirth.AutoSize = true;
             this.lb_DateOfBirth.Location = new System.Drawing.Point(24, 128);
             this.lb_DateOfBirth.Name = "lb_DateOfBirth";
-            this.lb_DateOfBirth.Size = new System.Drawing.Size(77, 18);
+            this.lb_DateOfBirth.Size = new System.Drawing.Size(94, 22);
             this.lb_DateOfBirth.TabIndex = 28;
             this.lb_DateOfBirth.Text = "Ngày sinh:";
             // 
@@ -119,15 +119,14 @@
             // 
             this.txtBox_Email.Location = new System.Drawing.Point(164, 91);
             this.txtBox_Email.Name = "txtBox_Email";
-            this.txtBox_Email.Size = new System.Drawing.Size(262, 26);
+            this.txtBox_Email.Size = new System.Drawing.Size(262, 29);
             this.txtBox_Email.TabIndex = 7;
             // 
             // txtBox_FullName
             // 
             this.txtBox_FullName.Location = new System.Drawing.Point(164, 59);
             this.txtBox_FullName.Name = "txtBox_FullName";
-            this.txtBox_FullName.ReadOnly = true;
-            this.txtBox_FullName.Size = new System.Drawing.Size(262, 26);
+            this.txtBox_FullName.Size = new System.Drawing.Size(262, 29);
             this.txtBox_FullName.TabIndex = 5;
             // 
             // txtBox_UserLogin
@@ -135,8 +134,7 @@
             this.txtBox_UserLogin.Enabled = false;
             this.txtBox_UserLogin.Location = new System.Drawing.Point(164, 30);
             this.txtBox_UserLogin.Name = "txtBox_UserLogin";
-            this.txtBox_UserLogin.ReadOnly = true;
-            this.txtBox_UserLogin.Size = new System.Drawing.Size(262, 26);
+            this.txtBox_UserLogin.Size = new System.Drawing.Size(262, 29);
             this.txtBox_UserLogin.TabIndex = 4;
             // 
             // lb_UserLogin
@@ -144,7 +142,7 @@
             this.lb_UserLogin.AutoSize = true;
             this.lb_UserLogin.Location = new System.Drawing.Point(24, 33);
             this.lb_UserLogin.Name = "lb_UserLogin";
-            this.lb_UserLogin.Size = new System.Drawing.Size(114, 18);
+            this.lb_UserLogin.Size = new System.Drawing.Size(136, 22);
             this.lb_UserLogin.TabIndex = 3;
             this.lb_UserLogin.Text = "Tên đăng nhập:";
             // 
@@ -153,7 +151,7 @@
             this.lb_Email.AutoSize = true;
             this.lb_Email.Location = new System.Drawing.Point(24, 93);
             this.lb_Email.Name = "lb_Email";
-            this.lb_Email.Size = new System.Drawing.Size(46, 18);
+            this.lb_Email.Size = new System.Drawing.Size(58, 22);
             this.lb_Email.TabIndex = 2;
             this.lb_Email.Text = "Email:";
             // 
@@ -162,7 +160,7 @@
             this.lb_FullName.AutoSize = true;
             this.lb_FullName.Location = new System.Drawing.Point(24, 62);
             this.lb_FullName.Name = "lb_FullName";
-            this.lb_FullName.Size = new System.Drawing.Size(78, 18);
+            this.lb_FullName.Size = new System.Drawing.Size(93, 22);
             this.lb_FullName.TabIndex = 0;
             this.lb_FullName.Text = "Họ và tên:";
             // 
@@ -174,6 +172,7 @@
             this.btn_Save.TabIndex = 3;
             this.btn_Save.Text = "Lưu thông tin";
             this.btn_Save.UseVisualStyleBackColor = true;
+            this.btn_Save.Click += new System.EventHandler(this.btn_Save_Click);
             // 
             // btn_Exit
             // 
@@ -183,10 +182,11 @@
             this.btn_Exit.TabIndex = 4;
             this.btn_Exit.Text = "Thoát";
             this.btn_Exit.UseVisualStyleBackColor = true;
+            this.btn_Exit.Click += new System.EventHandler(this.btn_Exit_Click);
             // 
             // frmUserProfile
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(537, 331);
             this.Controls.Add(this.btn_Exit);

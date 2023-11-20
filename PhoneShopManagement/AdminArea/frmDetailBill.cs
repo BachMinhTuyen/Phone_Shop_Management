@@ -16,5 +16,7 @@ namespace PhoneShopManagement.AdminArea
         {
             InitializeComponent();
         }
+
+     
     }
 }
