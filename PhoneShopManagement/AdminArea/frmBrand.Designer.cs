@@ -69,7 +69,6 @@
             this.btn_Clear.TabIndex = 7;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
-            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Delete
             // 
@@ -80,7 +79,6 @@
             this.btn_Delete.TabIndex = 6;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
-            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Update
             // 
@@ -91,7 +89,6 @@
             this.btn_Update.TabIndex = 5;
             this.btn_Update.Text = "Sửa";
             this.btn_Update.UseVisualStyleBackColor = true;
-            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // btn_Insert
             // 
@@ -101,7 +98,6 @@
             this.btn_Insert.TabIndex = 4;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
-            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // txtBox_BrandName
             // 

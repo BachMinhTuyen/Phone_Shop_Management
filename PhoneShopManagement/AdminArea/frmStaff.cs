@@ -41,21 +41,6 @@ namespace PhoneShopManagement.AdminArea
             key[0] = ds_QLPhoneShop.Tables["NhanVien"].Columns[0];
             ds_QLPhoneShop.Tables["NhanVien"].PrimaryKey = key;
 
-            //foreach (DataGridViewRow row in dataGridView_StaffList.Rows)
-            //{
-            //    int index = row.Index;
-            //    if (row.Cells["ChucVu"].Value == null)
-            //        break;
-            //    if (String.Compare(row.Cells["ChucVu"].Value.ToString(), "admin") == 0)
-            //    {
-            //        row.Cells["ChucVu"].Value = "Quản lý";
-            //    }
-            //    else
-            //    {
-            //        row.Cells["ChucVu"].Value = "Nhân viên bán hàng";
-            //    }
-            //}
-
             // Điều chỉnh độ rộng của cột
             dataGridView_StaffList.Columns["MaNV"].Width = 80;
             dataGridView_StaffList.Columns["TenNV"].Width = 150;
@@ -65,16 +50,18 @@ namespace PhoneShopManagement.AdminArea
             dataGridView_StaffList.Columns["Email"].Width = 170;
             dataGridView_StaffList.Columns["DiaChi"].Width = 120;
         }
-        private void TinhTongNhanVien()
+        private string TinhTongNhanVien()
         {
+            string sum;
             string sqlCommand = "SELECT COUNT(MaNV) FROM NhanVien";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 connection.Open();
                 SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                txtBox_TotalStaff.Text = cmd.ExecuteScalar().ToString();
+                sum = cmd.ExecuteScalar().ToString();
                 connection.Close();
             }
+            return sum;
         }
         private bool IsNumber(string pText)
         {
@@ -177,7 +164,7 @@ namespace PhoneShopManagement.AdminArea
             return true;
         }
 
-        //Vị trí khi chuột phải
+        //Vị trí khi nhấn chuột phải
         private int currentRowIndex, currentColIndex = 0;
         private void Copy_Click(object sender, EventArgs e)
         {
@@ -199,7 +186,7 @@ namespace PhoneShopManagement.AdminArea
 
             Load_StaffInformation(cmd);
 
-            TinhTongNhanVien();
+            txtBox_TotalStaff.Text = TinhTongNhanVien();
         }
         private void btn_Search_Click(object sender, EventArgs e)
         {
@@ -216,15 +203,16 @@ namespace PhoneShopManagement.AdminArea
         private void dataGridView_StaffList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtBox_StaffID.Enabled = false;
+            radioButton_Manager.Enabled = radioButton_Staff.Enabled = false;
 
             int index = e.RowIndex;
-            if (index == -1) 
+            if (index == -1 || index == int.Parse(TinhTongNhanVien())) 
                 return;
 
             txtBox_StaffID.Text = dataGridView_StaffList.Rows[index].Cells["MaNV"].Value.ToString();
             txtBox_StaffName.Text = dataGridView_StaffList.Rows[index].Cells["TenNV"].Value.ToString();
             string role = dataGridView_StaffList.Rows[index].Cells["ChucVu"].Value.ToString();
-            if (role == "admin")
+            if (role == "Quản Lý")
             {
                 radioButton_Manager.Checked = true;
                 radioButton_Staff.Checked = false;
@@ -249,7 +237,7 @@ namespace PhoneShopManagement.AdminArea
             DataRow insertNew = ds_QLPhoneShop.Tables["NhanVien"].NewRow();
             insertNew["MaNV"] = txtBox_StaffID.Text.Trim();
             insertNew["TenNV"] = txtBox_StaffName.Text.Trim();
-            insertNew["ChucVu"] = radioButton_Manager.Checked == true ? "admin" : "user";
+            //insertNew["ChucVu"] = radioButton_Manager.Checked == true ? "Quản Lý" : "Nhân Viên Bán Hàng";
             insertNew["NgaySinh"] = dateTimePicker_DateOfBirth.Value.ToString("yyyy-MM-dd");
             insertNew["SoDienThoai"] = txtBox_PhoneNumber.Text.Trim();
             insertNew["Email"] = txtBox_Email.Text.Trim();
@@ -264,54 +252,44 @@ namespace PhoneShopManagement.AdminArea
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
-            if (KiemTraMaNhanVien(txtBox_StaffID.Text) == true)
-            {
-                DataRow row = ds_QLPhoneShop.Tables["NhanVien"].Rows.Find(txtBox_StaffID.Text);
-                row["TenNV"] = txtBox_StaffName.Text.Trim();
-                row["ChucVu"] = radioButton_Manager.Checked == true ? "admin" : "user";
-                row["NgaySinh"] = dateTimePicker_DateOfBirth.Value.ToString("yyyy-MM-dd");
-                row["SoDienThoai"] = txtBox_PhoneNumber.Text.Trim();
-                row["Email"] = txtBox_Email.Text.Trim();
-                row["DiaChi"] = txtBox_Address.Text.Trim();
+            DataRow row = ds_QLPhoneShop.Tables["NhanVien"].Rows.Find(txtBox_StaffID.Text);
+            row["TenNV"] = txtBox_StaffName.Text.Trim();
+            //row["ChucVu"] = radioButton_Manager.Checked == true ? "Quản Lý" : "Nhân Viên Bán Hàng";
+            row["NgaySinh"] = dateTimePicker_DateOfBirth.Value.ToString("yyyy-MM-dd");
+            row["SoDienThoai"] = txtBox_PhoneNumber.Text.Trim();
+            row["Email"] = txtBox_Email.Text.Trim();
+            row["DiaChi"] = txtBox_Address.Text.Trim();
 
-                SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(da_Staff);
-                da_Staff.Update(ds_QLPhoneShop, "NhanVien");
+            SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(da_Staff);
+            da_Staff.Update(ds_QLPhoneShop, "NhanVien");
 
-                btn_Clear_Click(sender, e);
-            }
-            else
-                MessageBox.Show("Không tồn tại mã nhân viên này", "Thông báo");
+            btn_Clear_Click(sender, e);
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            if (KiemTraMaNhanVien(txtBox_StaffID.Text) == true)
+            if (MessageBox.Show($"Bạn có chắc muốn xoá nhân viên {txtBox_StaffID.Text}", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                if (MessageBox.Show($"Bạn có chắc muốn xoá nhân viên {txtBox_StaffID.Text}", "Cảnh báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+                string sqlCommand = "SELECT * FROM DonHang WHERE MaNV = '" + txtBox_StaffID.Text + "'";
+
+                DataTable table = new DataTable();
+                SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand, connectionString);
+                adapter.Fill(table);
+
+                if (table.Rows.Count > 0)
                 {
-                    string sqlCommand = "SELECT * FROM DonHang WHERE MaNV = '" + txtBox_StaffID.Text +"'";
-                
-                    DataTable table = new DataTable();
-                    SqlDataAdapter adapter = new SqlDataAdapter(sqlCommand, connectionString);
-                    adapter.Fill(table);
-
-                    if (table.Rows.Count > 0)
-                    {
-                        MessageBox.Show("Không thể xoá nhân viên này\nNhân viên này đang có trong dữ liệu hoá đơn", "Thông Báo");
-                        return;
-                    }
-                    DataRow row = ds_QLPhoneShop.Tables["NhanVien"].Rows.Find(txtBox_StaffID.Text);
-                    row.Delete();
-
-                    SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(da_Staff);
-                    da_Staff.Update(ds_QLPhoneShop, "NhanVien");
-                    MessageBox.Show("Thành công");
-                }
-                else
+                    MessageBox.Show("Không thể xoá nhân viên này\nNhân viên này đang có trong dữ liệu hoá đơn", "Thông Báo");
                     return;
+                }
+                DataRow row = ds_QLPhoneShop.Tables["NhanVien"].Rows.Find(txtBox_StaffID.Text);
+                row.Delete();
+
+                SqlCommandBuilder sqlCommandBuilder = new SqlCommandBuilder(da_Staff);
+                da_Staff.Update(ds_QLPhoneShop, "NhanVien");
+                MessageBox.Show("Thành công");
             }
             else
-                MessageBox.Show("Không tồn tại mã nhân viên này", "Thông báo");
+                return;
         }
 
         private void btn_Clear_Click(object sender, EventArgs e)
@@ -339,13 +317,13 @@ namespace PhoneShopManagement.AdminArea
             }
             string role;
             if (radioButton_FilterManager.Checked == true)
-                role = "admin";
+                role = "Quản Lý";
             else
-                role = "user";
+                role = "Nhân Viên Bán Hàng";
             string sqlCommand = "SELECT MaNV, TenNV, ChucVu, NgaySinh, SoDienThoai, Email, DiaChi FROM NhanVien WHERE ChucVu = @chucVu";
             SqlConnection connection = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-            cmd.Parameters.AddWithValue("ChucVu", role);
+            cmd.Parameters.AddWithValue("@chucVu", role);
 
             Load_StaffInformation(cmd);
         }

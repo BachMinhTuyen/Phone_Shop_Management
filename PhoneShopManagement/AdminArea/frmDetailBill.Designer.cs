@@ -46,14 +46,14 @@
             this.txtBox_StaffID = new System.Windows.Forms.TextBox();
             this.lb_StaffName = new System.Windows.Forms.Label();
             this.lb_StaffID = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBox_Total = new System.Windows.Forms.TextBox();
             this.lb_TotalBill = new System.Windows.Forms.Label();
             this.groupBox_BillInformation = new System.Windows.Forms.GroupBox();
             this.groupBox_Details = new System.Windows.Forms.GroupBox();
             this.btn_Insert = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
-            this.txtBox_ = new System.Windows.Forms.TextBox();
+            this.txtBox_Price = new System.Windows.Forms.TextBox();
             this.lb_Price = new System.Windows.Forms.Label();
             this.numericUpDown_Quantity = new System.Windows.Forms.NumericUpDown();
             this.lb_Quantity = new System.Windows.Forms.Label();
@@ -118,7 +118,8 @@
             // 
             this.txtBox_BillID.Location = new System.Drawing.Point(161, 40);
             this.txtBox_BillID.Name = "txtBox_BillID";
-            this.txtBox_BillID.Size = new System.Drawing.Size(234, 29);
+            this.txtBox_BillID.ReadOnly = true;
+            this.txtBox_BillID.Size = new System.Drawing.Size(234, 26);
             this.txtBox_BillID.TabIndex = 16;
             // 
             // lb_Email
@@ -144,7 +145,7 @@
             this.lb_DateOfBirth.AutoSize = true;
             this.lb_DateOfBirth.Location = new System.Drawing.Point(420, 44);
             this.lb_DateOfBirth.Name = "lb_DateOfBirth";
-            this.lb_DateOfBirth.Size = new System.Drawing.Size(141, 22);
+            this.lb_DateOfBirth.Size = new System.Drawing.Size(118, 18);
             this.lb_DateOfBirth.TabIndex = 9;
             this.lb_DateOfBirth.Text = "Ngày mua hàng:";
             // 
@@ -215,13 +216,13 @@
             this.lb_StaffID.TabIndex = 33;
             this.lb_StaffID.Text = "Mã nhân viên:";
             // 
-            // textBox1
+            // txtBox_Total
             // 
-            this.textBox1.Location = new System.Drawing.Point(599, 175);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(231, 29);
-            this.textBox1.TabIndex = 38;
+            this.txtBox_Total.Location = new System.Drawing.Point(599, 175);
+            this.txtBox_Total.Name = "txtBox_Total";
+            this.txtBox_Total.ReadOnly = true;
+            this.txtBox_Total.Size = new System.Drawing.Size(231, 26);
+            this.txtBox_Total.TabIndex = 38;
             // 
             // lb_TotalBill
             // 
@@ -235,7 +236,7 @@
             // 
             // groupBox_BillInformation
             // 
-            this.groupBox_BillInformation.Controls.Add(this.textBox1);
+            this.groupBox_BillInformation.Controls.Add(this.txtBox_Total);
             this.groupBox_BillInformation.Controls.Add(this.txtBox_Email);
             this.groupBox_BillInformation.Controls.Add(this.lb_TotalBill);
             this.groupBox_BillInformation.Controls.Add(this.lb_BillID);
@@ -267,7 +268,7 @@
             this.groupBox_Details.Controls.Add(this.btn_Insert);
             this.groupBox_Details.Controls.Add(this.btn_Delete);
             this.groupBox_Details.Controls.Add(this.btn_Update);
-            this.groupBox_Details.Controls.Add(this.txtBox_);
+            this.groupBox_Details.Controls.Add(this.txtBox_Price);
             this.groupBox_Details.Controls.Add(this.lb_Price);
             this.groupBox_Details.Controls.Add(this.numericUpDown_Quantity);
             this.groupBox_Details.Controls.Add(this.lb_Quantity);
@@ -290,6 +291,7 @@
             this.btn_Insert.TabIndex = 50;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // btn_Delete
             // 
@@ -299,6 +301,7 @@
             this.btn_Delete.TabIndex = 48;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Update
             // 
@@ -308,13 +311,15 @@
             this.btn_Update.TabIndex = 47;
             this.btn_Update.Text = "Cập nhật";
             this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
-            // txtBox_
+            // txtBox_Price
             // 
-            this.txtBox_.Location = new System.Drawing.Point(163, 141);
-            this.txtBox_.Name = "txtBox_";
-            this.txtBox_.Size = new System.Drawing.Size(234, 29);
-            this.txtBox_.TabIndex = 46;
+            this.txtBox_Price.Location = new System.Drawing.Point(163, 141);
+            this.txtBox_Price.Name = "txtBox_Price";
+            this.txtBox_Price.ReadOnly = true;
+            this.txtBox_Price.Size = new System.Drawing.Size(234, 26);
+            this.txtBox_Price.TabIndex = 46;
             // 
             // lb_Price
             // 
@@ -331,6 +336,7 @@
             this.numericUpDown_Quantity.Name = "numericUpDown_Quantity";
             this.numericUpDown_Quantity.Size = new System.Drawing.Size(107, 29);
             this.numericUpDown_Quantity.TabIndex = 44;
+            this.numericUpDown_Quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lb_Quantity
             // 
@@ -345,7 +351,8 @@
             // 
             this.txtBox_ProductName.Location = new System.Drawing.Point(163, 74);
             this.txtBox_ProductName.Name = "txtBox_ProductName";
-            this.txtBox_ProductName.Size = new System.Drawing.Size(234, 29);
+            this.txtBox_ProductName.ReadOnly = true;
+            this.txtBox_ProductName.Size = new System.Drawing.Size(234, 26);
             this.txtBox_ProductName.TabIndex = 42;
             // 
             // lb_ProductName
@@ -381,6 +388,7 @@
             this.btn_Refresh.TabIndex = 49;
             this.btn_Refresh.Text = "Làm mới";
             this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // btn_Final
             // 
@@ -390,6 +398,7 @@
             this.btn_Final.TabIndex = 50;
             this.btn_Final.Text = "Đóng";
             this.btn_Final.UseVisualStyleBackColor = true;
+            this.btn_Final.Click += new System.EventHandler(this.btn_Final_Click);
             // 
             // dataGridView_DetailsBill
             // 
@@ -400,6 +409,7 @@
             this.dataGridView_DetailsBill.RowTemplate.Height = 24;
             this.dataGridView_DetailsBill.Size = new System.Drawing.Size(856, 257);
             this.dataGridView_DetailsBill.TabIndex = 51;
+            this.dataGridView_DetailsBill.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DetailsBill_CellClick);
             // 
             // frmDetailBill
             // 
@@ -414,7 +424,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmDetailBill";
             this.Text = "Thông tin chi tiết hoá đơn";
-          
+            this.Load += new System.EventHandler(this.frmDetailBill_Load);
             this.groupBox_BillInformation.ResumeLayout(false);
             this.groupBox_BillInformation.PerformLayout();
             this.groupBox_Details.ResumeLayout(false);
@@ -444,7 +454,7 @@
         private System.Windows.Forms.TextBox txtBox_StaffID;
         private System.Windows.Forms.Label lb_StaffName;
         private System.Windows.Forms.Label lb_StaffID;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBox_Total;
         private System.Windows.Forms.Label lb_TotalBill;
         private System.Windows.Forms.GroupBox groupBox_BillInformation;
         private System.Windows.Forms.GroupBox groupBox_Details;
@@ -455,7 +465,7 @@
         private System.Windows.Forms.Label lb_ProductName;
         private System.Windows.Forms.Label lb_Price;
         private System.Windows.Forms.NumericUpDown numericUpDown_Quantity;
-        private System.Windows.Forms.TextBox txtBox_;
+        private System.Windows.Forms.TextBox txtBox_Price;
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Button btn_Refresh;

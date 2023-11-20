@@ -339,7 +339,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1516, 556);
+            this.ClientSize = new System.Drawing.Size(1476, 568);
             this.Controls.Add(this.lb_HeadingDetails);
             this.Controls.Add(this.dataGridView_Details);
             this.Controls.Add(this.groupBox_BillList);
