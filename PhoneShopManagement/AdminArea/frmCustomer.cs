@@ -22,11 +22,6 @@ namespace PhoneShopManagement.AdminArea
             InitializeComponent();
             LoadData();
         }
-
-        private void frmCustomer_Load(object sender, EventArgs e)
-        {
-
-        }
         void LoadData() {
             using (SqlConnection sqlclient = new SqlConnection(ConnectSql)) {
                 string query = string.Format("SELECT * FROM KhachHang");
@@ -58,6 +53,7 @@ namespace PhoneShopManagement.AdminArea
             txtBox_PhoneNumber.Clear();
             txtBox_Email.Clear();
             txtBox_Address.Clear();
+            txtBox_Search.Clear();
         }
         public void UpdateSql()
         {
@@ -153,7 +149,6 @@ namespace PhoneShopManagement.AdminArea
                 txtBox_PhoneNumber.Text = selectedRow.Cells[3].Value.ToString();
                 txtBox_Email.Text = selectedRow.Cells[4].Value.ToString();
                 txtBox_Address.Text = selectedRow.Cells[5].Value.ToString();
-
                 btn_Update.Enabled = true;
                 btn_Delete.Enabled = true;
             }
@@ -180,7 +175,9 @@ namespace PhoneShopManagement.AdminArea
 
         private void btn_Clear_Click(object sender, EventArgs e)
         {
+
             LoadData();
+            clearItem();
         }
 
         private void btn_Search_Click(object sender, EventArgs e)

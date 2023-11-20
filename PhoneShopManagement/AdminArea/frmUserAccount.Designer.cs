@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip_Main = new System.Windows.Forms.MenuStrip();
             this.thaoTácToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thêmToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,6 +62,7 @@
             this.lb_Password = new System.Windows.Forms.Label();
             this.lb_UserName = new System.Windows.Forms.Label();
             this.dataGridView_AccountList = new System.Windows.Forms.DataGridView();
+            this.STT = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -211,6 +215,7 @@
             this.btn_ChangeRole.TabIndex = 3;
             this.btn_ChangeRole.Text = "Đổi vai trò";
             this.btn_ChangeRole.UseVisualStyleBackColor = true;
+            this.btn_ChangeRole.Click += new System.EventHandler(this.btn_ChangeRole_Click);
             // 
             // btn_Delete
             // 
@@ -220,6 +225,7 @@
             this.btn_Delete.TabIndex = 2;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Reset
             // 
@@ -229,6 +235,7 @@
             this.btn_Reset.TabIndex = 1;
             this.btn_Reset.Text = "Khôi phục";
             this.btn_Reset.UseVisualStyleBackColor = true;
+            this.btn_Reset.Click += new System.EventHandler(this.btn_Reset_Click);
             // 
             // btn_Insert
             // 
@@ -238,7 +245,7 @@
             this.btn_Insert.TabIndex = 0;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
-            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click_1);
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // btn_Clear
             // 
@@ -248,6 +255,7 @@
             this.btn_Clear.TabIndex = 3;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // panel_Information
             // 
@@ -346,17 +354,46 @@
             // 
             // dataGridView_AccountList
             // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_AccountList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.dataGridView_AccountList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_AccountList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.STT,
             this.Column1,
             this.Column2,
             this.Column3});
             this.dataGridView_AccountList.Location = new System.Drawing.Point(28, 297);
             this.dataGridView_AccountList.Name = "dataGridView_AccountList";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_AccountList.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            this.dataGridView_AccountList.RowHeadersVisible = false;
             this.dataGridView_AccountList.RowHeadersWidth = 51;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            this.dataGridView_AccountList.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView_AccountList.RowTemplate.Height = 24;
             this.dataGridView_AccountList.Size = new System.Drawing.Size(738, 262);
             this.dataGridView_AccountList.TabIndex = 4;
+            this.dataGridView_AccountList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_AccountList_CellContentClick);
+            // 
+            // STT
+            // 
+            this.STT.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.STT.FillWeight = 50F;
+            this.STT.HeaderText = "Số thứ tự";
+            this.STT.MinimumWidth = 6;
+            this.STT.Name = "STT";
             // 
             // Column1
             // 
@@ -394,7 +431,6 @@
             this.MainMenuStrip = this.menuStrip_Main;
             this.Name = "frmUserAccount";
             this.Text = "Quản lý tài khoản người dùng";
-            this.Load += new System.EventHandler(this.frmUserAccount_Load);
             this.menuStrip_Main.ResumeLayout(false);
             this.menuStrip_Main.PerformLayout();
             this.groupBox_Statistics.ResumeLayout(false);
@@ -443,6 +479,7 @@
         private System.Windows.Forms.TextBox txtBox_Password;
         private System.Windows.Forms.DataGridView dataGridView_AccountList;
         private System.Windows.Forms.Button btn_ChangeRole;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STT;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;

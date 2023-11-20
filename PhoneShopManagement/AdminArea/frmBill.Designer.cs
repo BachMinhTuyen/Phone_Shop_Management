@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Filter = new System.Windows.Forms.Panel();
             this.radioButton_FilterCardPaid = new System.Windows.Forms.RadioButton();
             this.radioButton_FilterCashPaid = new System.Windows.Forms.RadioButton();
@@ -45,6 +46,12 @@
             this.txtBox_TotalBill = new System.Windows.Forms.TextBox();
             this.lb_TotalBill = new System.Windows.Forms.Label();
             this.dataGridView_BillList = new System.Windows.Forms.DataGridView();
+            this.MaHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenKH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TenNVBH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tongtien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TGMH = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TrangThai = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel_Filter.SuspendLayout();
             this.groupBox_Operation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_BillList)).BeginInit();
@@ -102,6 +109,7 @@
             this.btn_DefaultFilter.TabIndex = 38;
             this.btn_DefaultFilter.Text = "Mặc định";
             this.btn_DefaultFilter.UseVisualStyleBackColor = true;
+            this.btn_DefaultFilter.Click += new System.EventHandler(this.btn_DefaultFilter_Click);
             // 
             // btn_Filter
             // 
@@ -111,6 +119,7 @@
             this.btn_Filter.TabIndex = 37;
             this.btn_Filter.Text = "Lọc";
             this.btn_Filter.UseVisualStyleBackColor = true;
+            this.btn_Filter.Click += new System.EventHandler(this.btn_Filter_Click);
             // 
             // groupBox_Operation
             // 
@@ -142,6 +151,7 @@
             this.btn_Clear.TabIndex = 7;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Delete
             // 
@@ -151,6 +161,7 @@
             this.btn_Delete.TabIndex = 6;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_BillDetail
             // 
@@ -169,6 +180,7 @@
             this.btn_Search.TabIndex = 51;
             this.btn_Search.Text = "Tìm kiếm";
             this.btn_Search.UseVisualStyleBackColor = true;
+            this.btn_Search.Click += new System.EventHandler(this.btn_Search_Click);
             // 
             // txtBox_Search
             // 
@@ -176,6 +188,7 @@
             this.txtBox_Search.Name = "txtBox_Search";
             this.txtBox_Search.Size = new System.Drawing.Size(250, 26);
             this.txtBox_Search.TabIndex = 49;
+            this.txtBox_Search.TextChanged += new System.EventHandler(this.txtBox_Search_TextChanged);
             // 
             // lb_Search
             // 
@@ -205,13 +218,74 @@
             // 
             // dataGridView_BillList
             // 
+            this.dataGridView_BillList.AllowUserToAddRows = false;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_BillList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dataGridView_BillList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView_BillList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.MaHD,
+            this.TenKH,
+            this.TenNVBH,
+            this.Tongtien,
+            this.TGMH,
+            this.TrangThai});
             this.dataGridView_BillList.Location = new System.Drawing.Point(23, 213);
             this.dataGridView_BillList.Name = "dataGridView_BillList";
+            this.dataGridView_BillList.RowHeadersVisible = false;
             this.dataGridView_BillList.RowHeadersWidth = 51;
             this.dataGridView_BillList.RowTemplate.Height = 24;
             this.dataGridView_BillList.Size = new System.Drawing.Size(831, 274);
             this.dataGridView_BillList.TabIndex = 54;
+            this.dataGridView_BillList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_BillList_CellContentClick);
+            // 
+            // MaHD
+            // 
+            this.MaHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.MaHD.FillWeight = 50F;
+            this.MaHD.HeaderText = "Mã hóa đơn";
+            this.MaHD.MinimumWidth = 6;
+            this.MaHD.Name = "MaHD";
+            // 
+            // TenKH
+            // 
+            this.TenKH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenKH.HeaderText = "Tên khách hàng";
+            this.TenKH.MinimumWidth = 6;
+            this.TenKH.Name = "TenKH";
+            // 
+            // TenNVBH
+            // 
+            this.TenNVBH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TenNVBH.HeaderText = "Nhân viên bán hàng";
+            this.TenNVBH.MinimumWidth = 6;
+            this.TenNVBH.Name = "TenNVBH";
+            // 
+            // Tongtien
+            // 
+            this.Tongtien.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Tongtien.HeaderText = "Tổng tiền";
+            this.Tongtien.MinimumWidth = 6;
+            this.Tongtien.Name = "Tongtien";
+            // 
+            // TGMH
+            // 
+            this.TGMH.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TGMH.HeaderText = "Thời gian mua hàng";
+            this.TGMH.MinimumWidth = 6;
+            this.TGMH.Name = "TGMH";
+            // 
+            // TrangThai
+            // 
+            this.TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.TrangThai.HeaderText = "Phương Thức";
+            this.TrangThai.MinimumWidth = 6;
+            this.TrangThai.Name = "TrangThai";
             // 
             // frmBill
             // 
@@ -257,5 +331,11 @@
         private System.Windows.Forms.Label lb_TotalBill;
         private System.Windows.Forms.Button btn_CreateBill;
         private System.Windows.Forms.DataGridView dataGridView_BillList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn MaHD;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenKH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TenNVBH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tongtien;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TGMH;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TrangThai;
     }
 }

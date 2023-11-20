@@ -353,7 +353,6 @@
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmCustomer";
             this.Text = "Quản lý khách hàng";
-            this.Load += new System.EventHandler(this.frmCustomer_Load);
             this.groupBox_Operation.ResumeLayout(false);
             this.panel_Information.ResumeLayout(false);
             this.panel_Information.PerformLayout();

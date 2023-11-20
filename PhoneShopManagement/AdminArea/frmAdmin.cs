@@ -13,9 +13,6 @@ namespace PhoneShopManagement
 {
     public partial class frmAdmin : Form
     {
-        
-        //public string connectionString = Properties.Settings.Default.ConnectionString_Remote;
-
         public frmAdmin(string iDNAME)
         {
             this.IDNAME = iDNAME;
@@ -27,21 +24,25 @@ namespace PhoneShopManagement
         private void LoadThongKe()
         {
             List<TextBox> ListProfile = new List<TextBox>();
-            string[] querytext = { "NhanVien", "SanPham", "KhachHang" };
+            string[] querytext = {"NhanVien where ChucVu=N'Quản lý'", "NhanVien where ChucVu=N'Nhân Viên Bán Hàng'", "SanPham", "KhachHang" };
+            ListProfile.Add(txtBox_NumberOfAccount);
             ListProfile.Add(txtBox_NumberOfStaff);
             ListProfile.Add(txtBox_NumberOfProduct);
             ListProfile.Add(txtBox_NumberOfCustomer);
             using (SqlConnection sqlclient = new SqlConnection(ConnectSql))
             {
                 sqlclient.Open();
-                for (int i = 0; i < 3; i++)
+                for (int i = 0; i < 4; i++)
                 {
                     string query = string.Format("SELECT COUNT(*) FROM {0}", querytext[i]);
                     using (SqlCommand command = new SqlCommand(query, sqlclient))
                         ListProfile[i].Text = command.ExecuteScalar().ToString();
                 }
             }
+
+
         }
+
         void LoadNguoiDung()
         {
             List<TextBox> ListProfile = new List<TextBox>();

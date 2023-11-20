@@ -14,16 +14,53 @@ namespace PhoneShopManagement
 {
     public partial class frmUserAccount : Form
     {
-        
+        private string connectionString = Properties.Settings.Default.ConnectionString_Remote;
+        DataSet ds_QLPhoneShop = new DataSet();
+        SqlDataAdapter da_UserAccount;
+        string table = "NhanVien";
         public frmUserAccount()
         {
             InitializeComponent();
             LoadData();
         }
-        private string connectionString = Properties.Settings.Default.ConnectionString_Remote;
-        DataSet ds_QLPhoneShop = new DataSet();
-        SqlDataAdapter da_UserAccount;
-        string table = "NhanVien";
+        public void LoadData()
+        {
+            int CountAdmin = 0;
+            int CountUser = 0;
+            int CoutAccount = 0;
+            using (SqlConnection sqlclient = new SqlConnection(connectionString))
+            {
+                string query = string.Format("SELECT ROW_NUMBER() OVER (ORDER BY MaNV) AS STT,MaNV,MatKhau,ChucVu FROM {0}", table);
+                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlclient))
+                {
+                    DataTable data = new DataTable();
+                    adapter.Fill(data);
+                    dataGridView_AccountList.Rows.Clear();
+                    foreach (DataRow row in data.Rows)
+                    {
+                        int rowIndex = dataGridView_AccountList.Rows.Add();
+                        for (int i = 0; i < 4; i++) dataGridView_AccountList.Rows[rowIndex].Cells[i].Value = row[i];
+                        ++CoutAccount;
+                        if (string.Equals(row[3].ToString(), "Quản Lý")) CountAdmin++;
+                        else CountUser++;
+                    }
+                    txtBox_TotalAll.Text = CoutAccount.ToString();
+                    txtBox_TotalAdminAccount.Text = CountAdmin.ToString();
+                    txtBox_TotalStaffAccount.Text = CountUser.ToString();
+                }
+            }
+        }
+        private void btn_Insert_Click(object sender, EventArgs e)
+        {
+            if (checkValues())
+            {
+                InsertSql();
+                txtBox_UserName.Text = "";
+                txtBox_Password.Text = "";
+                txtBox_ConfirmPassword.Text = "";
+            }
+            else MessageBox.Show("Vui Lòng Nhập đầy đủ");
+        }
         public void InsertSql()
         {
             string query = string.Format("INSERT INTO {0} VALUES (@Value_UserName,@Value_User_password,@Value_Role)", table);
@@ -31,12 +68,13 @@ namespace PhoneShopManagement
             {
                 using (SqlCommand command = new SqlCommand(query, Sqlclient))
                 {
+                    
                     command.Parameters.AddWithValue("@Value_UserName", txtBox_UserName.Text);
                     command.Parameters.AddWithValue("@Value_User_password", txtBox_Password.Text);
                     if (radioBtn_Admin.Checked)
-                        command.Parameters.AddWithValue("@Value_Role", "ADMIN");
+                        command.Parameters.AddWithValue("@Value_Role", "Quản Lí");
                     else
-                        command.Parameters.AddWithValue("@Value_Role", "User");
+                        command.Parameters.AddWithValue("@Value_Role", "Nhân Viên Bán Hàng");
                     Sqlclient.Open();
                     command.ExecuteNonQuery();
                     Sqlclient.Close();
@@ -44,29 +82,16 @@ namespace PhoneShopManagement
             }
             LoadData();
         }
-        public void UpdateSql()
+
+
+        public void KhoiPhucMatKhau()
         {
-            string query = string.Format("UPDATE {0} SET User_password = @Value_Password , User_VaiTro = @Value_Role WHERE UserName = @Value_Name;", table);
-            using (SqlConnection Sqlclient = new SqlConnection(connectionString))
-            {
-                using (SqlCommand command = new SqlCommand(query, Sqlclient))
-                {
-                    command.Parameters.AddWithValue("@Value_Name", txtBox_UserName.Text);
-                    command.Parameters.AddWithValue("@Value_Password", txtBox_Password.Text);
-                    if (radioBtn_Admin.Checked)
-                        command.Parameters.AddWithValue("@Value_Role", "ADMIN");
-                    else
-                        command.Parameters.AddWithValue("@Value_Role", "User");
-                    Sqlclient.Open();
-                    command.ExecuteNonQuery();
-                    Sqlclient.Close();
-                }
-            }
-            LoadData();
+            for (int i = 0; i < dataGridView_AccountList.Rows.Count-1; i++)
+                dataGridView_AccountList.Rows[i].Cells[2].Value = "123456";
         }
         public void DeleteSql()
         {
-            string query = string.Format("DELETE FROM {0} WHERE UserName = @Value_UserName;", table);
+            string query = string.Format("DELETE FROM {0} WHERE MaNV = @Value_UserName;", table);
             using (SqlConnection Sqlclient = new SqlConnection(connectionString)) {
                 using (SqlCommand command = new SqlCommand(query, Sqlclient)) {
                     command.Parameters.AddWithValue("@Value_UserName", txtBox_UserName.Text);
@@ -89,51 +114,35 @@ namespace PhoneShopManagement
             }
             return false;
         }
-        public void LoadData()
-        {
-            int CountAdmin = 0;
-            int CountUser = 0;
-            int CoutAccount = 0;
-            using (SqlConnection sqlclient = new SqlConnection(connectionString))
-            {
-                string query = string.Format("SELECT MaNV,MatKhau,ChucVu FROM {0}", table);
-                using (SqlDataAdapter adapter = new SqlDataAdapter(query, sqlclient))
-                {
-                    DataTable data = new DataTable();
-                    adapter.Fill(data);
-                    dataGridView_AccountList.Rows.Clear();
-                    foreach (DataRow row in data.Rows)
-                    {
-                        int rowIndex = dataGridView_AccountList.Rows.Add();
-                        for(int i = 0; i < 3; i ++) dataGridView_AccountList.Rows[rowIndex].Cells[i].Value = row[i];
-                        ++CoutAccount;
-                        if (string.Equals(row[2].ToString(), "ADMIN")) CountAdmin++;
-                        else CountUser++;
-                    }
-                    txtBox_TotalAll.Text = CoutAccount.ToString();
-                    txtBox_TotalAdminAccount.Text = CountAdmin.ToString();
-                    txtBox_TotalStaffAccount.Text = CountUser.ToString();
-                }
-            }
-        }
-        private void btn_Insert_Click(object sender, EventArgs e)
-        {
-            if (checkValues())
-            {
-                InsertSql();
-                txtBox_UserName.Text = "";
-                txtBox_Password.Text = "";
-                txtBox_ConfirmPassword.Text = "";
-            }
-            else MessageBox.Show("Vui Lòng Nhập đầy đủ");
+      
+      
 
-        }
+      
+
+      
+
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             LoadData();
             txtBox_UserName.Text = "";
             txtBox_Password.Text = "";
         }
+
+        private void dataGridView_AccountList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow selectedRow = dataGridView_AccountList.Rows[e.RowIndex];
+                txtBox_UserName.Text = selectedRow.Cells[1].Value.ToString();
+                txtBox_Password.Text = selectedRow.Cells[2].Value.ToString();
+                string text = selectedRow.Cells[3].Value.ToString();
+                if (string.Equals(text, "Quản Lí"))
+                    radioBtn_Admin.Checked = true;
+                else
+                    radioBtn_User.Checked = true;
+            }
+        }
+
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             DeleteSql();
@@ -141,33 +150,28 @@ namespace PhoneShopManagement
             txtBox_Password.Text = "";
             txtBox_ConfirmPassword.Text = "";
         }
-        private void btn_Update_Click(object sender, EventArgs e)
+
+        private void btn_Reset_Click(object sender, EventArgs e)
         {
-            UpdateSql();
-            txtBox_UserName.Text = "";
-            txtBox_Password.Text = "";
-            txtBox_ConfirmPassword.Text = "";
-        }
-        private void DataGV_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            int i = dataGridView_AccountList.CurrentRow.Index;
-            txtBox_UserName.Text = dataGridView_AccountList.Rows[i].Cells[1].Value.ToString();
-            txtBox_Password.Text = dataGridView_AccountList.Rows[i].Cells[2].Value.ToString();
-            string text = dataGridView_AccountList.Rows[i].Cells[3].Value.ToString();// Lấy vai trò ra đem đi so sánh
-            if (string.Equals(text, "ADMIN"))
-                radioBtn_Admin.Checked = true;
-            else
-                radioBtn_User.Checked = true;
+            KhoiPhucMatKhau();
         }
 
-        private void frmUserAccount_Load(object sender, EventArgs e)
+        private void btn_ChangeRole_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void btn_Insert_Click_1(object sender, EventArgs e)
-        {
-
+            string query = string.Format("UPDATE {0} SET ChucVu = @Value_Role WHERE MaNV = @MaNV", table);
+            using (SqlConnection Sqlclient = new SqlConnection(connectionString))
+            {
+                using (SqlCommand command = new SqlCommand(query, Sqlclient))
+                {
+                    string Role = (radioBtn_Admin.Checked) ? "Quản Lí" : "Nhân Viên Bán Hàng";
+                    command.Parameters.AddWithValue("@Value_Role", Role);
+                    command.Parameters.AddWithValue("@MaNV",txtBox_UserName.Text);
+                    Sqlclient.Open();
+                    command.ExecuteNonQuery();
+                    Sqlclient.Close();
+                }
+            }
+            LoadData();
         }
     }
 }

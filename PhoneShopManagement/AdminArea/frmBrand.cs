@@ -19,7 +19,7 @@ namespace PhoneShopManagement.AdminArea
         public frmBrand()
         {
             InitializeComponent();
-           
+          
         }
         void LoadData()
         {
@@ -40,12 +40,15 @@ namespace PhoneShopManagement.AdminArea
                 }
             }
         }
-            private void frmBrand_Load(object sender, EventArgs e)
-            {
-                LoadData();
-            }
-            private void dataGridView_BrandList_CellContentClick(object sender, DataGridViewCellEventArgs e)
-         {
+        private void frmBrand_Load(object sender, EventArgs e)
+        {
+
+            LoadData();
+            dataGridView_BrandList.ReadOnly = true;
+            dataGridView_BrandList.AllowUserToAddRows = false;
+        }
+        private void dataGridView_BrandList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow selectedRow = dataGridView_BrandList.Rows[e.RowIndex];
@@ -55,29 +58,7 @@ namespace PhoneShopManagement.AdminArea
                 btn_Delete.Enabled = true;
             }
         }
-       
-
-        private void btn_Insert_Click(object sender, EventArgs e)
-        {
-            if (txtBox_BrandName.ReadOnly)
-            {
-                txtBox_BrandID.ReadOnly = false;
-                txtBox_BrandName.ReadOnly = false;
-                btn_Clear.Enabled = true;
-                btn_Update.Enabled = false;
-                btn_Delete.Enabled = false;
-                txtBox_BrandID.Clear();
-                txtBox_BrandName.Clear();
-            }
-            else
-            {
-                txtBox_BrandID.ReadOnly = true;
-                txtBox_BrandName.ReadOnly = true;
-                InsertSql();
-                txtBox_BrandID.Clear();
-                txtBox_BrandName.Clear();
-            }
-        }
+ 
         public void InsertSql()
         {
             try
@@ -119,8 +100,8 @@ namespace PhoneShopManagement.AdminArea
                 btn_Insert.Enabled = true;
 
             }
-
         }
+
         public void UpdateSql()
         {
             try
@@ -145,7 +126,31 @@ namespace PhoneShopManagement.AdminArea
             }
         }
 
-        public void DeleteSql()
+     
+
+        private void btn_Insert_Click(object sender, EventArgs e)
+        {
+            if (txtBox_BrandName.ReadOnly)
+            {
+                txtBox_BrandID.ReadOnly = false;
+                txtBox_BrandName.ReadOnly = false;
+                btn_Clear.Enabled = true;
+                //  btn_Update.Enabled = false;
+                //  btn_Delete.Enabled = false;
+                txtBox_BrandID.Clear();
+                txtBox_BrandName.Clear();
+            }
+            else
+            {
+                txtBox_BrandID.ReadOnly = true;
+                txtBox_BrandName.ReadOnly = true;
+                InsertSql();
+                txtBox_BrandID.Clear();
+                txtBox_BrandName.Clear();
+            }
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
         {
             try
             {
@@ -168,14 +173,11 @@ namespace PhoneShopManagement.AdminArea
             }
         }
 
-
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             txtBox_BrandID.Clear();
             txtBox_BrandName.Clear();
             LoadData();
         }
-
-       
     }
 }
