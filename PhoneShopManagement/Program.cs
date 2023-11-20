@@ -20,12 +20,14 @@ namespace PhoneShopManagement
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmLogin());
             //Application.Run(new frmAdmin("NV003"));
-            Application.Run(new frmProduct());
+            //Application.Run(new frmProduct());
             //Application.Run(new frmUserAccount());
             //Application.Run(new frmStaff());
             //Application.Run(new frmBrand());
             //Application.Run(new frmCustomer());
-            Application.Run(new frmDetailBill());
+            //Application.Run(new frmDetailBill());
+            //Application.Run(new frmRevenueReport());
+            Application.Run(new frmGenerateBill());
         }
     }
 }
