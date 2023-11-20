@@ -69,6 +69,7 @@
             this.btn_Clear.TabIndex = 7;
             this.btn_Clear.Text = "Làm mới";
             this.btn_Clear.UseVisualStyleBackColor = true;
+            this.btn_Clear.Click += new System.EventHandler(this.btn_Clear_Click);
             // 
             // btn_Delete
             // 
@@ -78,6 +79,7 @@
             this.btn_Delete.TabIndex = 6;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Update
             // 
@@ -87,6 +89,7 @@
             this.btn_Update.TabIndex = 5;
             this.btn_Update.Text = "Sửa";
             this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
             // btn_Insert
             // 
@@ -96,19 +99,20 @@
             this.btn_Insert.TabIndex = 4;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // txtBox_ProductTypeName
             // 
             this.txtBox_ProductTypeName.Location = new System.Drawing.Point(129, 67);
             this.txtBox_ProductTypeName.Name = "txtBox_ProductTypeName";
-            this.txtBox_ProductTypeName.Size = new System.Drawing.Size(296, 26);
+            this.txtBox_ProductTypeName.Size = new System.Drawing.Size(296, 29);
             this.txtBox_ProductTypeName.TabIndex = 3;
             // 
             // txtBox_ProductTypeID
             // 
             this.txtBox_ProductTypeID.Location = new System.Drawing.Point(129, 35);
             this.txtBox_ProductTypeID.Name = "txtBox_ProductTypeID";
-            this.txtBox_ProductTypeID.Size = new System.Drawing.Size(296, 26);
+            this.txtBox_ProductTypeID.Size = new System.Drawing.Size(296, 29);
             this.txtBox_ProductTypeID.TabIndex = 2;
             // 
             // lb_ProductTypeID
@@ -116,7 +120,7 @@
             this.lb_ProductTypeID.AutoSize = true;
             this.lb_ProductTypeID.Location = new System.Drawing.Point(28, 38);
             this.lb_ProductTypeID.Name = "lb_ProductTypeID";
-            this.lb_ProductTypeID.Size = new System.Drawing.Size(58, 18);
+            this.lb_ProductTypeID.Size = new System.Drawing.Size(72, 22);
             this.lb_ProductTypeID.TabIndex = 1;
             this.lb_ProductTypeID.Text = "Mã loại:";
             // 
@@ -125,7 +129,7 @@
             this.lb_ProductTypeName.AutoSize = true;
             this.lb_ProductTypeName.Location = new System.Drawing.Point(28, 69);
             this.lb_ProductTypeName.Name = "lb_ProductTypeName";
-            this.lb_ProductTypeName.Size = new System.Drawing.Size(64, 18);
+            this.lb_ProductTypeName.Size = new System.Drawing.Size(79, 22);
             this.lb_ProductTypeName.TabIndex = 0;
             this.lb_ProductTypeName.Text = "Tên loại:";
             // 
@@ -138,10 +142,11 @@
             this.dataGridView_ProductType.RowTemplate.Height = 24;
             this.dataGridView_ProductType.Size = new System.Drawing.Size(457, 253);
             this.dataGridView_ProductType.TabIndex = 2;
+            this.dataGridView_ProductType.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
             // 
             // frmProductType
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(498, 432);
             this.Controls.Add(this.dataGridView_ProductType);
@@ -149,6 +154,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmProductType";
             this.Text = "Quản lý các loại sản phẩm";
+            this.Load += new System.EventHandler(this.frmProductType_Load);
             this.groupBox_Information.ResumeLayout(false);
             this.groupBox_Information.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_ProductType)).EndInit();

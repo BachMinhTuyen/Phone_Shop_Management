@@ -53,9 +53,8 @@
             this.chart_Statistics.Name = "chart_Statistics";
             series1.BorderWidth = 2;
             series1.ChartArea = "ChartArea1";
-            series1.ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Line;
             series1.Legend = "Legend1";
-            series1.Name = "Doanh thu";
+            series1.Name = "Doanh Thu";
             this.chart_Statistics.Series.Add(series1);
             this.chart_Statistics.Size = new System.Drawing.Size(616, 372);
             this.chart_Statistics.TabIndex = 0;
@@ -110,6 +109,7 @@
             this.btn_Statistical.TabIndex = 6;
             this.btn_Statistical.Text = "Thống kê";
             this.btn_Statistical.UseVisualStyleBackColor = true;
+            this.btn_Statistical.Click += new System.EventHandler(this.btn_Statistical_Click);
             // 
             // dataGridView_RevenueReport
             // 
@@ -133,6 +133,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmRevenueReport";
             this.Text = "Báo cáo doanh thu bán hàng";
+            this.Load += new System.EventHandler(this.frmRevenueReport_Load);
             ((System.ComponentModel.ISupportInitialize)(this.chart_Statistics)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

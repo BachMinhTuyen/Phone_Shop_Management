@@ -336,6 +336,8 @@ namespace PhoneShopManagement.AdminArea
             Load_StaffInformation(cmd);
         }
 
+       
+
         private void dataGridView_StaffList_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Right)

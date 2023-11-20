@@ -19,17 +19,19 @@ namespace PhoneShopManagement
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //Application.Run(new frmLogin());
-            //Application.Run(new frmUserProfile());
-            // Application.Run(new frmProduct())
             //Application.Run(new frmAdmin("NV003"));
             //Application.Run(new frmProduct());
+            //Application.Run(new frmUserAccount());
             //Application.Run(new frmStaff());
-
-            //Application.Run(new frmAdmin("NV003"));
-           //Application.Run(new frmCustomer());
+            //Application.Run(new frmSearchProduct());
+            //Application.Run(new frmCustomer());
+            //Application.Run(new frmDetailBill());
+            //Application.Run(new frmRevenueReport());
+            Application.Run(new frmGenerateBill());
+            //Application.Run(new frmCustomer());
             //Application.Run(new frmBrand());
-           //Application.Run(new frmUserAccount());
-           //Application.Run(new frmBill());
+            //Application.Run(new frmUserAccount());
+            //Application.Run(new frmBill());
 
             
 

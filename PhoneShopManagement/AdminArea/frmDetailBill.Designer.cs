@@ -46,14 +46,14 @@
             this.txtBox_StaffID = new System.Windows.Forms.TextBox();
             this.lb_StaffName = new System.Windows.Forms.Label();
             this.lb_StaffID = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBox_Total = new System.Windows.Forms.TextBox();
             this.lb_TotalBill = new System.Windows.Forms.Label();
             this.groupBox_BillInformation = new System.Windows.Forms.GroupBox();
             this.groupBox_Details = new System.Windows.Forms.GroupBox();
             this.btn_Insert = new System.Windows.Forms.Button();
             this.btn_Delete = new System.Windows.Forms.Button();
             this.btn_Update = new System.Windows.Forms.Button();
-            this.txtBox_ = new System.Windows.Forms.TextBox();
+            this.txtBox_Price = new System.Windows.Forms.TextBox();
             this.lb_Price = new System.Windows.Forms.Label();
             this.numericUpDown_Quantity = new System.Windows.Forms.NumericUpDown();
             this.lb_Quantity = new System.Windows.Forms.Label();
@@ -74,7 +74,7 @@
             // 
             this.txtBox_Address.Location = new System.Drawing.Point(161, 175);
             this.txtBox_Address.Name = "txtBox_Address";
-            this.txtBox_Address.Size = new System.Drawing.Size(234, 26);
+            this.txtBox_Address.Size = new System.Drawing.Size(234, 29);
             this.txtBox_Address.TabIndex = 30;
             // 
             // lb_Address
@@ -82,7 +82,7 @@
             this.lb_Address.AutoSize = true;
             this.lb_Address.Location = new System.Drawing.Point(17, 177);
             this.lb_Address.Name = "lb_Address";
-            this.lb_Address.Size = new System.Drawing.Size(135, 18);
+            this.lb_Address.Size = new System.Drawing.Size(167, 22);
             this.lb_Address.TabIndex = 29;
             this.lb_Address.Text = "Địa chỉ khách hàng:";
             // 
@@ -90,34 +90,35 @@
             // 
             this.txtBox_Email.Location = new System.Drawing.Point(568, 139);
             this.txtBox_Email.Name = "txtBox_Email";
-            this.txtBox_Email.Size = new System.Drawing.Size(262, 26);
+            this.txtBox_Email.Size = new System.Drawing.Size(262, 29);
             this.txtBox_Email.TabIndex = 28;
             // 
             // dateTimePicker_TimeOfPurchase
             // 
             this.dateTimePicker_TimeOfPurchase.Location = new System.Drawing.Point(568, 38);
             this.dateTimePicker_TimeOfPurchase.Name = "dateTimePicker_TimeOfPurchase";
-            this.dateTimePicker_TimeOfPurchase.Size = new System.Drawing.Size(262, 26);
+            this.dateTimePicker_TimeOfPurchase.Size = new System.Drawing.Size(262, 29);
             this.dateTimePicker_TimeOfPurchase.TabIndex = 27;
             // 
             // txtBox_PhoneNumber
             // 
             this.txtBox_PhoneNumber.Location = new System.Drawing.Point(161, 139);
             this.txtBox_PhoneNumber.Name = "txtBox_PhoneNumber";
-            this.txtBox_PhoneNumber.Size = new System.Drawing.Size(234, 26);
+            this.txtBox_PhoneNumber.Size = new System.Drawing.Size(234, 29);
             this.txtBox_PhoneNumber.TabIndex = 20;
             // 
             // txtBox_CustomerName
             // 
             this.txtBox_CustomerName.Location = new System.Drawing.Point(568, 73);
             this.txtBox_CustomerName.Name = "txtBox_CustomerName";
-            this.txtBox_CustomerName.Size = new System.Drawing.Size(262, 26);
+            this.txtBox_CustomerName.Size = new System.Drawing.Size(262, 29);
             this.txtBox_CustomerName.TabIndex = 17;
             // 
             // txtBox_BillID
             // 
             this.txtBox_BillID.Location = new System.Drawing.Point(161, 40);
             this.txtBox_BillID.Name = "txtBox_BillID";
+            this.txtBox_BillID.ReadOnly = true;
             this.txtBox_BillID.Size = new System.Drawing.Size(234, 26);
             this.txtBox_BillID.TabIndex = 16;
             // 
@@ -126,7 +127,7 @@
             this.lb_Email.AutoSize = true;
             this.lb_Email.Location = new System.Drawing.Point(420, 141);
             this.lb_Email.Name = "lb_Email";
-            this.lb_Email.Size = new System.Drawing.Size(46, 18);
+            this.lb_Email.Size = new System.Drawing.Size(58, 22);
             this.lb_Email.TabIndex = 12;
             this.lb_Email.Text = "Email:";
             // 
@@ -135,7 +136,7 @@
             this.lb_PhoneNumber.AutoSize = true;
             this.lb_PhoneNumber.Location = new System.Drawing.Point(15, 144);
             this.lb_PhoneNumber.Name = "lb_PhoneNumber";
-            this.lb_PhoneNumber.Size = new System.Drawing.Size(121, 18);
+            this.lb_PhoneNumber.Size = new System.Drawing.Size(146, 22);
             this.lb_PhoneNumber.TabIndex = 10;
             this.lb_PhoneNumber.Text = "SDT khách hàng:";
             // 
@@ -153,7 +154,7 @@
             this.lb_CustomerName.AutoSize = true;
             this.lb_CustomerName.Location = new System.Drawing.Point(420, 75);
             this.lb_CustomerName.Name = "lb_CustomerName";
-            this.lb_CustomerName.Size = new System.Drawing.Size(119, 18);
+            this.lb_CustomerName.Size = new System.Drawing.Size(143, 22);
             this.lb_CustomerName.TabIndex = 7;
             this.lb_CustomerName.Text = "Tên khách hàng:";
             // 
@@ -163,7 +164,7 @@
             this.lb_BillID.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_BillID.Location = new System.Drawing.Point(15, 43);
             this.lb_BillID.Name = "lb_BillID";
-            this.lb_BillID.Size = new System.Drawing.Size(97, 18);
+            this.lb_BillID.Size = new System.Drawing.Size(122, 22);
             this.lb_BillID.TabIndex = 6;
             this.lb_BillID.Text = "Mã hoá đơn:";
             // 
@@ -171,7 +172,7 @@
             // 
             this.txtBox_CustomerID.Location = new System.Drawing.Point(161, 73);
             this.txtBox_CustomerID.Name = "txtBox_CustomerID";
-            this.txtBox_CustomerID.Size = new System.Drawing.Size(234, 26);
+            this.txtBox_CustomerID.Size = new System.Drawing.Size(234, 29);
             this.txtBox_CustomerID.TabIndex = 32;
             // 
             // lb_CustomerID
@@ -179,7 +180,7 @@
             this.lb_CustomerID.AutoSize = true;
             this.lb_CustomerID.Location = new System.Drawing.Point(15, 75);
             this.lb_CustomerID.Name = "lb_CustomerID";
-            this.lb_CustomerID.Size = new System.Drawing.Size(113, 18);
+            this.lb_CustomerID.Size = new System.Drawing.Size(136, 22);
             this.lb_CustomerID.TabIndex = 31;
             this.lb_CustomerID.Text = "Mã khách hàng:";
             // 
@@ -187,14 +188,14 @@
             // 
             this.txtBox_StaffName.Location = new System.Drawing.Point(568, 106);
             this.txtBox_StaffName.Name = "txtBox_StaffName";
-            this.txtBox_StaffName.Size = new System.Drawing.Size(262, 26);
+            this.txtBox_StaffName.Size = new System.Drawing.Size(262, 29);
             this.txtBox_StaffName.TabIndex = 36;
             // 
             // txtBox_StaffID
             // 
             this.txtBox_StaffID.Location = new System.Drawing.Point(161, 106);
             this.txtBox_StaffID.Name = "txtBox_StaffID";
-            this.txtBox_StaffID.Size = new System.Drawing.Size(234, 26);
+            this.txtBox_StaffID.Size = new System.Drawing.Size(234, 29);
             this.txtBox_StaffID.TabIndex = 35;
             // 
             // lb_StaffName
@@ -202,7 +203,7 @@
             this.lb_StaffName.AutoSize = true;
             this.lb_StaffName.Location = new System.Drawing.Point(420, 109);
             this.lb_StaffName.Name = "lb_StaffName";
-            this.lb_StaffName.Size = new System.Drawing.Size(144, 18);
+            this.lb_StaffName.Size = new System.Drawing.Size(175, 22);
             this.lb_StaffName.TabIndex = 34;
             this.lb_StaffName.Text = "Nhân viên bán hàng:";
             // 
@@ -211,17 +212,17 @@
             this.lb_StaffID.AutoSize = true;
             this.lb_StaffID.Location = new System.Drawing.Point(15, 109);
             this.lb_StaffID.Name = "lb_StaffID";
-            this.lb_StaffID.Size = new System.Drawing.Size(101, 18);
+            this.lb_StaffID.Size = new System.Drawing.Size(122, 22);
             this.lb_StaffID.TabIndex = 33;
             this.lb_StaffID.Text = "Mã nhân viên:";
             // 
-            // textBox1
+            // txtBox_Total
             // 
-            this.textBox1.Location = new System.Drawing.Point(599, 175);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(231, 26);
-            this.textBox1.TabIndex = 38;
+            this.txtBox_Total.Location = new System.Drawing.Point(599, 175);
+            this.txtBox_Total.Name = "txtBox_Total";
+            this.txtBox_Total.ReadOnly = true;
+            this.txtBox_Total.Size = new System.Drawing.Size(231, 26);
+            this.txtBox_Total.TabIndex = 38;
             // 
             // lb_TotalBill
             // 
@@ -229,13 +230,13 @@
             this.lb_TotalBill.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_TotalBill.Location = new System.Drawing.Point(420, 177);
             this.lb_TotalBill.Name = "lb_TotalBill";
-            this.lb_TotalBill.Size = new System.Drawing.Size(165, 18);
+            this.lb_TotalBill.Size = new System.Drawing.Size(207, 22);
             this.lb_TotalBill.TabIndex = 37;
             this.lb_TotalBill.Text = "Tổng tiền thanh toán:";
             // 
             // groupBox_BillInformation
             // 
-            this.groupBox_BillInformation.Controls.Add(this.textBox1);
+            this.groupBox_BillInformation.Controls.Add(this.txtBox_Total);
             this.groupBox_BillInformation.Controls.Add(this.txtBox_Email);
             this.groupBox_BillInformation.Controls.Add(this.lb_TotalBill);
             this.groupBox_BillInformation.Controls.Add(this.lb_BillID);
@@ -267,7 +268,7 @@
             this.groupBox_Details.Controls.Add(this.btn_Insert);
             this.groupBox_Details.Controls.Add(this.btn_Delete);
             this.groupBox_Details.Controls.Add(this.btn_Update);
-            this.groupBox_Details.Controls.Add(this.txtBox_);
+            this.groupBox_Details.Controls.Add(this.txtBox_Price);
             this.groupBox_Details.Controls.Add(this.lb_Price);
             this.groupBox_Details.Controls.Add(this.numericUpDown_Quantity);
             this.groupBox_Details.Controls.Add(this.lb_Quantity);
@@ -290,6 +291,7 @@
             this.btn_Insert.TabIndex = 50;
             this.btn_Insert.Text = "Thêm";
             this.btn_Insert.UseVisualStyleBackColor = true;
+            this.btn_Insert.Click += new System.EventHandler(this.btn_Insert_Click);
             // 
             // btn_Delete
             // 
@@ -299,6 +301,7 @@
             this.btn_Delete.TabIndex = 48;
             this.btn_Delete.Text = "Xoá";
             this.btn_Delete.UseVisualStyleBackColor = true;
+            this.btn_Delete.Click += new System.EventHandler(this.btn_Delete_Click);
             // 
             // btn_Update
             // 
@@ -308,20 +311,22 @@
             this.btn_Update.TabIndex = 47;
             this.btn_Update.Text = "Cập nhật";
             this.btn_Update.UseVisualStyleBackColor = true;
+            this.btn_Update.Click += new System.EventHandler(this.btn_Update_Click);
             // 
-            // txtBox_
+            // txtBox_Price
             // 
-            this.txtBox_.Location = new System.Drawing.Point(163, 141);
-            this.txtBox_.Name = "txtBox_";
-            this.txtBox_.Size = new System.Drawing.Size(234, 26);
-            this.txtBox_.TabIndex = 46;
+            this.txtBox_Price.Location = new System.Drawing.Point(163, 141);
+            this.txtBox_Price.Name = "txtBox_Price";
+            this.txtBox_Price.ReadOnly = true;
+            this.txtBox_Price.Size = new System.Drawing.Size(234, 26);
+            this.txtBox_Price.TabIndex = 46;
             // 
             // lb_Price
             // 
             this.lb_Price.AutoSize = true;
             this.lb_Price.Location = new System.Drawing.Point(35, 144);
             this.lb_Price.Name = "lb_Price";
-            this.lb_Price.Size = new System.Drawing.Size(62, 18);
+            this.lb_Price.Size = new System.Drawing.Size(78, 22);
             this.lb_Price.TabIndex = 45;
             this.lb_Price.Text = "Đơn giá:";
             // 
@@ -329,15 +334,16 @@
             // 
             this.numericUpDown_Quantity.Location = new System.Drawing.Point(163, 107);
             this.numericUpDown_Quantity.Name = "numericUpDown_Quantity";
-            this.numericUpDown_Quantity.Size = new System.Drawing.Size(107, 26);
+            this.numericUpDown_Quantity.Size = new System.Drawing.Size(107, 29);
             this.numericUpDown_Quantity.TabIndex = 44;
+            this.numericUpDown_Quantity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // lb_Quantity
             // 
             this.lb_Quantity.AutoSize = true;
             this.lb_Quantity.Location = new System.Drawing.Point(35, 109);
             this.lb_Quantity.Name = "lb_Quantity";
-            this.lb_Quantity.Size = new System.Drawing.Size(69, 18);
+            this.lb_Quantity.Size = new System.Drawing.Size(87, 22);
             this.lb_Quantity.TabIndex = 43;
             this.lb_Quantity.Text = "Số lượng:";
             // 
@@ -345,6 +351,7 @@
             // 
             this.txtBox_ProductName.Location = new System.Drawing.Point(163, 74);
             this.txtBox_ProductName.Name = "txtBox_ProductName";
+            this.txtBox_ProductName.ReadOnly = true;
             this.txtBox_ProductName.Size = new System.Drawing.Size(234, 26);
             this.txtBox_ProductName.TabIndex = 42;
             // 
@@ -353,7 +360,7 @@
             this.lb_ProductName.AutoSize = true;
             this.lb_ProductName.Location = new System.Drawing.Point(35, 75);
             this.lb_ProductName.Name = "lb_ProductName";
-            this.lb_ProductName.Size = new System.Drawing.Size(109, 18);
+            this.lb_ProductName.Size = new System.Drawing.Size(129, 22);
             this.lb_ProductName.TabIndex = 41;
             this.lb_ProductName.Text = "Tên sản phẩm:";
             // 
@@ -361,7 +368,7 @@
             // 
             this.txtBox_ProductID.Location = new System.Drawing.Point(163, 41);
             this.txtBox_ProductID.Name = "txtBox_ProductID";
-            this.txtBox_ProductID.Size = new System.Drawing.Size(234, 26);
+            this.txtBox_ProductID.Size = new System.Drawing.Size(234, 29);
             this.txtBox_ProductID.TabIndex = 40;
             // 
             // lb_ProductID
@@ -369,7 +376,7 @@
             this.lb_ProductID.AutoSize = true;
             this.lb_ProductID.Location = new System.Drawing.Point(35, 43);
             this.lb_ProductID.Name = "lb_ProductID";
-            this.lb_ProductID.Size = new System.Drawing.Size(103, 18);
+            this.lb_ProductID.Size = new System.Drawing.Size(122, 22);
             this.lb_ProductID.TabIndex = 39;
             this.lb_ProductID.Text = "Mã sản phẩm:";
             // 
@@ -381,6 +388,7 @@
             this.btn_Refresh.TabIndex = 49;
             this.btn_Refresh.Text = "Làm mới";
             this.btn_Refresh.UseVisualStyleBackColor = true;
+            this.btn_Refresh.Click += new System.EventHandler(this.btn_Refresh_Click);
             // 
             // btn_Final
             // 
@@ -390,6 +398,7 @@
             this.btn_Final.TabIndex = 50;
             this.btn_Final.Text = "Đóng";
             this.btn_Final.UseVisualStyleBackColor = true;
+            this.btn_Final.Click += new System.EventHandler(this.btn_Final_Click);
             // 
             // dataGridView_DetailsBill
             // 
@@ -400,10 +409,11 @@
             this.dataGridView_DetailsBill.RowTemplate.Height = 24;
             this.dataGridView_DetailsBill.Size = new System.Drawing.Size(856, 257);
             this.dataGridView_DetailsBill.TabIndex = 51;
+            this.dataGridView_DetailsBill.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_DetailsBill_CellClick);
             // 
             // frmDetailBill
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 18F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 22F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1330, 537);
             this.Controls.Add(this.dataGridView_DetailsBill);
@@ -414,6 +424,7 @@
             this.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Name = "frmDetailBill";
             this.Text = "Thông tin chi tiết hoá đơn";
+            this.Load += new System.EventHandler(this.frmDetailBill_Load);
             this.groupBox_BillInformation.ResumeLayout(false);
             this.groupBox_BillInformation.PerformLayout();
             this.groupBox_Details.ResumeLayout(false);
@@ -443,7 +454,7 @@
         private System.Windows.Forms.TextBox txtBox_StaffID;
         private System.Windows.Forms.Label lb_StaffName;
         private System.Windows.Forms.Label lb_StaffID;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBox_Total;
         private System.Windows.Forms.Label lb_TotalBill;
         private System.Windows.Forms.GroupBox groupBox_BillInformation;
         private System.Windows.Forms.GroupBox groupBox_Details;
@@ -454,7 +465,7 @@
         private System.Windows.Forms.Label lb_ProductName;
         private System.Windows.Forms.Label lb_Price;
         private System.Windows.Forms.NumericUpDown numericUpDown_Quantity;
-        private System.Windows.Forms.TextBox txtBox_;
+        private System.Windows.Forms.TextBox txtBox_Price;
         private System.Windows.Forms.Button btn_Update;
         private System.Windows.Forms.Button btn_Delete;
         private System.Windows.Forms.Button btn_Refresh;

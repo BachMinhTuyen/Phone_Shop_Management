@@ -49,7 +49,7 @@
             this.lb_Login.Font = new System.Drawing.Font("Comic Sans MS", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Login.Location = new System.Drawing.Point(125, 21);
             this.lb_Login.Name = "lb_Login";
-            this.lb_Login.Size = new System.Drawing.Size(180, 84);
+            this.lb_Login.Size = new System.Drawing.Size(216, 100);
             this.lb_Login.TabIndex = 1;
             this.lb_Login.Text = "Login";
             // 
@@ -76,16 +76,15 @@
             // chkBox_ShowHidePassword
             // 
             this.chkBox_ShowHidePassword.AutoSize = true;
-            this.chkBox_ShowHidePassword.Checked = true;
-            this.chkBox_ShowHidePassword.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBox_ShowHidePassword.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBox_ShowHidePassword.Location = new System.Drawing.Point(273, 283);
             this.chkBox_ShowHidePassword.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkBox_ShowHidePassword.Name = "chkBox_ShowHidePassword";
-            this.chkBox_ShowHidePassword.Size = new System.Drawing.Size(139, 25);
+            this.chkBox_ShowHidePassword.Size = new System.Drawing.Size(175, 29);
             this.chkBox_ShowHidePassword.TabIndex = 9;
             this.chkBox_ShowHidePassword.Text = "Hiện mật khẩu";
             this.chkBox_ShowHidePassword.UseVisualStyleBackColor = true;
+            this.chkBox_ShowHidePassword.CheckedChanged += new System.EventHandler(this.chkShowPassword_CheckedChanged);
             // 
             // lb_Message
             // 
@@ -93,20 +92,18 @@
             this.lb_Message.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Message.Location = new System.Drawing.Point(173, 246);
             this.lb_Message.Name = "lb_Message";
-            this.lb_Message.Size = new System.Drawing.Size(57, 21);
+            this.lb_Message.Size = new System.Drawing.Size(70, 25);
             this.lb_Message.TabIndex = 8;
             this.lb_Message.Text = "Status";
             // 
             // chkBox_Remember
             // 
             this.chkBox_Remember.AutoSize = true;
-            this.chkBox_Remember.Checked = true;
-            this.chkBox_Remember.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkBox_Remember.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chkBox_Remember.Location = new System.Drawing.Point(27, 283);
             this.chkBox_Remember.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.chkBox_Remember.Name = "chkBox_Remember";
-            this.chkBox_Remember.Size = new System.Drawing.Size(171, 25);
+            this.chkBox_Remember.Size = new System.Drawing.Size(220, 29);
             this.chkBox_Remember.TabIndex = 7;
             this.chkBox_Remember.Text = "Ghi nhớ đăng nhập";
             this.chkBox_Remember.UseVisualStyleBackColor = true;
@@ -138,7 +135,7 @@
             this.txtBox_Password.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBox_Password.Name = "txtBox_Password";
             this.txtBox_Password.PasswordChar = '*';
-            this.txtBox_Password.Size = new System.Drawing.Size(252, 28);
+            this.txtBox_Password.Size = new System.Drawing.Size(252, 32);
             this.txtBox_Password.TabIndex = 5;
             // 
             // txtBox_UserName
@@ -147,7 +144,7 @@
             this.txtBox_UserName.Location = new System.Drawing.Point(177, 132);
             this.txtBox_UserName.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.txtBox_UserName.Name = "txtBox_UserName";
-            this.txtBox_UserName.Size = new System.Drawing.Size(252, 28);
+            this.txtBox_UserName.Size = new System.Drawing.Size(252, 32);
             this.txtBox_UserName.TabIndex = 4;
             // 
             // lb_Password
@@ -156,7 +153,7 @@
             this.lb_Password.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_Password.Location = new System.Drawing.Point(22, 193);
             this.lb_Password.Name = "lb_Password";
-            this.lb_Password.Size = new System.Drawing.Size(84, 21);
+            this.lb_Password.Size = new System.Drawing.Size(105, 25);
             this.lb_Password.TabIndex = 3;
             this.lb_Password.Text = "Mật khẩu:";
             // 
@@ -166,7 +163,7 @@
             this.lb_UserName.Font = new System.Drawing.Font("Tahoma", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lb_UserName.Location = new System.Drawing.Point(22, 136);
             this.lb_UserName.Name = "lb_UserName";
-            this.lb_UserName.Size = new System.Drawing.Size(132, 21);
+            this.lb_UserName.Size = new System.Drawing.Size(169, 25);
             this.lb_UserName.TabIndex = 2;
             this.lb_UserName.Text = "Tên đăng nhập: ";
             // 
@@ -185,7 +182,7 @@
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 21F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(11F, 24F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.BackgroundImage = global::PhoneShopManagement.Properties.Resources.abstract_textured_backgound;

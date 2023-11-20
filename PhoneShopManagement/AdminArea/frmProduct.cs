@@ -352,7 +352,6 @@ namespace PhoneShopManagement.AdminArea
                 }
             }
         }
-
         //Vị trí khi nhấn chuột phải
         private int currentRowIndex, currentColIndex = 0;
         private void Copy_Click(object sender, EventArgs e)
@@ -385,7 +384,7 @@ namespace PhoneShopManagement.AdminArea
             txtBox_ProductID.Enabled = false;
 
             int index = e.RowIndex;
-            if (index == -1)
+            if (index == -1 || index == int.Parse(TongSanPham()))
                 return;
 
             txtBox_ProductID.Text = dataGridView_ProductList.Rows[index].Cells["MaSP"].Value.ToString();
