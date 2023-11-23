@@ -124,13 +124,16 @@ namespace PhoneShopManagement.AdminArea
                 }
             }
         }
-        private void Load_ProductInformation()
+        private void Load_ProductInformation(string maSP)
         {
+            if (maSP == String.Empty)
+                return;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string sqlCommand = "SELECT TenSP, Gia FROM SanPham";
+                string sqlCommand = "SELECT TenSP, Gia FROM SanPham WHERE MaSP = @maSP";
                 using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                 {
+                    cmd.Parameters.AddWithValue("@maSP", maSP);
                     // Khởi tạo Sql Data Adapter
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
 
@@ -202,7 +205,6 @@ namespace PhoneShopManagement.AdminArea
                     }
                 }
 
-                Load_ProductInformation();
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     string sqlCommand = "INSERT INTO ChiTietDonHang (MADH, MaSP, SoLuong, DonGia, ThanhTien) VALUES (@maDonHang, @maSanPham, @soLuong, @donGia, @thanhTien)";
@@ -278,6 +280,11 @@ namespace PhoneShopManagement.AdminArea
         private void btn_Final_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtBox_ProductID_Leave(object sender, EventArgs e)
+        {
+            Load_ProductInformation(txtBox_ProductID.Text.Trim());
         }
     }
 }

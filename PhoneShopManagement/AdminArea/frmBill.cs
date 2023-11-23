@@ -65,14 +65,6 @@ namespace PhoneShopManagement.AdminArea
             }
         }
 
-
-
-
-
-
-
-
-
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             DialogResult result = MessageBox.Show("Bạn Có Muốn Xóa " + nameDH + "?", "Thông Báo", MessageBoxButtons.YesNo);
