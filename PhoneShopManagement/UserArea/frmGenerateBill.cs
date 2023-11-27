@@ -21,7 +21,7 @@ namespace PhoneShopManagement.UserArea
         SqlDataAdapter da_Details, da_Bill, da_Product;
         DataTable table_Details, table_Product;
 
-        private string StaffID = "NV003", NewBillID = "TP", CustomerID = "TP";
+        private string StaffID, NewBillID = "TP", CustomerID = "TP";
         private string maKhachHangTamThoi, maDonHangTamThoi;
 
         public frmGenerateBill()
@@ -109,7 +109,7 @@ namespace PhoneShopManagement.UserArea
                         if (int.Parse(id) > int.Parse(CustomerID))
                             CustomerID = id;
                     }
-                    int index = int.Parse(CustomerID);
+                    int index = int.Parse(CustomerID) + 1;
                     if (index < 10)
                         CustomerID = "KH00" + index;
                     else if (index < 100)
@@ -128,7 +128,7 @@ namespace PhoneShopManagement.UserArea
                 {
                     cmd.Parameters.AddWithValue("@maKH", maKhachHang);
                     cmd.Parameters.AddWithValue("@tenKH", "Tạm thời");
-                    cmd.Parameters.AddWithValue("@ngaySinh", dateTimePicker_TimeOfPurchase.Value.ToString("yyyy/MM/dd"));
+                    cmd.Parameters.AddWithValue("@ngaySinh", dateTimePicker_TimeOfPurchase.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@soDienThoai", "0000000000");
                     cmd.Parameters.AddWithValue("@email", "Tạm thời");
                     cmd.Parameters.AddWithValue("@diaChi", "Tạm thời");
@@ -144,11 +144,50 @@ namespace PhoneShopManagement.UserArea
                 using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                 {
                     cmd.Parameters.AddWithValue("@maDonHang", maDonHangTamThoi);
-                    cmd.Parameters.AddWithValue("@ngayMuaHang", dateTimePicker_TimeOfPurchase.Value.ToString("yyyy/MM/dd"));
+                    cmd.Parameters.AddWithValue("@ngayMuaHang", DateTime.Now.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@thanhToan", "Tiền Mặt");
                     cmd.Parameters.AddWithValue("@tongTien", 0);
                     cmd.Parameters.AddWithValue("@maKH", maKhachHang);
                     cmd.Parameters.AddWithValue("@maNV", StaffID);
+
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+        }
+        private void DeleteTempBill()
+        {
+            //Xoá các sản phẩm đơn hàng tạm thời trong bảng ChiTietDonHang
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string sqlCommand = "DELETE ChiTietDonHang WHERE MADH = @maDH";
+                using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                {
+                    cmd.Parameters.AddWithValue("@maDH", maDonHangTamThoi);
+
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            //Xoá đơn hàng tạm thời trong bảng DonHang
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string sqlCommand = "DELETE DonHang WHERE MADH = @maDH";
+                using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                {
+                    cmd.Parameters.AddWithValue("@maDH", maDonHangTamThoi);
+
+                    connection.Open();
+                    cmd.ExecuteNonQuery();
+                }
+            }
+            //Xoá mã khách hàng tạm thời trong bảng KhachHang
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string sqlCommand = "DELETE KhachHang WHERE MAKH = @maKH";
+                using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
+                {
+                    cmd.Parameters.AddWithValue("@maKH", maKhachHangTamThoi);
 
                     connection.Open();
                     cmd.ExecuteNonQuery();
@@ -278,7 +317,7 @@ namespace PhoneShopManagement.UserArea
                 }
             }
         }
-        private void Clear(object sender, EventArgs e)
+        private void Clear()
         {
             NewBillID = CustomerID = "TP";
 
@@ -290,8 +329,6 @@ namespace PhoneShopManagement.UserArea
             txtBox_Price.Clear();
             txtBox_ProductID.Clear();
             txtBox_ProductName.Clear();
-            txtBox_Search.Clear();
-            txtBox_StaffName.Clear();
 
         }
         private void Refresh()
@@ -299,10 +336,17 @@ namespace PhoneShopManagement.UserArea
             txtBox_ProductID.Clear();
             txtBox_ProductName.Clear();
             txtBox_Price.Clear();
+            txtBox_StaffName.Text = GetStaffName(StaffID);
             txtBox_Total.Text = TinhTongTienSanPhamTrongDonHang().ToString("###,###.00");
         }
         private void UpdateCustomerInfo(string maKhachHang)
         {
+            //Kiểm tra tuổi phải từ 18 tuổi trở lên
+            if (dateTimePicker_TimeOfPurchase.Value.Year > DateTime.Now.Year - 18)
+            {
+                MessageBox.Show("Kiểm tra và cập nhật ngày sinh của khách hàng", "Thông báo");
+            }
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string sqlCommand = string.Format("INSERT INTO {0} VALUES (@Value_MaKH , @Value_TenKH, @Value_NgaySinh, @Value_SoDienThoai, @Value_Email, @Value_DiaChi)", "KhachHang");
@@ -316,7 +360,7 @@ namespace PhoneShopManagement.UserArea
 
                     cmd.Parameters.AddWithValue("@Value_MaKH", maKhachHang);
                     cmd.Parameters.AddWithValue("@Value_TenKH", CustomerName);
-                    cmd.Parameters.AddWithValue("@Value_NgaySinh", Convert.ToDateTime("2000-01-01"));
+                    cmd.Parameters.AddWithValue("@Value_NgaySinh", Convert.ToDateTime(dateTimePicker_TimeOfPurchase.Value.ToString("yyyy-MM-dd")));
                     cmd.Parameters.AddWithValue("@Value_SoDienThoai", txtBox_PhoneNumber.Text);
                     cmd.Parameters.AddWithValue("@Value_Email", txtBox_Email.Text);
                     cmd.Parameters.AddWithValue("@Value_DiaChi", txtBox_Address.Text);
@@ -441,6 +485,51 @@ namespace PhoneShopManagement.UserArea
             Load_ProductInformation(txtBox_ProductID.Text.Trim());
         }
 
+        private void vềChúngTôiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAboutUs frm = new frmAboutUs();
+            frm.ShowDialog();
+        }
+
+        private void thiếtLậpThôngTinToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserProfile frm = new frmUserProfile(StaffID);
+            frm.ShowDialog();
+        }
+
+        private void đăgnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Nếu bạn đăng xuất thì sẽ bị huỷ đơn hàng hiện tại", "Thông báo", MessageBoxButtons.YesNo,MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                DeleteTempBill();
+                this.Close();
+            }
+        }
+
+        private void tạoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSearchBill frm = new frmSearchBill();
+            frm.ShowDialog();
+        }
+
+        private void xemHoáĐơnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSearchProduct frm = new frmSearchProduct();
+            frm.ShowDialog();
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteTempBill();
+            Clear();
+            txtBox_ProductID.Clear();
+            txtBox_ProductName.Clear();
+            txtBox_Price.Clear();
+            txtBox_StaffName.Text = GetStaffName(StaffID);
+            txtBox_Total.Text = "0";
+            MessageBox.Show("Đã làm mới", "Thông báo");
+        }
+
         private void dataGridView_Details_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             int index = e.RowIndex;
@@ -457,7 +546,7 @@ namespace PhoneShopManagement.UserArea
         {
             if (MessageBox.Show("Bạn có chắc chắn muốn thoát", "Thông báo",MessageBoxButtons.YesNo,MessageBoxIcon.Question,MessageBoxDefaultButton.Button2) == DialogResult.Yes)
             {
-                btn_Cancel_Click(sender, e);
+                DeleteTempBill();
             }
         }
 
@@ -504,7 +593,7 @@ namespace PhoneShopManagement.UserArea
 
             if (TinhTongSoLuongSanPham() == 0)
             {
-                btn_Cancel_Click(sender, e);
+                DeleteTempBill();
                 return;
             }
 
@@ -520,10 +609,12 @@ namespace PhoneShopManagement.UserArea
                 CustomerID = maKH;
             // Ngược lại, thì khởi tạo mã khách hàng
             else
+            {
                 CreateCustomerID();
 
-            //Cập nhật thông tin khách hàng
-            UpdateCustomerInfo(CustomerID);
+                //Cập nhật thông tin khách hàng
+                UpdateCustomerInfo(CustomerID);
+            }
 
             ////Tạo bill với mã bill hiện tại đã bỏ tiền tố (TP)
             int lenght = NewBillID.Length;
@@ -537,7 +628,7 @@ namespace PhoneShopManagement.UserArea
                 using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
                 {
                     cmd.Parameters.AddWithValue("@maDonHang", NewBillID);
-                    cmd.Parameters.AddWithValue("@ngayMuaHang", dateTimePicker_TimeOfPurchase.Value.ToString("yyyy/MM/dd"));
+                    cmd.Parameters.AddWithValue("@ngayMuaHang", dateTimePicker_TimeOfPurchase.Value.ToString("yyyy-MM-dd"));
                     cmd.Parameters.AddWithValue("@thanhToan", method);
                     cmd.Parameters.AddWithValue("@tongTien", TinhTongTienSanPhamTrongDonHang());
                     cmd.Parameters.AddWithValue("@maKH", CustomerID);
@@ -589,56 +680,22 @@ namespace PhoneShopManagement.UserArea
             }
 
             MessageBox.Show("Tạo hoá đơn thành công", "Thông báo");
-            Clear(sender, e);
+            Clear();
 
             frmGenerateBill_Load(sender, e);
         }
 
         private void btn_Cancel_Click(object sender, EventArgs e)
         {
-            //Xoá các sản phẩm đơn hàng tạm thời trong bảng ChiTietDonHang
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string sqlCommand = "DELETE ChiTietDonHang WHERE MADH = @maDH";
-                using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                {
-                    cmd.Parameters.AddWithValue("@maDH", maDonHangTamThoi);
-
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            //Xoá đơn hàng tạm thời trong bảng DonHang
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string sqlCommand = "DELETE DonHang WHERE MADH = @maDH";
-                using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                {
-                    cmd.Parameters.AddWithValue("@maDH", maDonHangTamThoi);
-
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
-            //Xoá mã khách hàng tạm thời trong bảng KhachHang
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                string sqlCommand = "DELETE KhachHang WHERE MAKH = @maKH";
-                using (SqlCommand cmd = new SqlCommand(sqlCommand, connection))
-                {
-                    cmd.Parameters.AddWithValue("@maKH", maKhachHangTamThoi);
-
-                    connection.Open();
-                    cmd.ExecuteNonQuery();
-                }
-            }
+            DeleteTempBill();
 
             MessageBox.Show("Huỷ hoá đơn thành công", "Thông báo");
-            Clear(sender, e);
+            Clear();
         }
 
         private void frmGenerateBill_Load(object sender, EventArgs e)
         {
+
             maDonHangTamThoi = string.Empty;
             maKhachHangTamThoi = string.Empty;
 

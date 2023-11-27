@@ -51,17 +51,19 @@ namespace PhoneShopManagement.UserArea
 
         private void frmSearchProduct_Load(object sender, EventArgs e)
         {
-            //Tải thông tin sản phẩm
-            string sqlCommand = "SELECT MaSP, TenSP, Gia, MoTa, SoLuongConLai, HinhAnh, KhuyenMai,TinhTrang,MaThuongHieu,MaLoai FROM SanPham";
-            
-            Load_Product(sqlCommand);
             Load_ComboBox();
+            Load_Filter();
+
+            //Tải thông tin sản phẩm
+            string sqlCommand = "SELECT SP.MASP, TenSP, TenThuongHieu, TenLoai, KhuyenMai, Gia, HinhAnh, SoLuongConLai, TinhTrang, MoTa FROM SanPham SP, ThuongHieu TH, LoaiSanPham L WHERE SP.MaThuongHieu = TH.MaThuongHieu AND SP.MaLoai = L.MaLoai";
+            Load_Product(sqlCommand);
+            
 
         }
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            string sqlCommand = "SELECT MaSP, TenSP, Gia, MoTa, SoLuongConLai, HinhAnh, KhuyenMai,TinhTrang,MaThuongHieu,MaLoai FROM SanPham WHERE TenSP LIKE N'%" + txtBox_Search.Text + "%'";
+            string sqlCommand = "SELECT SP.MASP, TenSP, TenThuongHieu, TenLoai, KhuyenMai, Gia, HinhAnh, SoLuongConLai, TinhTrang, MoTa FROM SanPham SP, ThuongHieu TH, LoaiSanPham L WHERE SP.MaThuongHieu = TH.MaThuongHieu AND SP.MaLoai = L.MaLoai AND TenSP LIKE N'%" + txtBox_Search.Text + "%'";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 if (txtBox_Search.Text == string.Empty)
@@ -70,80 +72,155 @@ namespace PhoneShopManagement.UserArea
                 Load_Product(sqlCommand);
             }
         }
-        
+        private void Load_Filter()
+        {
+            string[] data = { "Lựa chọn", "0", "5000000", "10000000", "15000000", "20000000", "25000000", "30000000", "35000000", "Trên 35 triệu" };
+
+            if (comboBox_PriceFrom.Items.Count > 0 || comboBox_PriceTo.Items.Count > 0)
+            {
+                comboBox_PriceFrom.Items.Clear();
+                comboBox_PriceTo.Items.Clear();
+            }
+
+            foreach (string item in data)
+            {
+
+                comboBox_PriceFrom.Items.Add(item);
+                comboBox_PriceTo.Items.Add(item);
+            }
+
+            comboBox_PriceFrom.SelectedIndex = 0;
+            comboBox_PriceTo.SelectedIndex = 0;
+            radioButton_FilterStocking.Checked = true;
+            radioButton_FilterOutOfStock.Checked = radioButton_FilterStopBusiness.Checked = false;
+        }
+        private void Load_BrandList()
+        {
+            string sqlCommand = "SELECT * FROM ThuongHieu";
+            using (DataSet data = new DataSet())
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(data, "ThuongHieu");
+                }
+
+                DataTable dataTable = data.Tables["ThuongHieu"].Copy();
+
+                // Thêm một dòng mới với giá trị MaThuongHieu là -1 và TenThuongHieu là "Lựa chọn"
+                DataRow newRow = dataTable.NewRow();
+                newRow["MaThuongHieu"] = -1;
+                newRow["TenThuongHieu"] = "Lựa chọn";
+                dataTable.Rows.InsertAt(newRow, 0); // Chèn vào vị trí đầu tiên
+
+                comboBox_FilterBrandName.DataSource = dataTable;
+                comboBox_FilterBrandName.DisplayMember = "TenThuongHieu";
+                comboBox_FilterBrandName.ValueMember = "MaThuongHieu";
+            }
+        }
+        private void Load_ProductType()
+        {
+            string sqlCommand = "SELECT * FROM LoaiSanPham";
+            using (DataSet data = new DataSet())
+            {
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    adapter.Fill(data, "LoaiSanPham");
+                }
+
+                DataTable dataTable = data.Tables["LoaiSanPham"].Copy();
+                
+                // Thêm một dòng mới với giá trị MaLoai là -1 và TenLoai là "Lựa chọn"
+                DataRow newRow = dataTable.NewRow();
+                newRow["MaLoai"] = -1;
+                newRow["TenLoai"] = "Lựa chọn";
+                dataTable.Rows.InsertAt(newRow, 0); // Chèn vào vị trí đầu tiên
+
+                comboBox_FilterProductType.DataSource = dataTable;
+                comboBox_FilterProductType.DisplayMember = "TenLoai";
+                comboBox_FilterProductType.ValueMember = "MaLoai";
+            }
+        }
         void Load_ComboBox()
         {
-            DataSet ds = new DataSet();
-            string strselect = "Select * from ThuongHieu ";
-            SqlDataAdapter da = new SqlDataAdapter(strselect, connectionString);
-            da.Fill(ds, "ThuongHieu");
-            comboBox_FilterBrandName.DataSource = ds.Tables[0];
-            comboBox_FilterBrandName.DisplayMember = "TenThuongHieu";
-            comboBox_FilterBrandName.ValueMember = "MaThuongHieu";
-            comboBox_FilterBrandName.SelectedIndex = -1;
-
-            string queryLoaiSanPham = "SELECT * FROM LoaiSanPham";
-            SqlDataAdapter da1 = new SqlDataAdapter(queryLoaiSanPham, connectionString);
-            da1.Fill(ds, "LoaiSanPham");
-            comboBox_FilterProductType.DataSource = ds.Tables["LoaiSanPham"];
-            comboBox_FilterProductType.DisplayMember = "TenLoai";
-            comboBox_FilterProductType.ValueMember = "MaLoai";
-            comboBox_FilterProductType.SelectedIndex = -1;
-
+            Load_BrandList();
+            Load_ProductType();
+        }
+        private double MaxPrice()
+        {
+            double max;
+            string sqlCommand = "SELECT MAX(Gia) FROM SanPham";
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
+                connection.Open();
+                max = double.Parse(cmd.ExecuteScalar().ToString());
+            }
+            return max;
         }
         private void btn_Filter_Click(object sender, EventArgs e)
         {
 
-            string sqlCommand = "SELECT MaSP, TenSP, Gia, MoTa, SoLuongConLai, HinhAnh, KhuyenMai, TinhTrang, MaThuongHieu, MaLoai FROM SanPham WHERE 1=1";
-            List<SqlParameter> parameters = new List<SqlParameter>();
-            if (comboBox_FilterBrandName.SelectedItem != null)
+            string sqlCommand = "SELECT SP.MASP, TenSP, TenThuongHieu, TenLoai, KhuyenMai, Gia, HinhAnh, SoLuongConLai, TinhTrang, MoTa FROM SanPham SP, ThuongHieu TH, LoaiSanPham L WHERE SP.MaThuongHieu = TH.MaThuongHieu AND SP.MaLoai = L.MaLoai";
+            
+            string mathuongHieu = comboBox_FilterBrandName.SelectedValue.ToString();
+            if (String.Compare(mathuongHieu, "-1", StringComparison.Ordinal) != 0)
             {
-                string thuongHieu = comboBox_FilterBrandName.SelectedValue.ToString();
-                sqlCommand += " AND MaThuongHieu = '" + thuongHieu + "'";
-            }
-            //// Lọc theo loại sản phẩm
-            if (comboBox_FilterProductType.SelectedItem != null)
-            {
-                string maloai = comboBox_FilterProductType.SelectedValue.ToString();
-                sqlCommand += " AND MaLoai = '" + maloai + "'";
+                sqlCommand += " AND SP.MaThuongHieu = '" + mathuongHieu + "'";
             }
 
-            if (comboBox_PriceFrom.SelectedItem != null && comboBox_PriceTo.SelectedItem != null)
+            string maloaiSP = comboBox_FilterProductType.SelectedValue.ToString();
+            if (String.Compare(maloaiSP, "-1", StringComparison.Ordinal) != 0)
             {
-                int giaTu = Convert.ToInt32(comboBox_PriceFrom.SelectedItem);
-                int giaDen = Convert.ToInt32(comboBox_PriceTo.SelectedItem);
-                sqlCommand += " AND Gia >= @giaTu AND Gia <= @giaDen";
-                parameters.Add(new SqlParameter("@giaTu", giaTu));
-                parameters.Add(new SqlParameter("@giaDen", giaDen));
+                sqlCommand += " AND SP.MaLoai = '" + maloaiSP + "'";
             }
 
-            // Lọc theo tình trạng sản phẩm
-            string tinhTrang = GetSelectedTinhTrang();
-            if (!string.IsNullOrEmpty(tinhTrang))
+            string giaBatDau = comboBox_PriceFrom.SelectedItem?.ToString() == "Trên 35 triệu" ? "-1" : comboBox_PriceFrom.SelectedItem.ToString();
+            string giaKetThuc = comboBox_PriceTo.SelectedItem?.ToString() == "Trên 35 triệu" ? "-1" : comboBox_PriceTo.SelectedItem.ToString();
+
+            //Giá khởi đầu được chọn
+            if (String.Compare(giaBatDau, "Lựa chọn", StringComparison.Ordinal) != 0)
             {
-                sqlCommand += " AND TinhTrang = @tinhTrang";
-                parameters.Add(new SqlParameter("@tinhTrang", tinhTrang));
+                double giaBD = double.Parse(giaBatDau);
+                double giaCaoNhat;
+
+                //Giá kết thúc được chọn
+                if (String.Compare(giaKetThuc, "Lựa chọn", StringComparison.Ordinal) != 0)
+                {
+                    double giaKT = double.Parse(giaKetThuc);
+                    if (giaKT == -1.0)
+                        giaKT = MaxPrice();
+                    //Giá bắt đầu phải nhỏ hơn giá kết thúc
+                    if (giaBD >= giaKT)
+                    {
+                        MessageBox.Show("Giá bắt đầu phải nhỏ hơn giá kết thúc");
+                        return;
+                    }
+                    sqlCommand += " AND Gia BETWEEN " + giaBD + " AND " + giaKT;
+                }
+                else
+                {
+                    if (giaBD == -1.0)
+                        giaBD = 35000000;
+                    giaCaoNhat = MaxPrice();
+                    sqlCommand += " AND Gia BETWEEN " + giaBD + " AND " + giaCaoNhat;
+                }
             }
 
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            {
-                SqlCommand cmd = new SqlCommand(sqlCommand, connection);
-                cmd.Parameters.AddRange(parameters.ToArray());
+            string tinhTrang;
+            if (radioButton_FilterStocking.Checked == true)
+                tinhTrang = "Còn hàng";
+            else if (radioButton_FilterOutOfStock.Checked == true)
+                tinhTrang = "Hết hàng";
+            else
+                tinhTrang = "Ngừng kinh doanh";
 
-                // Open the connection
-                connection.Open();
+            sqlCommand += " AND TinhTrang = N'" + tinhTrang + "'";
 
-                // Execute the query and retrieve the results
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataSet dataSet = new DataSet();
-                adapter.Fill(dataSet, "SanPham");
-
-                // Close the connection
-                connection.Close();
-
-                // Bind the results to the DataGridView
-                dataGridView_ProductList.DataSource = dataSet.Tables["SanPham"];
-            }
+            Load_Product(sqlCommand);
         }
 
         private string GetSelectedTinhTrang()

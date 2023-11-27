@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel_Filter = new System.Windows.Forms.Panel();
             this.radioButton_FilterCardPaid = new System.Windows.Forms.RadioButton();
             this.radioButton_FilterCashPaid = new System.Windows.Forms.RadioButton();
@@ -142,6 +142,7 @@
             this.btn_CreateBill.TabIndex = 8;
             this.btn_CreateBill.Text = "Tạo";
             this.btn_CreateBill.UseVisualStyleBackColor = true;
+            this.btn_CreateBill.Click += new System.EventHandler(this.btn_CreateBill_Click);
             // 
             // btn_Clear
             // 
@@ -171,6 +172,7 @@
             this.btn_BillDetail.TabIndex = 4;
             this.btn_BillDetail.Text = "Chi tiết hoá đơn";
             this.btn_BillDetail.UseVisualStyleBackColor = true;
+            this.btn_BillDetail.Click += new System.EventHandler(this.btn_BillDetail_Click);
             // 
             // btn_Search
             // 
@@ -219,14 +221,14 @@
             // dataGridView_BillList
             // 
             this.dataGridView_BillList.AllowUserToAddRows = false;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView_BillList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Tahoma", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView_BillList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView_BillList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_BillList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.MaHD,

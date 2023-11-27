@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhoneShopManagement.UserArea;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,7 +21,13 @@ namespace PhoneShopManagement.AdminArea
             InitializeComponent();
             LoadData();
         }
-        private string nameDH;
+        public frmBill(string userName)
+        {
+            this.userName = userName;
+            InitializeComponent();
+            LoadData();
+        }
+        private string nameDH, userName;
 
         void LoadData()
         {
@@ -69,6 +76,7 @@ namespace PhoneShopManagement.AdminArea
         {
             DialogResult result = MessageBox.Show("Bạn Có Muốn Xóa " + nameDH + "?", "Thông Báo", MessageBoxButtons.YesNo);
             if(result == DialogResult.Yes) DeleteSql();
+            nameDH = null;
             
         }
         public void DeleteSql()
@@ -146,7 +154,7 @@ namespace PhoneShopManagement.AdminArea
 
         private void btn_Filter_Click(object sender, EventArgs e)
         {
-            string PaymentMethods = (radioButton_FilterCashPaid.Checked) ? "Tiền Mặt" : "Không Tiền Mặt";
+            string PaymentMethods = (radioButton_FilterCashPaid.Checked) ? "Tiền Mặt" : "Chuyển khoản/quẹt thẻ";
             using (SqlConnection Sqlclient = new SqlConnection(ConnectSql))
             {
                 string query = " SELECT DH.MADH, KH.TenKH, NV.TenNV, DH.TongTien, DH.ThoiGianMuaHang, DH.ThanhToan " +
@@ -193,7 +201,30 @@ namespace PhoneShopManagement.AdminArea
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             LoadData();
+            nameDH = null;
+        }
 
+        private void btn_BillDetail_Click(object sender, EventArgs e)
+        {
+            if (nameDH == null)
+            {
+                MessageBox.Show("Vui lòng chọn hoá đơn cần xem", "Thông báo");
+                return;
+            }
+            frmDetailBill frm = new frmDetailBill(nameDH);
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
+
+        private void btn_CreateBill_Click(object sender, EventArgs e)
+        {
+            frmGenerateBill frm = new frmGenerateBill(userName);
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
         }
     }
 }

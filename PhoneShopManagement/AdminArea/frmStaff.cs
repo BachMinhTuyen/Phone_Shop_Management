@@ -185,6 +185,8 @@ namespace PhoneShopManagement.AdminArea
             SqlCommand cmd = new SqlCommand(sqlCommand, connection);
 
             Load_StaffInformation(cmd);
+            radioButton_Staff.Checked = true;
+            //radioButton_Manager.Enabled = radioButton_Staff.Enabled = false;
 
             txtBox_TotalStaff.Text = TinhTongNhanVien();
         }
@@ -203,7 +205,6 @@ namespace PhoneShopManagement.AdminArea
         private void dataGridView_StaffList_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             txtBox_StaffID.Enabled = false;
-            radioButton_Manager.Enabled = radioButton_Staff.Enabled = false;
 
             int index = e.RowIndex;
             if (index == -1 || index == int.Parse(TinhTongNhanVien())) 
@@ -212,7 +213,7 @@ namespace PhoneShopManagement.AdminArea
             txtBox_StaffID.Text = dataGridView_StaffList.Rows[index].Cells["MaNV"].Value.ToString();
             txtBox_StaffName.Text = dataGridView_StaffList.Rows[index].Cells["TenNV"].Value.ToString();
             string role = dataGridView_StaffList.Rows[index].Cells["ChucVu"].Value.ToString();
-            if (role == "Quản Lý")
+            if (string.Compare(role, "Quản Lý", StringComparison.OrdinalIgnoreCase) == 0)
             {
                 radioButton_Manager.Checked = true;
                 radioButton_Staff.Checked = false;
@@ -237,7 +238,7 @@ namespace PhoneShopManagement.AdminArea
             DataRow insertNew = ds_QLPhoneShop.Tables["NhanVien"].NewRow();
             insertNew["MaNV"] = txtBox_StaffID.Text.Trim();
             insertNew["TenNV"] = txtBox_StaffName.Text.Trim();
-            //insertNew["ChucVu"] = radioButton_Manager.Checked == true ? "Quản Lý" : "Nhân Viên Bán Hàng";
+            insertNew["ChucVu"] = radioButton_Manager.Checked == true ? "Quản Lý" : "Nhân Viên Bán Hàng";
             insertNew["NgaySinh"] = dateTimePicker_DateOfBirth.Value.ToString("yyyy-MM-dd");
             insertNew["SoDienThoai"] = txtBox_PhoneNumber.Text.Trim();
             insertNew["Email"] = txtBox_Email.Text.Trim();
@@ -254,7 +255,7 @@ namespace PhoneShopManagement.AdminArea
         {
             DataRow row = ds_QLPhoneShop.Tables["NhanVien"].Rows.Find(txtBox_StaffID.Text);
             row["TenNV"] = txtBox_StaffName.Text.Trim();
-            //row["ChucVu"] = radioButton_Manager.Checked == true ? "Quản Lý" : "Nhân Viên Bán Hàng";
+            row["ChucVu"] = radioButton_Manager.Checked == true ? "Quản Lý" : "Nhân Viên Bán Hàng";
             row["NgaySinh"] = dateTimePicker_DateOfBirth.Value.ToString("yyyy-MM-dd");
             row["SoDienThoai"] = txtBox_PhoneNumber.Text.Trim();
             row["Email"] = txtBox_Email.Text.Trim();

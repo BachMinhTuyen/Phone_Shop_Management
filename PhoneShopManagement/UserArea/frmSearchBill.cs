@@ -83,7 +83,7 @@ namespace PhoneShopManagement.UserArea
             string MAKH= dataGridView_BillList.Rows[index].Cells["MAKH"].Value.ToString();
             txtBox_CustomerID.Text = MAKH;
             dateTimePicker_TimeOfPurchase.Value = Convert.ToDateTime(dataGridView_BillList.Rows[index].Cells["ThoiGianMuaHang"].Value);
-            textBox1.Text = dataGridView_BillList.Rows[index].Cells["TongTien"].Value.ToString();
+            txtBox_Total.Text = Convert.ToDecimal(dataGridView_BillList.Rows[index].Cells["TongTien"].Value).ToString("###,###.##");
             string MaNV= dataGridView_BillList.Rows[index].Cells["MaNV"].Value.ToString();
             txtBox_StaffID.Text = MaNV;
             string queryKH = string.Format("SELECT * FROM KHACHHANG WHERE MAKH = N'{0}'", MAKH);

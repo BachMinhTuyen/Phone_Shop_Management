@@ -700,14 +700,15 @@ namespace PhoneShopManagement.AdminArea
                 if (String.Compare(giaKetThuc, "Lựa chọn", StringComparison.Ordinal) != 0)
                 {
                     double giaKT = double.Parse(giaKetThuc);
+                    if (giaKT == -1.0)
+                        giaKT = MaxPrice();
                     //Giá bắt đầu phải nhỏ hơn giá kết thúc
                     if (giaBD >= giaKT)
                     {
                         MessageBox.Show("Giá bắt đầu phải nhỏ hơn giá kết thúc");
                         return;
                     }
-                    if (giaKT == -1.0)
-                        giaKT = 35000000;
+                    
                     sqlCommand += " AND Gia BETWEEN " + giaBD + " AND " + giaKT;
                 }
                 else
@@ -730,6 +731,29 @@ namespace PhoneShopManagement.AdminArea
             sqlCommand += " AND TinhTrang = N'" + tinhTrang + "'";
 
             Load_ProductInformation(sqlCommand);
+        }
+
+        private void thươngHiệuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBrand frm = new frmBrand();
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
+
+        private void loạiSảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProductType frm = new frmProductType();
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
+
+        private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
         }
 
         private void dataGridView_ProductList_MouseClick(object sender, MouseEventArgs e)

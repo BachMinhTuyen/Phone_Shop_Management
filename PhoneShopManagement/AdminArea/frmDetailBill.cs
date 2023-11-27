@@ -126,7 +126,7 @@ namespace PhoneShopManagement.AdminArea
         }
         private void Load_ProductInformation(string maSP)
         {
-            if (maSP == String.Empty)
+            if (maSP == String.Empty || KiemTraMaSanPham(maSP) == false)
                 return;
             using (SqlConnection connection = new SqlConnection(connectionString))
             {

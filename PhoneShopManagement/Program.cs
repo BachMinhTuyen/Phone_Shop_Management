@@ -18,7 +18,7 @@ namespace PhoneShopManagement
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new frmLogin());
+            Application.Run(new frmLogin());
             //Application.Run(new frmAdmin("NV003"));
             //Application.Run(new frmProduct());
             //Application.Run(new frmUserAccount());
@@ -27,14 +27,11 @@ namespace PhoneShopManagement
             //Application.Run(new frmCustomer());
             //Application.Run(new frmDetailBill());
             //Application.Run(new frmRevenueReport());
-            Application.Run(new frmGenerateBill());
+            //Application.Run(new frmGenerateBill());
             //Application.Run(new frmCustomer());
             //Application.Run(new frmBrand());
             //Application.Run(new frmUserAccount());
             //Application.Run(new frmBill());
-
-            
-
         }
     }
 }

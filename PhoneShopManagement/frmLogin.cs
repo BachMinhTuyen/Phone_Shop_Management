@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PhoneShopManagement.UserArea;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -86,7 +88,7 @@ namespace PhoneShopManagement
                     }
                     else
                     {
-                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.");
+                        MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng.\n\nNếu quên mật khẩu hoặc chưa cấp tài khoản.\nVui lòng liên hệ quản lý để khôi phục mật khẩu", "Thông báo");
                     }
                 }
             }
@@ -104,10 +106,33 @@ namespace PhoneShopManagement
         }
         private void OpenForm(string username)
         {
-            frmUserProfile frmuser = new frmUserProfile(username);
-            this.Hide();
-            frmuser.ShowDialog();
-            this.Show();
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                string query = "SELECT TOP (1) ChucVu FROM NhanVien WHERE MaNV = @MaNV";
+                using (SqlCommand command = new SqlCommand(query, conn))
+                {
+                    conn.Open();
+                    command.Parameters.AddWithValue("@MaNV", username);
+
+                    string role = command.ExecuteScalar().ToString();
+                    conn.Close();
+
+                    if (String.Compare(role, "Quản Lý", StringComparison.OrdinalIgnoreCase) == 0)
+                    {
+                        frmAdmin frm = new frmAdmin(username);
+                        this.Hide();
+                        frm.ShowDialog();
+                        this.Show();
+                    }
+                    else
+                    {
+                        frmGenerateBill frm = new frmGenerateBill(username);
+                        this.Hide();
+                        frm.ShowDialog();
+                        this.Show();
+                    }
+                }
+            }
         }
     }
 }

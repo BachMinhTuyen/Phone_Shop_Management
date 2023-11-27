@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PhoneShopManagement.AdminArea;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -88,6 +89,84 @@ namespace PhoneShopManagement
             LoadTop5Item();
         }
 
-      
+        private void vềChúngTôiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAboutUs frm = new frmAboutUs();
+            frm.ShowDialog();
+        }
+
+        private void thôngTinChiTiếtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserProfile frm = new frmUserProfile(IDNAME);
+            frm.ShowDialog();
+        }
+
+        private void đăngXuấtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Bạn có chắc nhắn muốn đăng xuất", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2) == DialogResult.Yes)
+            {
+                this.Close();
+            }
+        }
+
+        private void làmMớiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LoadData();
+            MessageBox.Show("Đã làm mới", "Thông báo");
+        }
+
+        private void tàiKhoảnNgườiDùngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmUserAccount frm = new frmUserAccount();
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
+
+        private void nhânViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStaff frm = new frmStaff();
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
+
+        private void kháchHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCustomer frm = new frmCustomer();
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
+
+        private void sảnPhẩmToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProduct frm = new frmProduct();
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
+
+        private void đơnHàngToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBill frm = new frmBill(IDNAME);
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
+
+        private void doanhThuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRevenueReport frm = new frmRevenueReport();
+            this.Hide();
+            frm.ShowDialog();
+            frm = null;
+            this.Show();
+        }
     }
 }

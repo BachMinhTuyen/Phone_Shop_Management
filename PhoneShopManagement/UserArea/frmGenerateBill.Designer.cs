@@ -110,6 +110,7 @@
             this.làmMớiToolStripMenuItem.Name = "làmMớiToolStripMenuItem";
             this.làmMớiToolStripMenuItem.Size = new System.Drawing.Size(150, 26);
             this.làmMớiToolStripMenuItem.Text = "Làm mới";
+            this.làmMớiToolStripMenuItem.Click += new System.EventHandler(this.làmMớiToolStripMenuItem_Click);
             // 
             // hoáĐơnToolStripMenuItem
             // 
@@ -125,12 +126,14 @@
             this.tạoToolStripMenuItem.Name = "tạoToolStripMenuItem";
             this.tạoToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.tạoToolStripMenuItem.Text = "Hoá đơn";
+            this.tạoToolStripMenuItem.Click += new System.EventHandler(this.tạoToolStripMenuItem_Click);
             // 
             // xemHoáĐơnToolStripMenuItem
             // 
             this.xemHoáĐơnToolStripMenuItem.Name = "xemHoáĐơnToolStripMenuItem";
             this.xemHoáĐơnToolStripMenuItem.Size = new System.Drawing.Size(158, 26);
             this.xemHoáĐơnToolStripMenuItem.Text = "Sản phẩm";
+            this.xemHoáĐơnToolStripMenuItem.Click += new System.EventHandler(this.xemHoáĐơnToolStripMenuItem_Click);
             // 
             // ngườiDùngToolStripMenuItem
             // 
@@ -146,18 +149,21 @@
             this.thiếtLậpThôngTinToolStripMenuItem.Name = "thiếtLậpThôngTinToolStripMenuItem";
             this.thiếtLậpThôngTinToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.thiếtLậpThôngTinToolStripMenuItem.Text = "Thiết lập người dùng";
+            this.thiếtLậpThôngTinToolStripMenuItem.Click += new System.EventHandler(this.thiếtLậpThôngTinToolStripMenuItem_Click);
             // 
             // đăgnToolStripMenuItem
             // 
             this.đăgnToolStripMenuItem.Name = "đăgnToolStripMenuItem";
             this.đăgnToolStripMenuItem.Size = new System.Drawing.Size(231, 26);
             this.đăgnToolStripMenuItem.Text = "Đăng xuất";
+            this.đăgnToolStripMenuItem.Click += new System.EventHandler(this.đăgnToolStripMenuItem_Click);
             // 
             // vềChúngTôiToolStripMenuItem
             // 
             this.vềChúngTôiToolStripMenuItem.Name = "vềChúngTôiToolStripMenuItem";
             this.vềChúngTôiToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
             this.vềChúngTôiToolStripMenuItem.Text = "Về chúng tôi";
+            this.vềChúngTôiToolStripMenuItem.Click += new System.EventHandler(this.vềChúngTôiToolStripMenuItem_Click);
             // 
             // groupBox_BillInformation
             // 
@@ -279,6 +285,7 @@
             // 
             // dateTimePicker_TimeOfPurchase
             // 
+            this.dateTimePicker_TimeOfPurchase.Enabled = false;
             this.dateTimePicker_TimeOfPurchase.Location = new System.Drawing.Point(978, 58);
             this.dateTimePicker_TimeOfPurchase.Name = "dateTimePicker_TimeOfPurchase";
             this.dateTimePicker_TimeOfPurchase.Size = new System.Drawing.Size(262, 26);
