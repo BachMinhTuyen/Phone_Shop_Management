@@ -552,7 +552,7 @@ namespace PhoneShopManagement.UserArea
 
         private void btn_Search_Click(object sender, EventArgs e)
         {
-            string sqlCommand = "SELECT SP.MASP, TenSP, TenThuongHieu, KhuyenMai, Gia FROM SanPham SP, ThuongHieu TH WHERE SP.MaThuongHieu = TH.MaThuongHieu AND SP.TenSP LIKE N'%" + txtBox_Search.Text.Trim() + "%'";
+            string sqlCommand = "SELECT SP.MASP, TenSP, TenThuongHieu, KhuyenMai, Gia FROM SanPham SP, ThuongHieu TH WHERE SP.MaThuongHieu = TH.MaThuongHieu AND SP.TenSP LIKE N'%" + txtBox_Search.Text.Trim() + "%' AND SP.TinhTrang <> N'Ngừng Kinh Doanh'";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 if (txtBox_Search.Text == string.Empty)
