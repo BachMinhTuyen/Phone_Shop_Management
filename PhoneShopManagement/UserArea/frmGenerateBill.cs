@@ -157,6 +157,11 @@ namespace PhoneShopManagement.UserArea
         }
         private void DeleteTempBill()
         {
+            foreach (DataRow item in table_Details.Rows)
+            {
+                //Cập nhật lại số lượng sản phẩm trong kho
+                CapNhatSoLuongHang(item["MaSP"].ToString(), int.Parse(item["SoLuong"].ToString()), "delete");
+            }
             //Xoá các sản phẩm đơn hàng tạm thời trong bảng ChiTietDonHang
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -260,7 +265,7 @@ namespace PhoneShopManagement.UserArea
         }
         private double TinhTongTienSanPhamTrongDonHang()
         {
-            double sum;
+            double sum = 0;
             string sqlCommand = "SELECT SUM(ThanhTien) FROM ChiTietDonHang WHERE MADH = '" + maDonHangTamThoi + "'";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
@@ -337,7 +342,11 @@ namespace PhoneShopManagement.UserArea
             txtBox_ProductName.Clear();
             txtBox_Price.Clear();
             txtBox_StaffName.Text = GetStaffName(StaffID);
-            txtBox_Total.Text = TinhTongTienSanPhamTrongDonHang().ToString("###,###.00");
+            int total = 0;
+            if (TinhTongSoLuongSanPham() == 0)
+                txtBox_Total.Text = total.ToString();
+            else
+                txtBox_Total.Text = TinhTongTienSanPhamTrongDonHang().ToString("###,###.00");
         }
         private void UpdateCustomerInfo(string maKhachHang)
         {
@@ -369,16 +378,103 @@ namespace PhoneShopManagement.UserArea
                 }
             }
         }
+        private int KiemTraSoLuongHang(string maSanPham)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                connection.Open();
+
+                string query = "SELECT SoLuongConLai FROM SanPham WHERE MaSP = @MaSP";
+
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MaSP", maSanPham);
+
+                    // Thực thi truy vấn và trả về số lượng hàng còn lại của mã sản phẩm
+                    int result = (int)command.ExecuteScalar();
+
+                    return result;
+                }
+            }
+        }
+        private void CapNhatSoLuongHang(string maSanPham, int soLuong, string phuongThuc)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string query = "";
+
+                connection.Open();
+
+                //Nếu thêm vào chi tiết đơn hàng thì giảm số lượng
+                if (String.Compare(phuongThuc, "insert", StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    query = "UPDATE SanPham SET SoLuongConLai = SoLuongConLai - @soLuong FROM SanPham WHERE MaSP = @MaSP";
+                }
+                //Ngược lại thì tăng số lượng về ban đầu
+                else
+                {
+                    query = "UPDATE SanPham SET SoLuongConLai = SoLuongConLai + @soLuong FROM SanPham WHERE MaSP = @MaSP";
+                }    
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@MaSP", maSanPham);
+                    command.Parameters.AddWithValue("@soLuong", soLuong);
+
+                    // Thực thi truy vấn
+                    command.ExecuteNonQuery();
+                }
+                //Kiểm tra số lượng sản phẩm có mã sản phẩm này (maSP). Nếu > 0 thì sửa thành 'Còn Hàng'
+                if (KiemTraSoLuongHang(maSanPham) > 0)
+                {
+                    query = "UPDATE SanPham SET TinhTrang = N'Còn Hàng' WHERE SoLuongConLai > 0 AND MaSP = @MaSP";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MaSP", maSanPham);
+                        command.Parameters.AddWithValue("@soLuong", soLuong);
+
+                        // Thực thi truy vấn
+                        command.ExecuteNonQuery();
+                    }
+                }
+                //Kiểm tra số lượng sản phẩm có mã sản phẩm này (maSP). Nếu = 0 thì sửa thành 'Hết Hàng'
+                if (KiemTraSoLuongHang(maSanPham) == 0)
+                {
+                    query = "UPDATE SanPham SET TinhTrang = N'Hết Hàng' WHERE SoLuongConLai <= 0 AND MaSP = @MaSP";
+                    using (SqlCommand command = new SqlCommand(query, connection))
+                    {
+                        command.Parameters.AddWithValue("@MaSP", maSanPham);
+                        command.Parameters.AddWithValue("@soLuong", soLuong);
+
+                        // Thực thi truy vấn
+                        command.ExecuteNonQuery();
+                    }
+                }
+                
+            }
+        }
         #endregion
 
         private void btn_Insert_Click(object sender, EventArgs e)
         {
+            if (KiemTraSoLuongHang(txtBox_ProductID.Text.Trim()) == 0)
+            {
+                MessageBox.Show("Sản phẩm này đang hết hàng", "Thông báo");
+                return;
+            }
+            if (KiemTraSoLuongHang(txtBox_ProductID.Text.Trim()) < numericUpDown_Quantity.Value)
+            {
+                MessageBox.Show("Sản phẩm không đủ để giao dịch");
+                return;
+            }
             string query;
             if (KiemTraMaSanPham(txtBox_ProductID.Text.Trim()) == true)
             {
+                //Cập nhật lại số lượng sản phẩm trong kho
+                CapNhatSoLuongHang(txtBox_ProductID.Text.Trim(), Convert.ToInt32(numericUpDown_Quantity.Value), "insert");
+
                 foreach (DataRow item in table_Details.Rows)
                 {
-                    //Đã có trong table Details thì cập nhật lại số lượng
+                    //Đã có sản phẩm có mã sản phẩm (maSP) trong table Details thì cập nhật lại số lượng
                     if (String.Compare(txtBox_ProductID.Text.Trim(), item["MaSP"].ToString(), StringComparison.OrdinalIgnoreCase) == 0)
                     {
                         using (SqlConnection connection = new SqlConnection(connectionString))
@@ -428,6 +524,27 @@ namespace PhoneShopManagement.UserArea
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
+            foreach (DataRow item in table_Details.Rows)
+            {
+                //Kiểm tra sản phẩm cần cập nhật
+                if (String.Compare(txtBox_ProductID.Text.Trim(), item["MaSP"].ToString(), StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    if (Convert.ToInt32(numericUpDown_Quantity.Value) > int.Parse(item["SoLuong"].ToString()))
+                    {
+                        int soLuongSanPhamChenhLech = Convert.ToInt32(numericUpDown_Quantity.Value) - int.Parse(item["SoLuong"].ToString());
+                        //Cập nhật lại số lượng sản phẩm trong kho
+                        CapNhatSoLuongHang(txtBox_ProductID.Text.Trim(), soLuongSanPhamChenhLech, "insert");
+                    }
+                    else if (Convert.ToInt32(numericUpDown_Quantity.Value) < int.Parse(item["SoLuong"].ToString()))
+                    {
+                        int soLuongSanPhamChenhLech = int.Parse(item["SoLuong"].ToString()) - Convert.ToInt32(numericUpDown_Quantity.Value);
+                        //Cập nhật lại số lượng sản phẩm trong kho
+                        CapNhatSoLuongHang(txtBox_ProductID.Text.Trim(), soLuongSanPhamChenhLech, "delete");
+                    }
+                    else
+                        break;
+                }
+            }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string sqlCommand = "UPDATE ChiTietDonHang SET SoLuong = @soLuong, ThanhTien = @thanhTien WHERE MADH = '" + NewBillID + "' AND MaSP = @maSP";
@@ -464,6 +581,15 @@ namespace PhoneShopManagement.UserArea
             //if (TinhTongSoLuongSanPham() == 0)
             //    MessageBox.Show("Không xoá được vì đơn hàng chỉ còn một sản phẩm", "Thông báo");
 
+            foreach (DataRow item in table_Details.Rows)
+            {
+                //Kiểm tra sản phẩm cần cập nhật
+                if (String.Compare(txtBox_ProductID.Text.Trim(), item["MaSP"].ToString(), StringComparison.OrdinalIgnoreCase) == 0)
+                {
+                    //Cập nhật lại số lượng sản phẩm trong kho
+                    CapNhatSoLuongHang(txtBox_ProductID.Text.Trim(), int.Parse(item["SoLuong"].ToString()), "delete");
+                }
+            }
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string sqlCommand = "DELETE FROM ChiTietDonHang WHERE MASP = @maSP AND MADH = '" + NewBillID + "'";
@@ -691,6 +817,8 @@ namespace PhoneShopManagement.UserArea
 
             MessageBox.Show("Huỷ hoá đơn thành công", "Thông báo");
             Clear();
+
+            frmGenerateBill_Load(sender, e);
         }
 
         private void frmGenerateBill_Load(object sender, EventArgs e)
